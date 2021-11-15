@@ -1,0 +1,12 @@
+/home/c/Desktop/RiderProjects/ChatSystem/Entities/bin/Debug/net5.0/Entities.deps.json
+/home/c/Desktop/RiderProjects/ChatSystem/Entities/bin/Debug/net5.0/Entities.dll
+/home/c/Desktop/RiderProjects/ChatSystem/Entities/bin/Debug/net5.0/ref/Entities.dll
+/home/c/Desktop/RiderProjects/ChatSystem/Entities/bin/Debug/net5.0/Entities.pdb
+/home/c/Desktop/RiderProjects/ChatSystem/Entities/obj/Debug/net5.0/Entities.csproj.AssemblyReference.cache
+/home/c/Desktop/RiderProjects/ChatSystem/Entities/obj/Debug/net5.0/Entities.GeneratedMSBuildEditorConfig.editorconfig
+/home/c/Desktop/RiderProjects/ChatSystem/Entities/obj/Debug/net5.0/Entities.AssemblyInfoInputs.cache
+/home/c/Desktop/RiderProjects/ChatSystem/Entities/obj/Debug/net5.0/Entities.AssemblyInfo.cs
+/home/c/Desktop/RiderProjects/ChatSystem/Entities/obj/Debug/net5.0/Entities.csproj.CoreCompileInputs.cache
+/home/c/Desktop/RiderProjects/ChatSystem/Entities/obj/Debug/net5.0/Entities.dll
+/home/c/Desktop/RiderProjects/ChatSystem/Entities/obj/Debug/net5.0/ref/Entities.dll
+/home/c/Desktop/RiderProjects/ChatSystem/Entities/obj/Debug/net5.0/Entities.pdb

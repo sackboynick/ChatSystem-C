@@ -18,6 +18,7 @@ namespace DataAccess.Controllers
         }
 
         [HttpGet]
+        [Route("{username}/{password}")]
         public async Task<ActionResult<User>> ValidateUser([FromQuery] string username,[FromQuery] string password )
         {
             try
