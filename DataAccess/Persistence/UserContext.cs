@@ -10,7 +10,7 @@ namespace DataAccess.Persistence
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // name of database
-            optionsBuilder.UseSqlite("Data Source = UserDb.db");
+            optionsBuilder.UseSqlite("Data Source = users.db");
         }
     }
 }
