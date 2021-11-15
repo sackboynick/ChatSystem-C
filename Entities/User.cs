@@ -1,12 +1,30 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Entities
 {
     public class User
     {
-        private string username, firstName, lastName, password;
+        [Key]
+        [Required]
+        [JsonPropertyName("username")]
+        private string username;
+        [Required]
+        [JsonPropertyName("firstname")]
+        private string firstName;
+        [Required]
+        [JsonPropertyName("lastname")]
+        private string lastName;
+        [Required]
+        [JsonPropertyName("password")]
+        private string password;
+        [Required]
+        [JsonPropertyName("friends")]
         private List<Friendship> friends;
+        [Required]
+        [JsonPropertyName("chats")]
         private List<Chat> chats;
 
         public User(string username,string firstName,string lastName,string password,List<Friendship> friends,List<Chat> chats){
