@@ -3,13 +3,13 @@ using System.Collections.Generic;
 namespace Entities
 {
     public class ChatList {
-        private List<Chat> chats;
+        private readonly List<Chat> chats;
 
         public ChatList(){
             this.chats=new List<Chat>();
         }
 
-        public List<Chat> getChats() {
+        public List<Chat> GetChats() {
             return chats;
         }
     }

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 namespace Entities
 {
     public class Chat {
-        private List<Message> messages;
+        private readonly List<Message> _messages;
 
         public Chat(){
-            this.messages=new List<Message>();
+            this._messages=new List<Message>();
         }
 
         public List<Message> GetMessages() {
-            return messages;
+            return _messages;
         }
     }
 }
