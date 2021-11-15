@@ -9,7 +9,7 @@ namespace Entities
         [JsonPropertyName("username")]
         private readonly string _username;
         [Required]
-        [JsonPropertyName("username")]
+        [JsonPropertyName("password")]
         private readonly bool _closeFriend;
 
         public Friendship(string username,bool closeFriend) {

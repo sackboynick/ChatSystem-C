@@ -1,21 +1,29 @@
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Entities
 {
     public class Message
     {
+        [Required]
+        [JsonPropertyName("senderusername")]
         private readonly string _senderUsername;
+        [Required]
+        [JsonPropertyName("localdatetime")]
         private readonly DateTime _localDateTime;
-        private readonly string text;
+        [Required]
+        [JsonPropertyName("text")]
+        private readonly string _text;
 
         public Message(String senderUsername,String text){
-            this._senderUsername=senderUsername;
-            this._localDateTime=DateTime.Now;
-            this.text=text;
+            _senderUsername=senderUsername;
+            _localDateTime=DateTime.Now;
+            _text=text;
         }
 
         public String GetText() {
-            return text;
+            return _text;
         }
 
         public String GetSenderUsername() {

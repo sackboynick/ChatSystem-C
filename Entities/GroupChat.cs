@@ -1,11 +1,17 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Entities
 {
     public class GroupChat:Chat
     {
+        [Required]
+        [JsonPropertyName("participants")]
         private readonly List<string> _participants;
+        [Required]
+        [JsonPropertyName("admins")]
         private readonly string[] _admins;
 
         public GroupChat(String groupCreator, string[] admins)
