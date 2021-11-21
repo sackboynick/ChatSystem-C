@@ -15,8 +15,8 @@ namespace Entities
         private string _receiver;
 
         public PrivateChat(string sender,string receiver){
-            this._sender=sender;
-            this._receiver=receiver;
+            _sender=sender;
+            _receiver=receiver;
         }
 
         public string GetReceiver() {
@@ -27,7 +27,7 @@ namespace Entities
             return _sender;
         }
 
-        public List<Message> GetMessages() {
+        public new ICollection<Message> GetMessages() {
             return base.GetMessages();
         }
     }

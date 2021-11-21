@@ -7,13 +7,13 @@ namespace Entities
     public class ChatList {
         [Required]
         [JsonPropertyName("username")]
-        private readonly List<Chat> chats;
+        private readonly ICollection<Chat> chats;
 
         public ChatList(){
             this.chats=new List<Chat>();
         }
 
-        public List<Chat> GetChats() {
+        public ICollection<Chat> GetChats() {
             return chats;
         }
     }

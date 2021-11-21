@@ -22,12 +22,12 @@ namespace Entities
         private string password;
         [Required]
         [JsonPropertyName("friends")]
-        private List<Friendship> friends;
+        private ICollection<Friendship> friends;
         [Required]
         [JsonPropertyName("chats")]
-        private List<Chat> chats;
+        private ICollection<Chat> chats;
 
-        public User(string username,string firstName,string lastName,string password,List<Friendship> friends,List<Chat> chats){
+        public User(string username,string firstName,string lastName,string password,ICollection<Friendship> friends,ICollection<Chat> chats){
             this.username=username;
             this.firstName=firstName;
             this.lastName=lastName;
@@ -41,8 +41,8 @@ namespace Entities
             this.firstName=firstName;
             this.lastName=lastName;
             this.password=password;
-            this.friends=new List<Friendship>();
-            this.chats=new List<Chat>();
+            friends=new List<Friendship>();
+            chats=new List<Chat>();
         }
 
         public string GetUsername() {
@@ -61,13 +61,14 @@ namespace Entities
             return password;
         }
 
-        protected List<Friendship> GetFriends(){
+        protected ICollection<Friendship> GetFriends(){
             return friends;
         }
+        
 
         public void AddFriend(string friendUsername,bool closeFriend){
-            this.friends.Add(new Friendship(friendUsername, closeFriend));
-            this.chats.Add(new PrivateChat(this.username,friendUsername));
+            friends.Add(new Friendship(friendUsername, closeFriend));
+            chats.Add(new PrivateChat(username,friendUsername));
         }
 
         public new bool Equals(Object obj) {

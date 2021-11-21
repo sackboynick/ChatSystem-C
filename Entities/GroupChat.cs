@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Text.Json.Serialization;
 
 namespace Entities
@@ -9,7 +10,7 @@ namespace Entities
     {
         [Required]
         [JsonPropertyName("participants")]
-        private readonly List<string> _participants;
+        private readonly ICollection<string> _participants;
         [Required]
         [JsonPropertyName("admins")]
         private readonly string[] _admins;
@@ -18,7 +19,7 @@ namespace Entities
         {
             this._admins = admins;
             this._participants =new List<string> {groupCreator};
-            this.GetMessages().Add(new Message("Server", _participants[0]+" just created the group on date "+ DateTime.Now.ToString("MM/dd/yyyy h:mm tt")));
+            this.GetMessages().Add(new Message("Server", _participants.ToList()[0]+" just created the group on date "+ DateTime.Now.ToString("MM/dd/yyyy h:mm tt")));
             this._admins[0]=groupCreator;
         }
 
@@ -27,7 +28,7 @@ namespace Entities
         }
 
         
-        public new List<Message> GetMessages() {
+        public new ICollection<Message> GetMessages() {
             return base.GetMessages();
         }
     }
