@@ -12,75 +12,55 @@ namespace Entities
 
         [Required]
         [JsonPropertyName("username")]
-        private string username;
+        public string Username { get; set;}
         [Required]
         [JsonPropertyName("firstname")]
-        private string firstName;
+        public string FirstName { get; set;}
         [Required]
         [JsonPropertyName("lastname")]
-        private string lastName;
+        public string LastName { get; set;}
         [Required]
         [JsonPropertyName("password")]
-        private string password;
+        public string Password { get; set;}
         [Required]
         [JsonPropertyName("friends")]
-        private ICollection<Friendship> _friends;
+        public ICollection<Friendship> Friends { get; set;}
 
 
         public User()
         {
-            username = null;
-            firstName = null;
-            lastName = null;
-            password = null;
-            _friends = new List<Friendship>();
+            Username = null;
+            FirstName = null;
+            LastName = null;
+            Password = null;
+            Friends = new List<Friendship>();
         }
         public User(int userId, string username,string firstName,string lastName,string password,ICollection<Friendship> friends)
         {
             Id = userId;
-            this.username=username;
-            this.firstName=firstName;
-            this.lastName=lastName;
-            this.password=password;
-            this._friends=friends;
+            this.Username=username;
+            this.FirstName=firstName;
+            this.LastName=lastName;
+            this.Password=password;
+            this.Friends=friends;
         }
-
-        public string GetUsername() {
-            return username;
-        }
-
-        public string GetFirstName() {
-            return firstName;
-        }
-
-        public string GetLastName() {
-            return lastName;
-        }
-
-        public string GetPassword() {
-            return password;
-        }
-
-        protected ICollection<Friendship> GetFriends(){
-            return _friends;
-        }
-        
+  
 
         public void AddFriend(string friendUsername,bool closeFriend){
-            _friends.Add(new Friendship(friendUsername, closeFriend));
+            Friends.Add(new Friendship(friendUsername, closeFriend));
         }
 
         public new bool Equals(Object obj) {
             if(obj != null && !(obj.GetType()==typeof(User)))
                 return false;
-            return username.Equals(((User) obj)?.username);
+            return Username.Equals(((User) obj)?.Username);
         }
         public override string ToString() {
-            return "Username: "+username;
+            return "Username: "+Username;
         }
 
         public string ToStringFullName(){
-            return ToString()+"\nFirst name: "+firstName+"\nLast name: "+lastName;
+            return ToString()+"\nFirst name: "+FirstName+"\nLast name: "+LastName;
         }
     }
 }

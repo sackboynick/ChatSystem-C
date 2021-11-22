@@ -5,24 +5,24 @@ namespace Entities
 {
     public class Friendship
     {
+        [Key] public int FriendshipId { get; set; } 
         [Required]
         [JsonPropertyName("username")]
-        private readonly string _username;
+        public string Username{ get; set; } 
         [Required]
-        [JsonPropertyName("password")]
-        private readonly bool _closeFriend;
+        [JsonPropertyName("closeFriend")]
+        public bool CloseFriend { get; set; } 
+
+        public Friendship()
+        {
+            this.Username = null;
+            this.CloseFriend = false;
+        }
 
         public Friendship(string username,bool closeFriend) {
-            _username=username;
-            _closeFriend=closeFriend;
+            Username=username;
+            CloseFriend=closeFriend;
         }
 
-        public string GetUsername() {
-            return _username;
-        }
-
-        public bool IsCloseFriend() {
-            return _closeFriend;
-        }
     }
 }

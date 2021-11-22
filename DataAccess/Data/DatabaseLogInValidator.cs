@@ -10,7 +10,7 @@ namespace DataAccess.Data
         {
                 using UserContext userContext = new UserContext();
 
-                return userContext.Users.FirstOrDefaultAsync(user => user.GetUsername() == userName && user.GetPassword()==password).Result;
+                return userContext.Users.FirstOrDefaultAsync(user => user.Username == userName && user.Password==password).Result;
         }
     }
 }
