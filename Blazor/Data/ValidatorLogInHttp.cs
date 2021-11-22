@@ -5,7 +5,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Entities;
 
-namespace Blazor.Data
+namespace WebApplication.Data
 {
     public class ValidatorLogInHttp: IUserService
     {
@@ -22,7 +22,7 @@ namespace Blazor.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5003/LogIn/"+userName+"/"+password).ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/LogIn/"+userName+"/"+password).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
