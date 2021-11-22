@@ -1,6 +1,8 @@
+using Entities;
+
 namespace Domain.User
 {
-    public class IUserValidation
+    public interface IUserValidation
     {
         public User ValidateUser(string userName, string password);
     }
