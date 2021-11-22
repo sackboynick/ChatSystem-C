@@ -8,6 +8,8 @@ namespace Entities
     public class User
     {
         [Key]
+        public int Id { get; set;}
+
         [Required]
         [JsonPropertyName("username")]
         private string username;
@@ -22,27 +24,25 @@ namespace Entities
         private string password;
         [Required]
         [JsonPropertyName("friends")]
-        private ICollection<Friendship> friends;
-        [Required]
-        [JsonPropertyName("chats")]
-        private ICollection<Chat> chats;
+        private ICollection<Friendship> _friends;
 
-        public User(string username,string firstName,string lastName,string password,ICollection<Friendship> friends,ICollection<Chat> chats){
-            this.username=username;
-            this.firstName=firstName;
-            this.lastName=lastName;
-            this.password=password;
-            this.friends=friends;
-            this.chats=chats;
+
+        public User()
+        {
+            username = null;
+            firstName = null;
+            lastName = null;
+            password = null;
+            _friends = new List<Friendship>();
         }
-
-        public User(string username,string firstName,string lastName,string password){
+        public User(int userId, string username,string firstName,string lastName,string password,ICollection<Friendship> friends)
+        {
+            Id = userId;
             this.username=username;
             this.firstName=firstName;
             this.lastName=lastName;
             this.password=password;
-            friends=new List<Friendship>();
-            chats=new List<Chat>();
+            this._friends=friends;
         }
 
         public string GetUsername() {
@@ -62,13 +62,12 @@ namespace Entities
         }
 
         protected ICollection<Friendship> GetFriends(){
-            return friends;
+            return _friends;
         }
         
 
         public void AddFriend(string friendUsername,bool closeFriend){
-            friends.Add(new Friendship(friendUsername, closeFriend));
-            chats.Add(new PrivateChat(username,friendUsername));
+            _friends.Add(new Friendship(friendUsername, closeFriend));
         }
 
         public new bool Equals(Object obj) {

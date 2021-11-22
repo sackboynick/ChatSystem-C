@@ -11,6 +11,7 @@ namespace Entities
         private readonly string _senderUsername;
         [Required]
         [JsonPropertyName("localdatetime")]
+        [DataType(DataType.DateTime)]
         private readonly DateTime _localDateTime;
         [Required]
         [JsonPropertyName("text")]
