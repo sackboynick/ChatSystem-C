@@ -36,7 +36,7 @@ namespace Blazor
                     builder.RequireAuthenticatedUser().RequireClaim("Role", "Admin")));
             services.AddAuthorization(options =>
                 options.AddPolicy("RequireLogIn",  a => 
-                    a.RequireAuthenticatedUser().RequireClaim("Role", "User")));
+                    a.RequireAuthenticatedUser()));
 
         }
 
