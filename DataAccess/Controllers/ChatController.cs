@@ -8,29 +8,35 @@ namespace DataAccess.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class LogInController : ControllerBase
+    public class ChatController : ControllerBase
     {
         private readonly IUserService _data;
 
-        public LogInController([FromServices] IUserService data)
+        public ChatController([FromServices] IUserService data)
         {
             _data = data;
         }
 
         [HttpGet]
-        [Route("{username}/{password}")]
-        public async Task<ActionResult<User>> ValidateUser([FromRoute] string username,[FromRoute] string password )
+        [Route("{chatId}")]
+        public async Task<ActionResult<Chat>> GetAdult([FromRoute] int? chatId)
         {
             try
             {
-                User user = _data.ValidateUser(username, password);
-                return Ok(user);
+                if (chatId != null)
+                {
+                    //Chat chat = _data.GetChat(chatId.Value);
+
+                    //return Ok(chat);
+                }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
                 return StatusCode(500, e.Message);
             }
+
+            return null;
         }
     }
 }

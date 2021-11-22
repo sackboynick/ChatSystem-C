@@ -1,3 +1,4 @@
+using System.Linq;
 using DataAccess.Persistence;
 using Entities;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +11,7 @@ namespace DataAccess.Data
         {
                 using ChatContext userContext = new ChatContext();
 
-                return userContext.Users.FirstOrDefaultAsync(user => user.Username == userName && user.Password==password).Result;
+                return userContext.Users.FirstOrDefault(user => user.Username == userName && user.Password==password);
         }
     }
 }
