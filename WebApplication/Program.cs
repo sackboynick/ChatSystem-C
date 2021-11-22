@@ -14,9 +14,10 @@ namespace WebApplication
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
             ValidatorLogInHttp validatorLogInHttp = new ValidatorLogInHttp();
             Console.WriteLine(validatorLogInHttp.ValidateUser("sackboynick", "Password").Result.LastName);
+            CreateHostBuilder(args).Build().Run();
+            
             
         }
 

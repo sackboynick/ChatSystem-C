@@ -1,7 +1,19 @@
 @page "/"
+@using Blazor.Data
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?"/>
+
+<p>@_lastName</p>
+
+
+
+@code {
+
+    static readonly ValidatorLogInHttp ValidatorLogInHttp = new();
+    readonly string _lastName=ValidatorLogInHttp.ValidateUser("sackboynick", "Password").Result.LastName;
+
+}
