@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using WebApplication.Data;
 
 namespace WebApplication
 {
@@ -14,6 +15,9 @@ namespace WebApplication
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
+            ValidatorLogInHttp validatorLogInHttp = new ValidatorLogInHttp();
+            Console.WriteLine(validatorLogInHttp.ValidateUser("sackboynick", "Password").Result.LastName);
+            
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

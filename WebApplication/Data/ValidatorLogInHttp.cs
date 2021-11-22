@@ -22,7 +22,7 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/LogIn?username="+userName+"&password="+password).ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/LogIn/"+userName+"/"+password).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
