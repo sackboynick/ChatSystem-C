@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Entities;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
+using WebApplication.Data;
 
 namespace Blazor.Data
 {
