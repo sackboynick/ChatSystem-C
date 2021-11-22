@@ -83,7 +83,7 @@ using Blazor.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/Pages/Index.razor"
+#line 2 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/Pages/Index.razor"
 using Blazor.Data;
 
 #line default
@@ -98,7 +98,7 @@ using Blazor.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 9 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/Pages/Index.razor"
+#line 9 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/Pages/Index.razor"
        
     protected override void OnInitialized()
     {

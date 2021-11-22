@@ -12,4 +12,10 @@
       <ProjectReference Include="..\Entities\Entities.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="Data\ValidatorLogInHttp.cs" />
+      <Compile Remove="Data\IUserService.cs" />
+      <Compile Remove="Data\HttpDataRetriever.cs" />
+    </ItemGroup>
+
 </Project>

@@ -83,7 +83,7 @@ using Blazor.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/Shared/MainLayout.razor"
+#line 2 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/Shared/MainLayout.razor"
 using Blazor.LoginComponent;
 
 #line default
