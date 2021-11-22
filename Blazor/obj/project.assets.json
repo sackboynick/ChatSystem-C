@@ -1918,6 +1918,19 @@
         "runtime": {
           "lib/netstandard1.1/xunit.execution.dotnet.dll": {}
         }
+      },
+      "Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational.Design.Specification.Tests": "2.0.3"
+        },
+        "compile": {
+          "bin/placeholder/Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Entities.dll": {}
+        }
       }
     }
   },
@@ -6410,10 +6423,16 @@
         "xunit.extensibility.execution.2.2.0.nupkg.sha512",
         "xunit.extensibility.execution.nuspec"
       ]
+    },
+    "Entities/1.0.0": {
+      "type": "project",
+      "path": "../Entities/Entities.csproj",
+      "msbuildProject": "../Entities/Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Entities >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Relational.Design.Specification.Tests >= 2.0.3"
     ]
   },
@@ -6441,7 +6460,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj": {
+              "projectPath": "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
