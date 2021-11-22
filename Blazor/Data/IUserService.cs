@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Entities;
 
-namespace WebApplication.Data
+namespace Blazor.Data
 {
     public interface IUserService
     {

@@ -11,7 +11,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Blazor.Data;
 using Microsoft.AspNetCore.Components.Authorization;
-using WebApplication.Data;
 
 namespace Blazor
 {
