@@ -38,11 +38,11 @@ namespace Entities
         public User(int userId, string username,string firstName,string lastName,string password,ICollection<Friendship> friends)
         {
             Id = userId;
-            this.Username=username;
-            this.FirstName=firstName;
-            this.LastName=lastName;
-            this.Password=password;
-            this.Friends=friends;
+            Username=username;
+            FirstName=firstName;
+            LastName=lastName;
+            Password=password;
+            Friends=friends;
         }
   
 

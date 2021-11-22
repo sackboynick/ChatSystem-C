@@ -5,16 +5,14 @@ using System.Text.Json.Serialization;
 namespace Entities
 {
     public class Chat {
+        public int Id { get; set; }
         [Required]
         [JsonPropertyName("messages")]
-        private readonly ICollection<Message> _messages;
+        public ICollection<Message> _messages { get; set; }
 
         public Chat(){
-            this._messages=new List<Message>();
+            _messages=new List<Message>();
         }
-
-        public ICollection<Message> GetMessages() {
-            return _messages;
-        }
+        
     }
 }

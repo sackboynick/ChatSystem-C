@@ -15,8 +15,8 @@ namespace Entities
 
         public Friendship()
         {
-            this.Username = null;
-            this.CloseFriend = false;
+            Username = null;
+            CloseFriend = false;
         }
 
         public Friendship(string username,bool closeFriend) {

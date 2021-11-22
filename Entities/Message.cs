@@ -6,33 +6,31 @@ namespace Entities
 {
     public class Message
     {
+        public int Id { get; set; }
         [Required]
         [JsonPropertyName("senderusername")]
-        private readonly string _senderUsername;
+        public string SenderUsername { get; set; }
         [Required]
         [JsonPropertyName("localdatetime")]
         [DataType(DataType.DateTime)]
-        private readonly DateTime _localDateTime;
+        public DateTime LocalDateTime { get; set; }
         [Required]
         [JsonPropertyName("text")]
-        private readonly string _text;
+        public string Text { get; set; }
+
+        public Message()
+        {
+            SenderUsername = null;
+            LocalDateTime = new DateTime();
+            Text = null;
+        }
 
         public Message(String senderUsername,String text){
-            _senderUsername=senderUsername;
-            _localDateTime=DateTime.Now;
-            _text=text;
+            SenderUsername=senderUsername;
+            LocalDateTime=DateTime.Now;
+            Text=text;
         }
 
-        public String GetText() {
-            return _text;
-        }
 
-        public String GetSenderUsername() {
-            return _senderUsername;
-        }
-
-        public DateTime GetLocalDateTime() {
-            return _localDateTime;
-        }
     }
 }

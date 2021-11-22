@@ -3,18 +3,31 @@ using System;
 using DataAccess.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations
 {
-    [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(ChatContext))]
+    [Migration("20211122093557_UploadChatsDatabase")]
+    partial class UploadChatsDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.11");
+
+            modelBuilder.Entity("Entities.Chat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Chats");
+                });
 
             modelBuilder.Entity("Entities.Friendship", b =>
                 {
@@ -37,6 +50,33 @@ namespace DataAccess.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Friendship");
+                });
+
+            modelBuilder.Entity("Entities.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("ChatId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("LocalDateTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SenderUsername")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChatId");
+
+                    b.ToTable("Message");
                 });
 
             modelBuilder.Entity("Entities.User", b =>
@@ -71,6 +111,18 @@ namespace DataAccess.Migrations
                     b.HasOne("Entities.User", null)
                         .WithMany("Friends")
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("Entities.Message", b =>
+                {
+                    b.HasOne("Entities.Chat", null)
+                        .WithMany("_messages")
+                        .HasForeignKey("ChatId");
+                });
+
+            modelBuilder.Entity("Entities.Chat", b =>
+                {
+                    b.Navigation("_messages");
                 });
 
             modelBuilder.Entity("Entities.User", b =>

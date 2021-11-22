@@ -3,16 +3,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Persistence
 {
-    public class UserContext : DbContext
+    public class ChatContext : DbContext
     {
 
 
+        public DbSet<Chat> Chats { get; set; }
         public DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // name of database
-            optionsBuilder.UseSqlite("Data Source = users.db");
+            optionsBuilder.UseSqlite("Data Source = chats.db");
         }
     }
 }

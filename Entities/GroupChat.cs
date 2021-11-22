@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.Json.Serialization;
@@ -10,26 +11,28 @@ namespace Entities
     {
         [Required]
         [JsonPropertyName("participants")]
-        private readonly ICollection<string> _participants;
+        public ICollection<string> Participants { get; set; }
         [Required]
         [JsonPropertyName("admins")]
-        private readonly string[] _admins;
+        public ICollection<string> Admins { get; set; }
 
-        public GroupChat(String groupCreator, string[] admins)
+        public GroupChat()
         {
-            this._admins = admins;
-            this._participants =new List<string> {groupCreator};
-            this.GetMessages().Add(new Message("Server", _participants.ToList()[0]+" just created the group on date "+ DateTime.Now.ToString("MM/dd/yyyy h:mm tt")));
-            this._admins[0]=groupCreator;
+            Participants = new Collection<string>();
+            Admins = new Collection<string>();
+
+        }
+        public GroupChat(String groupCreator)
+        {
+            Admins = new Collection<string>();
+            Admins.Add(groupCreator);
+            Participants =new List<string> {groupCreator};
+            _messages.Add(new Message("Server", Participants.ToList()[0]+" just created the group on date "+ DateTime.Now.ToString("MM/dd/yyyy h:mm tt")));
         }
 
         public bool IsUsernameInGroup(String participant){
-            return _participants.Contains(participant);
+            return Participants.Contains(participant);
         }
-
         
-        public new ICollection<Message> GetMessages() {
-            return base.GetMessages();
-        }
     }
 }

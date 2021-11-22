@@ -2,7 +2,7 @@
 
 namespace DataAccess.Migrations
 {
-    public partial class UpdateUsersAttributes : Migration
+    public partial class UpdateDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
@@ -9,26 +8,22 @@ namespace Entities
 
         [Required]
         [JsonPropertyName("sender")]
-        private string _sender;
+        public string Sender { get; set; }
         [Required]
         [JsonPropertyName("receiver")]
-        private string _receiver;
+        public string Receiver { get; set; }
 
+        public PrivateChat()
+        {
+            Sender = null;
+            Receiver = null;
+        }
         public PrivateChat(string sender,string receiver){
-            _sender=sender;
-            _receiver=receiver;
+            Sender=sender;
+            Receiver=receiver;
         }
 
-        public string GetReceiver() {
-            return _receiver;
-        }
 
-        public string GetSender() {
-            return _sender;
-        }
 
-        public new ICollection<Message> GetMessages() {
-            return base.GetMessages();
-        }
     }
 }

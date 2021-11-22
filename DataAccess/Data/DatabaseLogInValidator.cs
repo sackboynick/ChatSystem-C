@@ -8,7 +8,7 @@ namespace DataAccess.Data
     {
         public User ValidateUser(string userName, string password)
         {
-                using UserContext userContext = new UserContext();
+                using ChatContext userContext = new ChatContext();
 
                 return userContext.Users.FirstOrDefaultAsync(user => user.Username == userName && user.Password==password).Result;
         }
