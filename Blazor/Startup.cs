@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Blazor.Data;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace Blazor
 {
@@ -29,6 +30,14 @@ namespace Blazor
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddScoped<IUserService, ValidatorLogInHttp>();
+            services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
+            services.AddAuthorization(options =>
+                options.AddPolicy("RequireAdmin", builder =>
+                    builder.RequireAuthenticatedUser().RequireClaim("Role", "Admin")));
+            services.AddAuthorization(options =>
+                options.AddPolicy("RequireLogIn",  a => 
+                    a.RequireAuthenticatedUser().RequireClaim("Role", "User")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

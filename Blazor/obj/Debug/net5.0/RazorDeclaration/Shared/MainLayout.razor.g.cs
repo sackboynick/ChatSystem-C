@@ -82,6 +82,13 @@ using Blazor.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/Shared/MainLayout.razor"
+using Blazor.LoginComponent;
+
+#line default
+#line hidden
+#nullable disable
     public partial class MainLayout : LayoutComponentBase
     {
         #pragma warning disable 1998

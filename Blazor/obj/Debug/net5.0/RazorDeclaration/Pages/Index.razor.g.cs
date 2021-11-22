@@ -98,8 +98,11 @@ using Blazor.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 14 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/Pages/Index.razor"
+#line 9 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/Pages/Index.razor"
        
+    protected override void OnInitialized()
+    {
+    }
 
     static readonly ValidatorLogInHttp ValidatorLogInHttp = new();
     readonly string _lastName=ValidatorLogInHttp.ValidateUser("sackboynick", "Password").Result.LastName;

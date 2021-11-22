@@ -71,3 +71,5 @@
 /home/c/Desktop/RiderProjects/ChatSystem/Blazor/obj/Debug/net5.0/ref/Blazor.dll
 /home/c/Desktop/RiderProjects/ChatSystem/Blazor/obj/Debug/net5.0/Blazor.pdb
 /home/c/Desktop/RiderProjects/ChatSystem/Blazor/obj/Debug/net5.0/Blazor.genruntimeconfig.cache
+/home/c/Desktop/RiderProjects/ChatSystem/Blazor/obj/Debug/net5.0/RazorDeclaration/LoginComponent/Login.razor.g.cs
+/home/c/Desktop/RiderProjects/ChatSystem/Blazor/obj/Debug/net5.0/Razor/LoginComponent/Login.razor.g.cs
