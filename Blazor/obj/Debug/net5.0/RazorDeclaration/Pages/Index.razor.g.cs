@@ -89,13 +89,6 @@ using Blazor.Data;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 3 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/Pages/Index.razor"
-using WebApplication.Data;
-
-#line default
-#line hidden
-#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -105,7 +98,7 @@ using WebApplication.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 10 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/Pages/Index.razor"
+#line 9 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/Pages/Index.razor"
        
     protected override void OnInitialized()
     {

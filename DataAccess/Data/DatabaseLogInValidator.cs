@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using DataAccess.Persistence;
 using Entities;
@@ -9,9 +10,18 @@ namespace DataAccess.Data
     {
         public User ValidateUser(string userName, string password)
         {
-                using ChatContext userContext = new ChatContext();
+                using ChatContext chatContext = new ChatContext();
 
-                return userContext.Users.FirstOrDefault(user => user.Username == userName && user.Password==password);
+                return chatContext.Users.FirstOrDefault(user => user.Username == userName && user.Password==password);
+        }
+
+        public void RegisterUser(User user)
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            Console.WriteLine(user.ToStringFullName());
+            chatContext.Users.Add(user);
+            chatContext.SaveChanges();
         }
     }
 }

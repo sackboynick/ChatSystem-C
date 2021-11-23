@@ -1,8 +1,10 @@
 using System;
 using System.Threading.Tasks;
 using DataAccess.Data;
+using DataAccess.Persistence;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Controllers
 {
@@ -32,5 +34,21 @@ namespace DataAccess.Controllers
                 return StatusCode(500, e.Message);
             }
         }
+        
+        [HttpPost]
+        public async Task<ActionResult<User>> RegisterUser([FromBody] User user)
+        {
+            try
+            {
+                _data.RegisterUser(user);
+                Console.WriteLine("works here");
+                
+                return Ok(user);
+            }catch (Exception e) {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
+        
     }
 }
