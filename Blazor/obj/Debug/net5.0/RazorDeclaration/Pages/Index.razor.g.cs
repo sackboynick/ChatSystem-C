@@ -98,7 +98,7 @@ using Blazor.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 9 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/Pages/Index.razor"
+#line 12 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/Pages/Index.razor"
        
     protected override void OnInitialized()
     {
@@ -111,6 +111,7 @@ using Blazor.Data;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
     }
 }
 #pragma warning restore 1591

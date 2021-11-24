@@ -23,7 +23,7 @@ namespace WebApplication.Controllers
         {
             try
             {
-                User user = await _data.ValidateUser(username, password);
+                User user = _data.ValidateUser(username, password).Result;
                 return Ok(user);
             }
             catch (Exception e)
@@ -32,5 +32,21 @@ namespace WebApplication.Controllers
                 return StatusCode(500, e.Message);
             }
         }
+        
+        [HttpPost]
+        public async Task<ActionResult<User>> RegisterUser([FromBody] User user)
+        {
+            try
+            {
+                await _data.RegisterUser(user);
+                Console.WriteLine("works here");
+                
+                return Ok(user);
+            }catch (Exception e) {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
+        
     }
 }

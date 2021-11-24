@@ -1,0 +1,59 @@
+@page "/RegistrationPage"
+@using Microsoft.AspNetCore.Components
+@using Entities
+@using Blazor.Data
+@inject NavigationManager _navigationManager;
+@inject IUserService _userService
+<h3>RegistrationPage</h3>
+
+
+<div class="card">
+    <h4 class="card-header">Login</h4>
+    <div class="card-body">
+        <EditForm Model="@_user" OnValidSubmit="OnValidSubmit">
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <label>Username</label>
+                <InputText @bind-Value="_user.Username" class="form-control" />
+                <ValidationMessage For="@(() => _user.Username)" />
+            </div>
+            <div class="form-group">
+                <label>First name</label>
+                <InputText @bind-Value="_user.FirstName" class="form-control" />
+                <ValidationMessage For="@(() => _user.FirstName)" />
+            </div>
+            <div class="form-group">
+                            <label>Last name</label>
+                            <InputText @bind-Value="_user.LastName" class="form-control" />
+                            <ValidationMessage For="@(() => _user.LastName)" />
+                        </div>
+            <div class="form-group">
+                <label>Password</label>
+                <InputText @bind-Value="_user.Password" class="form-control" />
+                <ValidationMessage For="@(() => _user.Password)" />
+            </div>
+
+            <NavLink href="account/register" class="btn btn-link">Register</NavLink>
+        </EditForm>
+    </div>
+</div>
+
+
+@code {
+
+    private User _user;
+    
+    
+    protected override async Task OnInitializedAsync()
+    {
+        _user = new User();
+    }
+
+    private void OnValidSubmit()
+    {
+        _userService.RegisterUser(_user);
+        _navigationManager.NavigateTo("/");
+        
+    }
+
+}
