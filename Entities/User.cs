@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
@@ -33,7 +34,7 @@ namespace Entities
             FirstName = null;
             LastName = null;
             Password = null;
-            Friends = new List<Friendship>();
+            Friends = new Collection<Friendship>();
         }
         public User(int userId, string username,string firstName,string lastName,string password,ICollection<Friendship> friends)
         {

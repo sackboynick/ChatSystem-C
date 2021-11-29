@@ -41,7 +41,6 @@ namespace DataAccess.Controllers
             try
             {
                 _data.RegisterUser(user);
-                Console.WriteLine("works here");
                 
                 return Ok(user);
             }catch (Exception e) {

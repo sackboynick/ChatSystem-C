@@ -39,7 +39,6 @@ namespace WebApplication.Controllers
             try
             {
                 await _data.RegisterUser(user);
-                Console.WriteLine("works here");
                 
                 return Ok(user);
             }catch (Exception e) {

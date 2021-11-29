@@ -111,7 +111,7 @@ using Blazor.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 42 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/Pages/RegistrationPage.razor"
+#line 40 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/Pages/RegistrationPage.razor"
        
 
     private User _user;
@@ -124,6 +124,7 @@ using Blazor.Data;
 
     private void OnValidSubmit()
     {
+        Console.WriteLine(_user.ToStringFullName());
         _userService.RegisterUser(_user);
         _navigationManager.NavigateTo("/");
         

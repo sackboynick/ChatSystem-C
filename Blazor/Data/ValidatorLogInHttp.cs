@@ -13,7 +13,7 @@ namespace Blazor.Data
         public async Task<User> ValidateUser(string userName, string password)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
-            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
 
             using HttpClient client = new HttpClient(clientHandler);
             
@@ -40,7 +40,7 @@ namespace Blazor.Data
         public async Task<Task> RegisterUser(User user)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
-            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
 
             using HttpClient client = new HttpClient(clientHandler);
             
@@ -48,8 +48,8 @@ namespace Blazor.Data
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
-            
-            
+
+
             string userAsJson = JsonSerializer.Serialize(user);
             StringContent content = new StringContent(
                 userAsJson,
