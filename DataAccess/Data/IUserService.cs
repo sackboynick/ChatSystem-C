@@ -1,3 +1,4 @@
+using System.Linq;
 using Entities;
 
 namespace DataAccess.Data
@@ -6,5 +7,6 @@ namespace DataAccess.Data
     {
         User ValidateUser(string userName, string password);
         void RegisterUser(User user);
+        IQueryable<User> SearchUser(string username);
     }
 }

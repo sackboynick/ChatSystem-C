@@ -6619,19 +6619,19 @@
     ]
   },
   "packageFolders": {
-    "/home/c/.nuget/packages/": {}
+    "C:\\Users\\lukau\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/c/Desktop/RiderProjects/ChatSystem/WebApplication/WebApplication.csproj",
+      "projectUniqueName": "E:\\3RD SEMESTER\\ChatSystem-C\\WebApplication\\WebApplication.csproj",
       "projectName": "WebApplication",
-      "projectPath": "/home/c/Desktop/RiderProjects/ChatSystem/WebApplication/WebApplication.csproj",
-      "packagesPath": "/home/c/.nuget/packages/",
-      "outputPath": "/home/c/Desktop/RiderProjects/ChatSystem/WebApplication/obj/",
+      "projectPath": "E:\\3RD SEMESTER\\ChatSystem-C\\WebApplication\\WebApplication.csproj",
+      "packagesPath": "C:\\Users\\lukau\\.nuget\\packages\\",
+      "outputPath": "E:\\3RD SEMESTER\\ChatSystem-C\\WebApplication\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/c/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\lukau\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -6643,8 +6643,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj": {
-              "projectPath": "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj"
+            "E:\\3RD SEMESTER\\ChatSystem-C\\Entities\\Entities.csproj": {
+              "projectPath": "E:\\3RD SEMESTER\\ChatSystem-C\\Entities\\Entities.csproj"
             }
           }
         }
@@ -6686,7 +6686,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -7,5 +7,7 @@ namespace WebApplication.Data
     {
         Task<User> ValidateUser(string userName, string password);
         Task<Task> RegisterUser(User user);
+
+        Task<User> SearchUser(string username);
     }
 }

@@ -1,20 +1,45 @@
 @page "/"
 @using Blazor.Data
+@using Entities
 @inject NavigationManager NavigationManager
 
 
 
 <h1>WELCOME ON CHATTUS</h1>
 
+@* <p> *@
+@*     Search a user *@
+@*     <input type="text" *@
+@*            @oninput="@((arg) => Search(arg))" *@
+@*            placeholder="Search a user" style="width:150px"/> *@
+@* </p> *@
+
 
 
 
 @code {
+
+    private IList<User> Users , UserToShow;
+    private string FilterByUsers;
+   
+
     protected override void OnInitialized()
     {
+        //
     }
 
     static readonly ValidatorLogInHttp ValidatorLogInHttp = new();
     readonly string _lastName=ValidatorLogInHttp.ValidateUser("sackboynick", "Password").Result.LastName;
-
+    
+     //readonly string _username = ValidatorLogInHttp.SearchUser("sackboynick").Result.Username;
+    
+    /*private void Search(ChangeEventArgs changeEventArgs)
+    {
+        FilterByUsers = changeEventArgs.Value.ToString();
+        if (FilterByUsers != null)
+        {
+            UserToShow = Users.Where(u => u.Username == FilterByUsers).ToList();
+        }
+        UserToShow = Users;
+    }*/
 }

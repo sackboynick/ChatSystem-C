@@ -44,12 +44,10 @@ namespace Blazor.Data
 
             using HttpClient client = new HttpClient(clientHandler);
             
-            
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
-
-
+            
             string userAsJson = JsonSerializer.Serialize(user);
             StringContent content = new StringContent(
                 userAsJson,
@@ -62,5 +60,37 @@ namespace Blazor.Data
 
             return Task.CompletedTask;
         }
+        
+        public async Task<User> SearchUser(string username)
+        {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) =>
+            {
+                return true;
+            };
+
+            using HttpClient client = new HttpClient(clientHandler);
+
+
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
+
+            HttpResponseMessage response = await client
+                .GetAsync("https://localhost:5001/username/" + username).ConfigureAwait(false);
+            if (!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+
+            string result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            
+            User user = JsonSerializer.Deserialize<User>(result, new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            });
+
+            return user;
+        }
+        
     }
 }

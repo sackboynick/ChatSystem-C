@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using DataAccess.Data;
 using Entities;
@@ -38,5 +39,26 @@ namespace DataAccess.Controllers
 
             return null;
         }
+
+
+        // [HttpGet]
+        // [Route("{username}")]
+        // public IQueryable<User> GetUser([FromRoute]string username)
+        // {
+        //     try
+        //     {
+        //         if (username != null)
+        //         {
+        //             var user = _data.SearchUser(username);
+        //         }
+        //     }
+        //     catch (Exception e)
+        //     {
+        //         Console.WriteLine(e);
+        //         StatusCode(500, e);
+        //     }
+        //
+        //     return null;
+        // }
     }
 }

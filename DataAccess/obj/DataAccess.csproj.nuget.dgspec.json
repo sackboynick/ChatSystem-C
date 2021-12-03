@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/c/Desktop/RiderProjects/ChatSystem/DataAccess/DataAccess.csproj": {}
+    "E:\\3RD SEMESTER\\ChatSystem-C\\DataAccess\\DataAccess.csproj": {}
   },
   "projects": {
-    "/home/c/Desktop/RiderProjects/ChatSystem/DataAccess/DataAccess.csproj": {
+    "E:\\3RD SEMESTER\\ChatSystem-C\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/c/Desktop/RiderProjects/ChatSystem/DataAccess/DataAccess.csproj",
+        "projectUniqueName": "E:\\3RD SEMESTER\\ChatSystem-C\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "/home/c/Desktop/RiderProjects/ChatSystem/DataAccess/DataAccess.csproj",
-        "packagesPath": "/home/c/.nuget/packages/",
-        "outputPath": "/home/c/Desktop/RiderProjects/ChatSystem/DataAccess/obj/",
+        "projectPath": "E:\\3RD SEMESTER\\ChatSystem-C\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\lukau\\.nuget\\packages\\",
+        "outputPath": "E:\\3RD SEMESTER\\ChatSystem-C\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/c/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\lukau\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -26,8 +26,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj": {
-                "projectPath": "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj"
+              "E:\\3RD SEMESTER\\ChatSystem-C\\Entities\\Entities.csproj": {
+                "projectPath": "E:\\3RD SEMESTER\\ChatSystem-C\\Entities\\Entities.csproj"
               }
             }
           }
@@ -87,21 +87,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj": {
+    "E:\\3RD SEMESTER\\ChatSystem-C\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj",
+        "projectUniqueName": "E:\\3RD SEMESTER\\ChatSystem-C\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj",
-        "packagesPath": "/home/c/.nuget/packages/",
-        "outputPath": "/home/c/Desktop/RiderProjects/ChatSystem/Entities/obj/",
+        "projectPath": "E:\\3RD SEMESTER\\ChatSystem-C\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\lukau\\.nuget\\packages\\",
+        "outputPath": "E:\\3RD SEMESTER\\ChatSystem-C\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/c/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\lukau\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -145,7 +145,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

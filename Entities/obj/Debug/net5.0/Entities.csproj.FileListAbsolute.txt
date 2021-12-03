@@ -10,3 +10,15 @@
 /home/c/Desktop/RiderProjects/ChatSystem/Entities/obj/Debug/net5.0/Entities.dll
 /home/c/Desktop/RiderProjects/ChatSystem/Entities/obj/Debug/net5.0/ref/Entities.dll
 /home/c/Desktop/RiderProjects/ChatSystem/Entities/obj/Debug/net5.0/Entities.pdb
+E:\3RD SEMESTER\ChatSystem-C\Entities\bin\Debug\net5.0\Entities.deps.json
+E:\3RD SEMESTER\ChatSystem-C\Entities\bin\Debug\net5.0\Entities.dll
+E:\3RD SEMESTER\ChatSystem-C\Entities\bin\Debug\net5.0\ref\Entities.dll
+E:\3RD SEMESTER\ChatSystem-C\Entities\bin\Debug\net5.0\Entities.pdb
+E:\3RD SEMESTER\ChatSystem-C\Entities\obj\Debug\net5.0\Entities.csproj.AssemblyReference.cache
+E:\3RD SEMESTER\ChatSystem-C\Entities\obj\Debug\net5.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
+E:\3RD SEMESTER\ChatSystem-C\Entities\obj\Debug\net5.0\Entities.AssemblyInfoInputs.cache
+E:\3RD SEMESTER\ChatSystem-C\Entities\obj\Debug\net5.0\Entities.AssemblyInfo.cs
+E:\3RD SEMESTER\ChatSystem-C\Entities\obj\Debug\net5.0\Entities.csproj.CoreCompileInputs.cache
+E:\3RD SEMESTER\ChatSystem-C\Entities\obj\Debug\net5.0\Entities.dll
+E:\3RD SEMESTER\ChatSystem-C\Entities\obj\Debug\net5.0\ref\Entities.dll
+E:\3RD SEMESTER\ChatSystem-C\Entities\obj\Debug\net5.0\Entities.pdb

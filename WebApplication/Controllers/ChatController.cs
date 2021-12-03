@@ -38,5 +38,27 @@ namespace WebApplication.Controllers
 
             return null;
         }
+        
+        [HttpGet]
+        [Route("{username}" )]
+        public async Task<ActionResult<User>> SearchUser([FromRoute] string? username)
+        {
+            try
+            {
+                if (username != null)
+                {
+                    User user = await _data.SearchUser(username);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+
+            return null;
+        }
     }
+    
+    
 }

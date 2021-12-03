@@ -8,25 +8,30 @@ using Entities;
 
 namespace WebApplication.Data
 {
-    public class ValidatorLogInHttp: IUserService
+    public class ValidatorLogInHttp : IUserService
     {
         public async Task<User> ValidateUser(string userName, string password)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
-            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) =>
+            {
+                return true;
+            };
 
             using HttpClient client = new HttpClient(clientHandler);
-            
-            
+
+
             client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
-            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
-            
-            
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/LogIn/"+userName+"/"+password).ConfigureAwait(false);
-            if(!response.IsSuccessStatusCode)
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
+
+
+            HttpResponseMessage response = await client
+                .GetAsync("https://localhost:5001/LogIn/" + userName + "/" + password).ConfigureAwait(false);
+            if (!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
-            
+
             string result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
             User user = JsonSerializer.Deserialize<User>(result, new JsonSerializerOptions
@@ -40,27 +45,63 @@ namespace WebApplication.Data
         public async Task<Task> RegisterUser(User user)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
-            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) =>
+            {
+                return true;
+            };
 
             using HttpClient client = new HttpClient(clientHandler);
-            
-            
+
+
             client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
-            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
-            
-            
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
+
+
             string userAsJson = JsonSerializer.Serialize(user);
             StringContent content = new StringContent(
                 userAsJson,
                 Encoding.UTF8,
                 "application/json"
             );
-            HttpResponseMessage response = await client.PostAsync("https://localhost:5001/LogIn", content).ConfigureAwait(false);
-            if(!response.IsSuccessStatusCode)
+            HttpResponseMessage response =
+                await client.PostAsync("https://localhost:5001/LogIn", content).ConfigureAwait(false);
+            if (!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
 
             return Task.CompletedTask;
+        }
+
+        public async Task<User> SearchUser(string username)
+        {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) =>
+            {
+                return true;
+            };
+
+            using HttpClient client = new HttpClient(clientHandler);
+
+
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
+
+            HttpResponseMessage response = await client
+                .GetAsync("https://localhost:5001/username/" + username).ConfigureAwait(false);
+            if (!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+
+            string result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            
+            User user = JsonSerializer.Deserialize<User>(result, new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            });
+
+            return user;
         }
     }
 }
