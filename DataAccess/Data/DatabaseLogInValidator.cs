@@ -1,12 +1,13 @@
 using System;
 using System.Linq;
 using DataAccess.Persistence;
+using Domain.User;
 using Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Data
 {
-    public class DatabaseLogInValidator: IUserService
+    public class DatabaseLogInValidator: IUserValidation
     {
         public User ValidateUser(string userName, string password)
         {

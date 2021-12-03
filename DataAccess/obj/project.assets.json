@@ -2078,6 +2078,20 @@
           "lib/netstandard1.1/xunit.execution.dotnet.dll": {}
         }
       },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Entities": "1.0.0",
+          "Microsoft.EntityFrameworkCore.Relational.Design.Specification.Tests": "2.0.3"
+        },
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
+      },
       "Entities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -6768,6 +6782,11 @@
         "xunit.extensibility.execution.nuspec"
       ]
     },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
+    },
     "Entities/1.0.0": {
       "type": "project",
       "path": "../Entities/Entities.csproj",
@@ -6776,6 +6795,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Domain >= 1.0.0",
       "Entities >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.11",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.11",
@@ -6810,6 +6830,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "/home/c/Desktop/RiderProjects/ChatSystem/Domain/Domain.csproj": {
+              "projectPath": "/home/c/Desktop/RiderProjects/ChatSystem/Domain/Domain.csproj"
+            },
             "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj": {
               "projectPath": "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj"
             }

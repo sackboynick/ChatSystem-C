@@ -124,7 +124,6 @@ using Blazor.Data;
 
     private void OnValidSubmit()
     {
-        Console.WriteLine(_user.ToStringFullName());
         _userService.RegisterUser(_user);
         _navigationManager.NavigateTo("/");
         
