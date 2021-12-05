@@ -8,10 +8,23 @@ namespace Entities
         public int Id { get; set; }
         [Required]
         [JsonPropertyName("messages")]
-        public ICollection<Message> _messages { get; set; }
+        public ICollection<Message> Messages { get; set; }
+        [Required]
+        [JsonPropertyName("sender")]
+        public string Sender { get; set; }
+        [Required]
+        [JsonPropertyName("receiver")]
+        public string Receiver { get; set; }
+        
 
         public Chat(){
-            _messages=new List<Message>();
+            Messages=new List<Message>();
+        }
+
+        public Chat(string sender, string receiver)
+        {
+            Sender = sender;
+            Receiver = receiver;
         }
         
     }

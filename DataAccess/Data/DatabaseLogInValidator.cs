@@ -20,7 +20,6 @@ namespace DataAccess.Data
         {
             using ChatContext chatContext = new ChatContext();
 
-            Console.WriteLine(user.ToStringFullName());
             chatContext.Users.Add(user);
             chatContext.SaveChanges();
         }

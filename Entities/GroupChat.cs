@@ -27,7 +27,7 @@ namespace Entities
             Admins = new Collection<string>();
             Admins.Add(groupCreator);
             Participants =new List<string> {groupCreator};
-            _messages.Add(new Message("Server", Participants.ToList()[0]+" just created the group on date "+ DateTime.Now.ToString("MM/dd/yyyy h:mm tt")));
+            Messages.Add(new Message("Server", Participants.ToList()[0]+" just created the group on date "+ DateTime.Now.ToString("MM/dd/yyyy h:mm tt")));
         }
 
         public bool IsUsernameInGroup(String participant){

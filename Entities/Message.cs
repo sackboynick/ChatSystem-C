@@ -11,6 +11,9 @@ namespace Entities
         [JsonPropertyName("senderusername")]
         public string SenderUsername { get; set; }
         [Required]
+        [JsonPropertyName("receiverusername")]
+        public string ReceiverUsername { get; set; }
+        [Required]
         [JsonPropertyName("localdatetime")]
         [DataType(DataType.DateTime)]
         public DateTime LocalDateTime { get; set; }
@@ -25,8 +28,15 @@ namespace Entities
             Text = null;
         }
 
-        public Message(String senderUsername,String text){
+        public Message(string senderUsername,string receiverUsername,String text){
             SenderUsername=senderUsername;
+            ReceiverUsername = receiverUsername;
+            LocalDateTime=DateTime.Now;
+            Text=text;
+        }
+        public Message(string senderUsername,String text){
+            SenderUsername=senderUsername;
+            ReceiverUsername = null;
             LocalDateTime=DateTime.Now;
             Text=text;
         }
