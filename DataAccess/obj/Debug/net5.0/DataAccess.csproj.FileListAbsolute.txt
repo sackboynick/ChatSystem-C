@@ -70,3 +70,5 @@
 /home/c/Desktop/RiderProjects/ChatSystem/DataAccess/bin/Debug/net5.0/xunit.assert.dll
 /home/c/Desktop/RiderProjects/ChatSystem/DataAccess/bin/Debug/net5.0/xunit.core.dll
 /home/c/Desktop/RiderProjects/ChatSystem/DataAccess/bin/Debug/net5.0/xunit.execution.dotnet.dll
+/home/c/Desktop/RiderProjects/ChatSystem/DataAccess/bin/Debug/net5.0/Domain.dll
+/home/c/Desktop/RiderProjects/ChatSystem/DataAccess/bin/Debug/net5.0/Domain.pdb

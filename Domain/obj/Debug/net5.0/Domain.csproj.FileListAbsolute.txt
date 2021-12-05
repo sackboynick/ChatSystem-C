@@ -1,0 +1,15 @@
+/home/c/Desktop/RiderProjects/ChatSystem/Domain/bin/Debug/net5.0/Domain.deps.json
+/home/c/Desktop/RiderProjects/ChatSystem/Domain/bin/Debug/net5.0/Domain.dll
+/home/c/Desktop/RiderProjects/ChatSystem/Domain/bin/Debug/net5.0/ref/Domain.dll
+/home/c/Desktop/RiderProjects/ChatSystem/Domain/bin/Debug/net5.0/Domain.pdb
+/home/c/Desktop/RiderProjects/ChatSystem/Domain/bin/Debug/net5.0/Entities.dll
+/home/c/Desktop/RiderProjects/ChatSystem/Domain/bin/Debug/net5.0/Entities.pdb
+/home/c/Desktop/RiderProjects/ChatSystem/Domain/obj/Debug/net5.0/Domain.csproj.AssemblyReference.cache
+/home/c/Desktop/RiderProjects/ChatSystem/Domain/obj/Debug/net5.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/c/Desktop/RiderProjects/ChatSystem/Domain/obj/Debug/net5.0/Domain.AssemblyInfoInputs.cache
+/home/c/Desktop/RiderProjects/ChatSystem/Domain/obj/Debug/net5.0/Domain.AssemblyInfo.cs
+/home/c/Desktop/RiderProjects/ChatSystem/Domain/obj/Debug/net5.0/Domain.csproj.CoreCompileInputs.cache
+/home/c/Desktop/RiderProjects/ChatSystem/Domain/obj/Debug/net5.0/Domain.csproj.CopyComplete
+/home/c/Desktop/RiderProjects/ChatSystem/Domain/obj/Debug/net5.0/Domain.dll
+/home/c/Desktop/RiderProjects/ChatSystem/Domain/obj/Debug/net5.0/ref/Domain.dll
+/home/c/Desktop/RiderProjects/ChatSystem/Domain/obj/Debug/net5.0/Domain.pdb

@@ -19,7 +19,7 @@ namespace DataAccess.Controllers
 
         [HttpGet]
         [Route("{chatId}")]
-        public async Task<ActionResult<Chat>> GetAdult([FromRoute] int? chatId)
+        public async Task<ActionResult<Chat>> GetChat([FromRoute] int? chatId)
         {
             try
             {

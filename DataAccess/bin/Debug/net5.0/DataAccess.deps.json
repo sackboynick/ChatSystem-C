@@ -33,6 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "DataAccess/1.0.0": {
         "dependencies": {
+          "Domain": "1.0.0",
           "Entities": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.11",
           "Microsoft.EntityFrameworkCore.Design": "5.0.11",
@@ -1719,6 +1720,18 @@
         },
         "compile": {
           "lib/netstandard1.1/xunit.execution.dotnet.dll": {}
+        }
+      },
+      "Domain/1.0.0": {
+        "dependencies": {
+          "Entities": "1.0.0",
+          "Microsoft.EntityFrameworkCore.Relational.Design.Specification.Tests": "2.0.3"
+        },
+        "runtime": {
+          "Domain.dll": {}
+        },
+        "compile": {
+          "Domain.dll": {}
         }
       },
       "Entities/1.0.0": {
@@ -4349,6 +4362,11 @@
       "sha512": "sha512-4gjTrSUd/F6/pdsMsf+a1f1tcaUQnr59JvZQulmF8VwQbCh34ifie3iqriYyKyLmTQDUEJ/ZTPeZEDh0pxpTLA==",
       "path": "xunit.extensibility.execution/2.2.0",
       "hashPath": "xunit.extensibility.execution.2.2.0.nupkg.sha512"
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Entities/1.0.0": {
       "type": "project",

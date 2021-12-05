@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DataAccess.Data;
+using Domain.Data;
 using Domain.User;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,6 +36,8 @@ namespace DataAccess
             });
             
             services.AddScoped<IUserValidation, DatabaseLogInValidator>();
+            services.AddSingleton<IDataRepo, DatabaseDataHandler>();
+            services.AddSingleton<IUserRepo, DatabaseDataHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
