@@ -5,7 +5,7 @@ namespace Entities
 {
     public class Friendship
     {
-        [Key] public int FriendshipId { get; set; } 
+        [Key] public int Id { get; set; } 
         [Required]
         [JsonPropertyName("username")]
         public string Username{ get; set; } 

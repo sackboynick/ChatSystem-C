@@ -6,21 +6,24 @@ namespace Entities
     public class PrivateChat:Chat
     {
 
+        [Key]
+        public int Id { get; set; }
         [Required]
-        [JsonPropertyName("sender")]
-        public string Sender { get; set; }
+        [JsonPropertyName("participant1")]
+        public string Participant1 { get; set; }
         [Required]
-        [JsonPropertyName("receiver")]
-        public string Receiver { get; set; }
+        [JsonPropertyName("participant2")]
+        public string Participant2 { get; set; }
+
 
         public PrivateChat()
         {
-            Sender = null;
-            Receiver = null;
+            Participant1 = null;
+            Participant2 = null;
         }
-        public PrivateChat(string sender,string receiver){
-            Sender=sender;
-            Receiver=receiver;
+        public PrivateChat(string participant1,string participant2){
+            Participant1=participant1;
+            Participant2=participant2;
         }
 
 

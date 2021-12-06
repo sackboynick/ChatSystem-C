@@ -10,7 +10,6 @@ namespace Entities
         [Required]
         [JsonPropertyName("senderusername")]
         public string SenderUsername { get; set; }
-        [Required]
         [JsonPropertyName("receiverusername")]
         public string ReceiverUsername { get; set; }
         [Required]

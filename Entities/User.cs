@@ -30,6 +30,7 @@ namespace Entities
 
         public User()
         {
+            Id = 0;
             Username = null;
             FirstName = null;
             LastName = null;

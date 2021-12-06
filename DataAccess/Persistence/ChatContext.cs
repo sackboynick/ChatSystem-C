@@ -6,9 +6,10 @@ namespace DataAccess.Persistence
     public class ChatContext : DbContext
     {
 
-
-        public DbSet<Chat> Chats { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<PrivateChat> PrivateChats { get; set; }
+        public DbSet<GroupChat> GroupChats { get; set; }
+        
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

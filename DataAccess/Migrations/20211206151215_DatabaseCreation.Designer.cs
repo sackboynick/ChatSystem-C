@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(ChatContext))]
-    [Migration("20211123233544_RegisterMethod")]
-    partial class RegisterMethod
+    [Migration("20211206151215_DatabaseCreation")]
+    partial class DatabaseCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -18,20 +18,9 @@ namespace DataAccess.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.11");
 
-            modelBuilder.Entity("Entities.Chat", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Chats");
-                });
-
             modelBuilder.Entity("Entities.Friendship", b =>
                 {
-                    b.Property<int>("FriendshipId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -45,11 +34,22 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("FriendshipId");
+                    b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("Friendship");
+                });
+
+            modelBuilder.Entity("Entities.GroupChat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GroupChats");
                 });
 
             modelBuilder.Entity("Entities.Message", b =>
@@ -58,10 +58,16 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ChatId")
+                    b.Property<int?>("GroupChatId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("LocalDateTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("PrivateChatId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ReceiverUsername")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SenderUsername")
@@ -74,9 +80,53 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ChatId");
+                    b.HasIndex("GroupChatId");
+
+                    b.HasIndex("PrivateChatId");
 
                     b.ToTable("Message");
+                });
+
+            modelBuilder.Entity("Entities.Participant", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Admin")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("GroupChatId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GroupChatId");
+
+                    b.ToTable("Participant");
+                });
+
+            modelBuilder.Entity("Entities.PrivateChat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Participant1")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Participant2")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PrivateChats");
                 });
 
             modelBuilder.Entity("Entities.User", b =>
@@ -115,14 +165,32 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Entities.Message", b =>
                 {
-                    b.HasOne("Entities.Chat", null)
-                        .WithMany("_messages")
-                        .HasForeignKey("ChatId");
+                    b.HasOne("Entities.GroupChat", null)
+                        .WithMany("Messages")
+                        .HasForeignKey("GroupChatId");
+
+                    b.HasOne("Entities.PrivateChat", null)
+                        .WithMany("Messages")
+                        .HasForeignKey("PrivateChatId");
                 });
 
-            modelBuilder.Entity("Entities.Chat", b =>
+            modelBuilder.Entity("Entities.Participant", b =>
                 {
-                    b.Navigation("_messages");
+                    b.HasOne("Entities.GroupChat", null)
+                        .WithMany("Participants")
+                        .HasForeignKey("GroupChatId");
+                });
+
+            modelBuilder.Entity("Entities.GroupChat", b =>
+                {
+                    b.Navigation("Messages");
+
+                    b.Navigation("Participants");
+                });
+
+            modelBuilder.Entity("Entities.PrivateChat", b =>
+                {
+                    b.Navigation("Messages");
                 });
 
             modelBuilder.Entity("Entities.User", b =>

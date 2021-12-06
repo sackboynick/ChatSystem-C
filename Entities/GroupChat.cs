@@ -9,29 +9,25 @@ namespace Entities
 {
     public class GroupChat:Chat
     {
+        [Key]
+        public int Id { get; set; }
         [Required]
         [JsonPropertyName("participants")]
-        public ICollection<string> Participants { get; set; }
-        [Required]
-        [JsonPropertyName("admins")]
-        public ICollection<string> Admins { get; set; }
+        public ICollection<Participant> Participants { get; set; }
 
         public GroupChat()
         {
-            Participants = new Collection<string>();
-            Admins = new Collection<string>();
+            Participants = new Collection<Participant>();
 
         }
-        public GroupChat(String groupCreator)
+        public GroupChat(string groupCreator)
         {
-            Admins = new Collection<string>();
-            Admins.Add(groupCreator);
-            Participants =new List<string> {groupCreator};
+            Participants =new Collection<Participant> {new Participant(groupCreator,true)};
             Messages.Add(new Message("Server", Participants.ToList()[0]+" just created the group on date "+ DateTime.Now.ToString("MM/dd/yyyy h:mm tt")));
         }
 
-        public bool IsUsernameInGroup(String participant){
-            return Participants.Contains(participant);
+        public bool IsUsernameInGroup(string participant){
+            return Participants.FirstOrDefault(participant1 => participant1.Username==participant)!=null;
         }
         
     }
