@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using DataAccess.Data;
 using DataAccess.Persistence;
+using Domain.User;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,9 +13,9 @@ namespace DataAccess.Controllers
     [Route("[controller]")]
     public class LogInController : ControllerBase
     {
-        private readonly IUserService _data;
+        private readonly IUserValidation _data;
 
-        public LogInController([FromServices] IUserService data)
+        public LogInController([FromServices] IUserValidation data)
         {
             _data = data;
         }

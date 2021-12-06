@@ -35,14 +35,14 @@ namespace DataAccess.Data
         {
             using ChatContext chatContext = new ChatContext();
 
-            return chatContext.PrivateChats.FirstOrDefault(chat => chat.Id == chatId);
+            return chatContext.PrivateChats.ToList().FirstOrDefault(chat => chat.Id == chatId);
         }
 
         public GroupChat GetGroupChat(int chatId)
         {
             using ChatContext chatContext = new ChatContext();
 
-            return chatContext.GroupChats.FirstOrDefault(chat => chat.Id == chatId);
+            return chatContext.GroupChats.First(chat => chat.Id == chatId);
         }
 
         public void CreateGroup(string groupCreator)
@@ -53,6 +53,15 @@ namespace DataAccess.Data
             chatContext.SaveChanges();
         }
 
+        public void UpdateGroup(GroupChat groupChat)
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            chatContext.GroupChats.Update(groupChat);
+            chatContext.SaveChanges();
+        }
+
+        /**
         public void AddParticipantToGroup(int groupId, string userToAdd)
         {
             using ChatContext chatContext = new ChatContext();
@@ -76,10 +85,15 @@ namespace DataAccess.Data
         {
             using ChatContext chatContext = new ChatContext();
 
+            Console.WriteLine(groupId);
+            Console.WriteLine(GetGroupChat(groupId).Participants.ToList().Count);
+            Console.WriteLine(GetGroupChat(groupId).Id);
+            Console.WriteLine(GetGroupChat(groupId).Participants.IsReadOnly);
             GetGroupChat(groupId).Participants.First(participant => participant.Username==userToPromote).Admin=true;
 
             chatContext.SaveChanges();
         }
+        **/
 
         public User GetUser(string username)
         {

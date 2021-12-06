@@ -17,13 +17,14 @@ namespace Entities
 
         public GroupChat()
         {
-            Participants = new Collection<Participant>();
+            Participants = new List<Participant>();
 
         }
         public GroupChat(string groupCreator)
         {
-            Participants =new Collection<Participant> {new Participant(groupCreator,true)};
+            Participants =new List<Participant> {new(groupCreator,true)};
             Messages.Add(new Message("Server", Participants.ToList()[0]+" just created the group on date "+ DateTime.Now.ToString("MM/dd/yyyy h:mm tt")));
+            Console.WriteLine(groupCreator);
         }
 
         public bool IsUsernameInGroup(string participant){
