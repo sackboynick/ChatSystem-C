@@ -10,10 +10,7 @@ namespace Domain.Data
         public void CreateGroup(string groupCreator);
 
         public void UpdateGroup(GroupChat groupChat);
-        /*
-        public void AddParticipantToGroup(int groupId, string userToAdd);
-        public void RemoveParticipantFromGroup(int groupId, string userToRemove);
-        public void PromoteParticipantToAdmin(int groupId, string userToPromote);**/
+        
 
     }
 }

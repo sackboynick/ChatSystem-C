@@ -7,7 +7,7 @@ using WebApplication.Data;
 namespace WebApplication.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]Server")]
     public class LogInController : ControllerBase
     {
         private readonly IUserService _data;
