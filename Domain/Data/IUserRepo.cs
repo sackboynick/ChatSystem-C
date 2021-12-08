@@ -6,6 +6,6 @@ namespace Domain.Data
     {
         
         public Entities.User GetUser(string username);
-        public void AddFriend(string user,Friendship friendship);
+        public void AddFriendship(Friendship friendship);
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using DataAccess.Data;
 using Domain.Data;
@@ -34,13 +35,13 @@ namespace DataAccess.Controllers
             }
         }
 
-        [HttpPut]
-        public async Task<ActionResult> AddFriend([FromRoute] string username,[FromBody] Friendship friendship)
+        [HttpPatch]
+        public async Task<ActionResult> UpdateUser([FromBody] Friendship friendship)
 
         {
             try
             {
-                _data.AddFriend(username, friendship);
+                _data.AddFriendship(friendship);
 
                 return Ok();
             }

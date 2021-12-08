@@ -13,7 +13,7 @@ namespace DataAccess.Data
         {
                 using ChatContext chatContext = new ChatContext();
 
-                return chatContext.Users.FirstOrDefault(user => user.Username == userName && user.Password==password);
+                return chatContext.Users.Include(user1 => user1.Friends).FirstOrDefault(user => user.Username == userName && user.Password==password);
         }
 
         public void RegisterUser(User user)

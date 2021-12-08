@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text.Json.Serialization;
 
@@ -9,11 +10,11 @@ namespace Entities
 {
     public class GroupChat:Chat
     {
-        [Key]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
         [JsonPropertyName("participants")]
-        public virtual ICollection<Participant> Participants { get; set; }
+        public ICollection<Participant> Participants { get; set; }
 
         public GroupChat()
         {

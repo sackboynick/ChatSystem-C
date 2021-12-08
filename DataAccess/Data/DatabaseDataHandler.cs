@@ -61,27 +61,7 @@ namespace DataAccess.Data
             chatContext.GroupChats.Update(groupChat);
             chatContext.SaveChanges();
         }
-
-        public void RemoveGroup(GroupChat groupChat)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void PinMessage(Message message)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ReplyMessage(Message message)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ForwardMessage(Message message, User user)
-        {
-            throw new NotImplementedException();
-        }
-
+        
 
         public User GetUser(string username)
         {
@@ -90,34 +70,15 @@ namespace DataAccess.Data
             return chatContext.Users.Include(m=> m.Friends).FirstOrDefault(user => user.Username == username);
         }
 
-        public void AddFriend(string username, Friendship friendship)
+        public void AddFriendship(Friendship friendship)
         {
             using ChatContext chatContext = new ChatContext();
-            if(GetUser(username)!=null)
-            {
-                try
-                {
-                    GetUser(username).Friends.Add(friendship);
-                }
-                catch (NullReferenceException e)
-                {
-                    Console.WriteLine(e);
-                    throw;
-                }
-            }
-            else Console.WriteLine("ciao");
+
             
+            chatContext.Friendships.Add(friendship);
+
             chatContext.SaveChanges();
         }
-
-        public void RemoveFriend(string username)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveMessage(Message message)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

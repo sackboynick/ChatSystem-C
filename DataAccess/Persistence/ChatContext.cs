@@ -9,6 +9,7 @@ namespace DataAccess.Persistence
         public DbSet<User> Users { get; set; }
         public DbSet<PrivateChat> PrivateChats { get; set; }
         public DbSet<GroupChat> GroupChats { get; set; }
+        public DbSet<Friendship> Friendships { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
