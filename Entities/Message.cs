@@ -22,8 +22,10 @@ namespace Entities
         [JsonPropertyName("text")]
         public string Text { get; set; }
         
-        [ForeignKey("ChatId")]
-        public int ChatId { get; set; }
+        [ForeignKey("PrivateChatId")]
+        public int? PrivateChatId { get; set; }
+        [ForeignKey("GroupChatId")]
+        public int? GroupChatId { get; set; }
         
 
         public Message()
@@ -35,6 +37,23 @@ namespace Entities
 
         public Message(string senderUsername,string receiverUsername,String text){
             SenderUsername=senderUsername;
+            ReceiverUsername = receiverUsername;
+            LocalDateTime=DateTime.Now;
+            Text=text;
+        }
+        
+        public Message(int groupChatId,string senderUsername,string receiverUsername,String text){
+            SenderUsername=senderUsername;
+            GroupChatId = groupChatId;
+            PrivateChatId = null;
+            ReceiverUsername = receiverUsername;
+            LocalDateTime=DateTime.Now;
+            Text=text;
+        }
+        public Message(string senderUsername,string receiverUsername,String text,int privateChatId){
+            SenderUsername=senderUsername;
+            PrivateChatId = privateChatId;
+            GroupChatId = null;
             ReceiverUsername = receiverUsername;
             LocalDateTime=DateTime.Now;
             Text=text;

@@ -10,7 +10,8 @@ namespace Domain.Data
         public void CreateGroup(GroupChat groupChat);
 
         public void UpdateGroup(GroupChat groupChat);
-        
 
+
+        Message GetMessage(int messageId);
     }
 }

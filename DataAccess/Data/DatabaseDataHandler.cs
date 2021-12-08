@@ -19,14 +19,22 @@ namespace DataAccess.Data
                     chat.Participant1 == message.ReceiverUsername && chat.Participant2 == message.SenderUsername) == null)
                 {
                     PrivateChat chat = new PrivateChat(message.SenderUsername, message.ReceiverUsername);
-                    Message newMess = new Message(message.SenderUsername, message.ReceiverUsername, message.Text);
+                    Message newMess = new Message(message.SenderUsername, message.ReceiverUsername, message.Text,chatContext.PrivateChats.Count()+1);
                     chat.Messages.Add(newMess);
                     chatContext.PrivateChats.Add(chat);
                 }
+                else
+                {
+                
+                    chatContext.Messages.Add(message);
+                }
+                
             }
             else
             {
-                chatContext.PrivateChats.First(chat => chat.Participant1 == message.SenderUsername & chat.Participant2 == message.ReceiverUsername).Messages.Add(message);
+                
+                chatContext.Messages.Add(message);
+                //chatContext.PrivateChats.First(chat => chat.Participant1 == message.SenderUsername & chat.Participant2 == message.ReceiverUsername).Messages.Add(message);
             }
             chatContext.SaveChanges();
         }
@@ -61,7 +69,15 @@ namespace DataAccess.Data
             chatContext.GroupChats.Update(groupChat);
             chatContext.SaveChanges();
         }
-        
+
+        public Message GetMessage(int messageId)
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            return chatContext.Messages.Find(messageId);
+            
+        }
+
 
         public User GetUser(string username)
         {
