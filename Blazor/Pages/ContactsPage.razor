@@ -6,7 +6,9 @@
 <SfButton IconCss="e-icons e-add-icon" IconPosition="IconPosition.Right">Add</SfButton>
 <SfButton IconCss="e-icons e-add-icon" IconPosition="IconPosition.Right">Edit</SfButton>
 
-<SfListView ID="list" DataSource="@ListData" CssClass="e-list-template ui-list">
+<input @bind-value="SearchTerm" @bind-value:event="oninput" />
+
+<SfListView ID="list" DataSource="@EListData" CssClass="e-list-template ui-list">
     <ListViewFieldSettings Id="Id" Text="Name" TValue="DataModel" GroupBy="Category"></ListViewFieldSettings>
     <ListViewTemplates TValue="DataModel">
         <Template>
@@ -25,7 +27,11 @@
 
 @code{
 
-    List<DataModel> ListData = new List<DataModel>();
+    static List<DataModel> ListData = new List<DataModel>();
+    
+    IEnumerable<DataModel> EListData = ListData.Where(i => i.Name.ToLower().Contains(SearchTerm.ToLower()));
+    
+    static string SearchTerm { get; set; } = "";
 
     protected override void OnInitialized()
     {
