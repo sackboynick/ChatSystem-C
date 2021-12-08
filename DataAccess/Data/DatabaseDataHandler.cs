@@ -70,24 +70,15 @@ namespace DataAccess.Data
             return chatContext.Users.Include(m=> m.Friends).FirstOrDefault(user => user.Username == username);
         }
 
-        public void AddFriend(string username, Friendship friendship)
+        public void AddFriendship(Friendship friendship)
         {
             using ChatContext chatContext = new ChatContext();
-            if(GetUser(username)!=null)
-            {
-                try
-                {
-                    GetUser(username).Friends.Add(friendship);
-                }
-                catch (NullReferenceException e)
-                {
-                    Console.WriteLine(e);
-                    throw;
-                }
-            }
-            else Console.WriteLine("ciao");
+
             
+            chatContext.Friendships.Add(friendship);
+
             chatContext.SaveChanges();
         }
+        
     }
 }

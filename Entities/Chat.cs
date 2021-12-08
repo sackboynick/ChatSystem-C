@@ -8,7 +8,7 @@ namespace Entities
     public abstract class Chat {
         [Required]
         [JsonPropertyName("messages")]
-        public virtual ICollection<Message> Messages { get; set; }
+        public ICollection<Message> Messages { get; set; }
         
 
         public Chat(){

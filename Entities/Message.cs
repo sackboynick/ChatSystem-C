@@ -1,11 +1,13 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace Entities
 {
     public class Message
     {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
         [JsonPropertyName("senderusername")]
@@ -19,6 +21,10 @@ namespace Entities
         [Required]
         [JsonPropertyName("text")]
         public string Text { get; set; }
+        
+        [ForeignKey("ChatId")]
+        public int ChatId { get; set; }
+        
 
         public Message()
         {
