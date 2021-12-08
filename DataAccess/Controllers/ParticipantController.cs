@@ -8,26 +8,26 @@ namespace DataAccess.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class MessageController : Controller
+    public class ParticipantController : Controller
     {
         private readonly IDataRepo _data;
-        
-        public MessageController([FromServices] IDataRepo data)
+
+        public ParticipantController([FromServices] IDataRepo data)
         {
             _data = data;
         }
 
         [HttpGet]
-        [Route("{messageId}")]
-        public async Task<ActionResult<Message>> GetMessage([FromRoute] int? messageId)
+        [Route("{participantId}")]
+        public async Task<ActionResult<Participant>> GetParticipant([FromRoute] int? participantId)
         {
             try
             {
-                if (messageId != null)
+                if (participantId != null)
                 {
-                    Message message = _data.GetMessage(messageId.Value);
+                    Participant participant = _data.GetParticipant(participantId.Value);
 
-                    return Ok(message);
+                    return Ok(participant);
                 }
             }
             catch (Exception e)
@@ -40,11 +40,11 @@ namespace DataAccess.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> SendMessage([FromBody] Message message)
+        public async Task<ActionResult> AddParticipant([FromBody] Participant participant)
         {
             try
             {
-                _data.SendMessage(message);
+                _data.AddParticipant(participant);
 
                 return Ok();
             }
@@ -54,13 +54,12 @@ namespace DataAccess.Controllers
                 return StatusCode(500, e.Message);
             }
         }
-        
         [HttpPut]
-        public async Task<ActionResult> UpdateMessage([FromBody] Message message)
+        public async Task<ActionResult> UpdateParticipant([FromBody] Participant participant)
         {
             try
             {
-                _data.UpdateMessage(message);
+                _data.UpdateParticipant(participant);
                 
                 return Ok();
             }catch (Exception e) {
@@ -69,15 +68,14 @@ namespace DataAccess.Controllers
             }
         }
         [HttpDelete]
-        [Route("{messageId}")]
-        public async Task<ActionResult> RemoveMessage([FromRoute] int? messageId)
+        [Route("{participantId}")]
+        public async Task<ActionResult> RemoveParticipant([FromRoute] int? participantId)
         {
             try
             {
-                if (messageId != null)
+                if (participantId != null)
                 {
-                    _data.RemoveMessage(messageId.Value);
-
+                    _data.RemoveParticipant(participantId.Value);
                     return Ok();
                 }
             }
@@ -89,6 +87,5 @@ namespace DataAccess.Controllers
 
             return null;
         }
-
     }
 }

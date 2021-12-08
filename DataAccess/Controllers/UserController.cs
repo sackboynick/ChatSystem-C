@@ -20,12 +20,12 @@ namespace DataAccess.Controllers
         }
 
         [HttpGet]
-        [Route("{username}")]
-        public async Task<ActionResult<User>> GetUser([FromRoute] string username)
+        [Route("{userId}")]
+        public async Task<ActionResult<User>> GetUser([FromRoute] int userId)
         {
             try
             {
-                User user = _data.GetUser(username);
+                User user = _data.GetUser(userId);
                 return Ok(user);
             }
             catch (Exception e)
@@ -35,13 +35,13 @@ namespace DataAccess.Controllers
             }
         }
 
-        [HttpPatch]
-        public async Task<ActionResult> UpdateUser([FromBody] Friendship friendship)
+        [HttpPut]
+        public async Task<ActionResult> UpdateUser([FromBody] User user)
 
         {
             try
             {
-                _data.AddFriendship(friendship);
+                _data.UpdateUser(user);
 
                 return Ok();
             }

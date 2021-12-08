@@ -8,26 +8,26 @@ namespace DataAccess.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class MessageController : Controller
+    public class FriendshipController : Controller
     {
         private readonly IDataRepo _data;
-        
-        public MessageController([FromServices] IDataRepo data)
+
+        public FriendshipController([FromServices] IDataRepo data)
         {
             _data = data;
         }
 
         [HttpGet]
-        [Route("{messageId}")]
-        public async Task<ActionResult<Message>> GetMessage([FromRoute] int? messageId)
+        [Route("{friendshipId}")]
+        public async Task<ActionResult<Friendship>> GetFriendship([FromRoute] int? friendshipId)
         {
             try
             {
-                if (messageId != null)
+                if (friendshipId != null)
                 {
-                    Message message = _data.GetMessage(messageId.Value);
+                    Friendship friendship = _data.GetFriendship(friendshipId.Value);
 
-                    return Ok(message);
+                    return Ok(friendship);
                 }
             }
             catch (Exception e)
@@ -40,11 +40,11 @@ namespace DataAccess.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> SendMessage([FromBody] Message message)
+        public async Task<ActionResult> AddFriendship([FromBody] Friendship friendship)
         {
             try
             {
-                _data.SendMessage(message);
+                _data.AddFriendship(friendship);
 
                 return Ok();
             }
@@ -54,13 +54,12 @@ namespace DataAccess.Controllers
                 return StatusCode(500, e.Message);
             }
         }
-        
         [HttpPut]
-        public async Task<ActionResult> UpdateMessage([FromBody] Message message)
+        public async Task<ActionResult> UpdateFriendship([FromBody] Friendship friendship)
         {
             try
             {
-                _data.UpdateMessage(message);
+                _data.UpdateFriendship(friendship);
                 
                 return Ok();
             }catch (Exception e) {
@@ -68,15 +67,16 @@ namespace DataAccess.Controllers
                 return StatusCode(500, e.Message);
             }
         }
+
         [HttpDelete]
-        [Route("{messageId}")]
-        public async Task<ActionResult> RemoveMessage([FromRoute] int? messageId)
+        [Route("{friendshipId}")]
+        public async Task<ActionResult<Friendship>> RemoveFriend([FromRoute] int? friendshipId)
         {
             try
             {
-                if (messageId != null)
+                if (friendshipId != null)
                 {
-                    _data.RemoveMessage(messageId.Value);
+                    _data.RemoveFriend(friendshipId.Value);
 
                     return Ok();
                 }
@@ -89,6 +89,5 @@ namespace DataAccess.Controllers
 
             return null;
         }
-
     }
 }

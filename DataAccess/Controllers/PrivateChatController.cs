@@ -18,14 +18,14 @@ namespace DataAccess.Controllers
         }
 
         [HttpGet]
-        [Route("{chatId}")]
-        public async Task<ActionResult<PrivateChat>> GetChat([FromRoute] int? chatId)
+        [Route("{privateChatId}")]
+        public async Task<ActionResult<PrivateChat>> GetPrivateChat([FromRoute] int? privateChatId)
         {
             try
             {
-                if (chatId != null)
+                if (privateChatId != null)
                 {
-                    PrivateChat chat = _data.GetPrivateChat(chatId.Value);
+                    PrivateChat chat = _data.GetPrivateChat(privateChatId.Value);
 
                     return Ok(chat);
                 }
@@ -40,7 +40,7 @@ namespace DataAccess.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> SendMessage([FromBody] Message message)
+        public async Task<ActionResult> SendPrivateMessage([FromBody] Message message)
         {
             try
             {

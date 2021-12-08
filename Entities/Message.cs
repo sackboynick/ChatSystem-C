@@ -22,6 +22,13 @@ namespace Entities
         [JsonPropertyName("text")]
         public string Text { get; set; }
         
+        [JsonPropertyName("forwardedMessageId")]
+        public int? ForwardedMessageId { get; set; }
+        [JsonPropertyName("repliedMessageId")]
+        public int? RepliedMessageId { get; set; }
+        [JsonPropertyName("pinnedMessageProperty")]
+        public bool? PinnedMessage { get; set; }
+        
         [ForeignKey("PrivateChatId")]
         public int? PrivateChatId { get; set; }
         [ForeignKey("GroupChatId")]
@@ -33,6 +40,9 @@ namespace Entities
             SenderUsername = null;
             LocalDateTime = new DateTime();
             Text = null;
+            ForwardedMessageId = null;
+            RepliedMessageId = null;
+            PinnedMessage = null;
         }
 
         public Message(string senderUsername,string receiverUsername,String text){
@@ -50,6 +60,7 @@ namespace Entities
             LocalDateTime=DateTime.Now;
             Text=text;
         }
+        
         public Message(string senderUsername,string receiverUsername,String text,int privateChatId){
             SenderUsername=senderUsername;
             PrivateChatId = privateChatId;

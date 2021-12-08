@@ -13,10 +13,18 @@ namespace Domain.Data
 
         void ForwardMessage(Message message, Entities.User user);
 
-        void RemoveFriend(string username);
+        void RemoveFriend(int friendshipId);
 
         Message GetMessage(int messageId);
-        void RemoveMessage(Message message);
+        void RemoveMessage(int messageId);
 
+        Participant GetParticipant(int participantId);
+        void AddParticipant(Participant participant);
+        void UpdateParticipant(Participant participant);
+        void RemoveParticipant(int participantId);
+        void UpdateMessage(Message message);
+        Friendship GetFriendship(int friendshipId);
+        void AddFriendship(Friendship friendship);
+        void UpdateFriendship(Friendship friendship);
     }
 }

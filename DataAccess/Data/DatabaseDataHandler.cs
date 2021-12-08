@@ -70,51 +70,87 @@ namespace DataAccess.Data
             chatContext.SaveChanges();
         }
 
-        public Message GetMessage(int messageId)
-        {
-            using ChatContext chatContext = new ChatContext();
-
-        public void RemoveGroup(GroupChat groupChat)
-        {
-            throw new NotImplementedException();
-        }
-
-            return chatContext.Messages.Find(messageId);
-            
-        }
-
-
-        public void PinMessage(Message message)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ReplyMessage(Message message)
-        {
-            throw new NotImplementedException();
-        }
-
         public void ForwardMessage(Message message, User user)
         {
             throw new NotImplementedException();
         }
 
-        public void RemoveFriend(string username)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveMessage(Message message)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public User GetUser(string username)
+        public void RemoveFriend(int friendshipId)
         {
             using ChatContext chatContext = new ChatContext();
 
-            return chatContext.Users.Include(m=> m.Friends).FirstOrDefault(user => user.Username == username);
+            chatContext.Friendships.Remove(chatContext.Friendships.Find(friendshipId));
+            chatContext.SaveChanges();
+        }
+
+        public Message GetMessage(int messageId)
+        {
+            using ChatContext chatContext = new ChatContext();
+            
+            return chatContext.Messages.Find(messageId);
+            
+        }
+
+        public void RemoveMessage(int messageId)
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            chatContext.Messages.Remove(chatContext.Messages.Find(messageId));
+            chatContext.SaveChanges();
+        }
+
+        public Participant GetParticipant(int participantId)
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            return chatContext.Participants.Find(participantId);
+        }
+
+        public void AddParticipant(Participant participant)
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            chatContext.Participants.Add(participant);
+            chatContext.SaveChanges();
+        }
+
+        public void UpdateParticipant(Participant participant)
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            chatContext.Participants.Update(participant);
+            chatContext.SaveChanges();
+        }
+
+        public void RemoveParticipant(int participantId)
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            chatContext.Participants.Remove(chatContext.Participants.Find(participantId));
+            chatContext.SaveChanges();
+        }
+
+        public void UpdateMessage(Message message)
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            chatContext.Messages.Update(message);
+            chatContext.SaveChanges();
+        }
+
+        public Friendship GetFriendship(int friendshipId)
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            return chatContext.Friendships.Find(friendshipId);
+        }
+
+
+        public User GetUser(int usernameId)
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            return chatContext.Users.Find(usernameId);
         }
 
         public void AddFriendship(Friendship friendship)
@@ -126,6 +162,21 @@ namespace DataAccess.Data
 
             chatContext.SaveChanges();
         }
-        
+
+        public void UpdateFriendship(Friendship friendship)
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            chatContext.Friendships.Update(friendship);
+            chatContext.SaveChanges();
+        }
+
+        public void UpdateUser(User user)
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            chatContext.Users.Update(user);
+            chatContext.SaveChanges();
+        }
     }
 }
