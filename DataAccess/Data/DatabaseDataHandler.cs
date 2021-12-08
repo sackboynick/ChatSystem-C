@@ -3,6 +3,7 @@ using System.Linq;
 using DataAccess.Persistence;
 using Domain.Data;
 using Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Data
 {
@@ -35,21 +36,21 @@ namespace DataAccess.Data
         {
             using ChatContext chatContext = new ChatContext();
 
-            return chatContext.PrivateChats.ToList().FirstOrDefault(chat => chat.Id == chatId);
+            return chatContext.PrivateChats.Include(m=> m.Messages).ToList().FirstOrDefault(chat => chat.Id == chatId);
         }
 
         public GroupChat GetGroupChat(int chatId)
         {
             using ChatContext chatContext = new ChatContext();
 
-            return chatContext.GroupChats.First(chat => chat.Id == chatId);
+            return chatContext.GroupChats.Include(m=> m.Messages).Include(m=> m.Participants).First(chat => chat.Id == chatId);
         }
 
-        public void CreateGroup(string groupCreator)
+        public void CreateGroup(GroupChat groupChat)
         {
             using ChatContext chatContext = new ChatContext();
 
-            chatContext.GroupChats.Add(new GroupChat(groupCreator));
+            chatContext.GroupChats.Add(groupChat);
             chatContext.SaveChanges();
         }
 
@@ -60,53 +61,32 @@ namespace DataAccess.Data
             chatContext.GroupChats.Update(groupChat);
             chatContext.SaveChanges();
         }
-
-        /**
-        public void AddParticipantToGroup(int groupId, string userToAdd)
-        {
-            using ChatContext chatContext = new ChatContext();
-
-            GetGroupChat(groupId).Participants.Add(new Participant(userToAdd,false));
-
-            chatContext.SaveChanges();
-
-        }
-
-        public void RemoveParticipantFromGroup(int groupId, string userToRemove)
-        {
-            using ChatContext chatContext = new ChatContext();
-
-            GetGroupChat(groupId).Participants.Remove( GetGroupChat(groupId).Participants.First(participant => participant.Username==userToRemove));
-
-            chatContext.SaveChanges();
-        }
-
-        public void PromoteParticipantToAdmin(int groupId, string userToPromote)
-        {
-            using ChatContext chatContext = new ChatContext();
-
-            Console.WriteLine(groupId);
-            Console.WriteLine(GetGroupChat(groupId).Participants.ToList().Count);
-            Console.WriteLine(GetGroupChat(groupId).Id);
-            Console.WriteLine(GetGroupChat(groupId).Participants.IsReadOnly);
-            GetGroupChat(groupId).Participants.First(participant => participant.Username==userToPromote).Admin=true;
-
-            chatContext.SaveChanges();
-        }
-        **/
+        
 
         public User GetUser(string username)
         {
             using ChatContext chatContext = new ChatContext();
 
-            return chatContext.Users.FirstOrDefault(user => user.Username == username);
+            return chatContext.Users.Include(m=> m.Friends).FirstOrDefault(user => user.Username == username);
         }
 
-        public void AddFriend(string username, string friendToAdd,bool closeFriend)
+        public void AddFriend(string username, Friendship friendship)
         {
             using ChatContext chatContext = new ChatContext();
-            if(chatContext.Users.FirstOrDefault(user => user.Username==username)!=null)
-                chatContext.Users.First(user => user.Username==username).AddFriend(friendToAdd,closeFriend);
+            if(GetUser(username)!=null)
+            {
+                try
+                {
+                    GetUser(username).Friends.Add(friendship);
+                }
+                catch (NullReferenceException e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
+            }
+            else Console.WriteLine("ciao");
+            
             chatContext.SaveChanges();
         }
     }

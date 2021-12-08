@@ -40,11 +40,11 @@ namespace DataAccess.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateGroup([FromQuery] string groupCreator)
+        public async Task<ActionResult> CreateGroup([FromBody] GroupChat groupChat)
         {
             try
             {
-                _data.CreateGroup(groupCreator);
+                _data.CreateGroup(groupChat);
 
                 return Ok();
             }
@@ -67,49 +67,6 @@ namespace DataAccess.Controllers
                 return StatusCode(500, e.Message);
             }
         }
-        /**
-[HttpPut]
-public async Task<ActionResult> AddParticipantToGroup([FromQuery] int groupId, [FromQuery] string userToAdd)
-{
-    try
-    {
-        _data.AddParticipantToGroup(groupId,userToAdd);
-                
-        return Ok();
-    }catch (Exception e) {
-        Console.WriteLine(e);
-        return StatusCode(500, e.Message);
-    }
-}
-        
-[HttpDelete]
-public async Task<ActionResult> DeleteParticipantToGroup([FromQuery] int groupId, [FromQuery] string userToRemove)
-{
-    try
-    {
-        _data.AddParticipantToGroup(groupId,userToRemove);
-                
-        return Ok();
-    }catch (Exception e) {
-        Console.WriteLine(e);
-        return StatusCode(500, e.Message);
-    }
-}
-[HttpPatch]
-public async Task<ActionResult> PromoteParticipantToAdmin([FromQuery] int groupId, [FromQuery] string userToPromote)
-{
-    try
-    {
-        _data.PromoteParticipantToAdmin(groupId,userToPromote);
-                
-        return Ok();
-    }catch (Exception e) {
-        Console.WriteLine(e);
-        return StatusCode(500, e.Message);
-    }
-}
 
-}
-**/
     }
 }
