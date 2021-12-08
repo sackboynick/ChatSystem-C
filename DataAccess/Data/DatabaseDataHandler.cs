@@ -61,7 +61,27 @@ namespace DataAccess.Data
             chatContext.GroupChats.Update(groupChat);
             chatContext.SaveChanges();
         }
-        
+
+        public void RemoveGroup(GroupChat groupChat)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PinMessage(Message message)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ReplyMessage(Message message)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ForwardMessage(Message message, User user)
+        {
+            throw new NotImplementedException();
+        }
+
 
         public User GetUser(string username)
         {
@@ -88,6 +108,16 @@ namespace DataAccess.Data
             else Console.WriteLine("ciao");
             
             chatContext.SaveChanges();
+        }
+
+        public void RemoveFriend(string username)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveMessage(Message message)
+        {
+            throw new NotImplementedException();
         }
     }
 }
