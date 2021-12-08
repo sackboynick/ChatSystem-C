@@ -10,7 +10,7 @@
     <ListViewFieldSettings Id="Id" Text="Name" TValue="DataModel" GroupBy="Category"></ListViewFieldSettings>
     <ListViewTemplates TValue="DataModel">
         <Template>
-            <div class="e-content e-list-multi-line e-list-avatar">
+            <div class="e-list-wrapper e-list-multi-line e-list-avatar">
                 <span id="showUI" class="e-avatar e-avatar-circle" icon="@context.Icon"> @context.Icon</span>
                 <span class="e-list-content">@context.Name</span>
             </div>
@@ -33,12 +33,12 @@
         ListData.Add(new DataModel { Name = "Nancy", Icon = "N", Id = "0", Category = "Contacts"});
         ListData.Add(new DataModel { Name = "Andrew", Icon = "A", Id = "1", Category = "Contacts" });
         ListData.Add(new DataModel { Name = "Janet", Icon = "J", Id = "2", Category = "Friends" });
-        ListData.Add(new DataModel { Name = "Margaret", Icon = "", Category = "Contacts", Id = "3" });
+        ListData.Add(new DataModel { Name = "Margaret", Icon = "M", Category = "Contacts", Id = "3" });
         ListData.Add(new DataModel { Name = "Steven", Icon = "S", Id = "4", Category = "Contacts" });
         ListData.Add(new DataModel { Name = "Laura", Icon = "", Category = "Contacts", Id = "5" });
         ListData.Add(new DataModel { Name = "Robert", Icon = "R", Id = "6", Category = "Friends" });
         ListData.Add(new DataModel { Name = "Michael", Icon = "M", Id = "7", Category = "Contacts" });
-        ListData.Add(new DataModel { Name = "Albert", Icon = "", Category = "Contacts", Id = "8" });
+        ListData.Add(new DataModel { Name = "Albert", Icon = "A", Category = "Contacts", Id = "8" });
         ListData.Add(new DataModel { Name = "Nolan", Icon = "N", Id = "9", Category = "Friends" });
     }
 
@@ -97,10 +97,41 @@
         background: #ffd939;
         color: #000000;
     }
-    .e-content {
+    .e-list-wrapper {
         flex: 1;
-        display: flex;
-        flex-direction: column;
+        display: block;
+        word-wrap: break-word;
+        white-space: nowrap;
         padding: 2px;
+        font-size: 14px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .e-list-avatar {
+        top: 0
+    }
+    .e-avatar {
+        -ms-flex-line-pack: center;
+        align-content: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background-color: #e9ecef;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 4px;
+        color: #212529;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif, "-apple-system", "BlinkMacSystemFont";
+        font-size: 1.05em;
+        font-weight: 400;
+        height: 1.5em;
+        -ms-flex-pack: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+        top: 0;
+        width:1.5em
     }
 </style>

@@ -74,8 +74,39 @@ namespace DataAccess.Data
         {
             using ChatContext chatContext = new ChatContext();
 
+        public void RemoveGroup(GroupChat groupChat)
+        {
+            throw new NotImplementedException();
+        }
+
             return chatContext.Messages.Find(messageId);
             
+        }
+
+
+        public void PinMessage(Message message)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ReplyMessage(Message message)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ForwardMessage(Message message, User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveFriend(string username)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveMessage(Message message)
+        {
+            throw new NotImplementedException();
         }
 
 
