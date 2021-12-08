@@ -10,7 +10,7 @@
     <ListViewFieldSettings Id="Id" Text="Name" TValue="DataModel" GroupBy="Category"></ListViewFieldSettings>
     <ListViewTemplates TValue="DataModel">
         <Template>
-            <div class="e-list-wrapper e-list-multi-line e-list-avatar">
+            <div class="e-content e-list-multi-line e-list-avatar">
                 <span id="showUI" class="e-avatar e-avatar-circle" icon="@context.Icon"> @context.Icon</span>
                 <span class="e-list-content">@context.Name</span>
             </div>
@@ -96,5 +96,11 @@
     .ui-list.e-listview .e-list-item.e-active {
         background: #ffd939;
         color: #000000;
+    }
+    .e-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 2px;
     }
 </style>

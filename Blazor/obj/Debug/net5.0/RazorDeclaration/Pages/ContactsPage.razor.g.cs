@@ -13,75 +13,119 @@ namespace Blazor.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
+<<<<<<< HEAD
+#line 1 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/_Imports.razor"
+=======
 #line 1 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/_Imports.razor"
+>>>>>>> origin/master
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
+#line 2 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/_Imports.razor"
+=======
 #line 2 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/_Imports.razor"
+>>>>>>> origin/master
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
+#line 3 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/_Imports.razor"
+=======
 #line 3 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/_Imports.razor"
+>>>>>>> origin/master
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
+#line 4 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/_Imports.razor"
+=======
 #line 4 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/_Imports.razor"
+>>>>>>> origin/master
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
+#line 5 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/_Imports.razor"
+=======
 #line 5 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/_Imports.razor"
+>>>>>>> origin/master
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
+#line 6 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/_Imports.razor"
+=======
 #line 6 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/_Imports.razor"
+>>>>>>> origin/master
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
+#line 7 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/_Imports.razor"
+=======
 #line 7 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/_Imports.razor"
+>>>>>>> origin/master
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
+#line 8 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/_Imports.razor"
+=======
 #line 8 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/_Imports.razor"
+>>>>>>> origin/master
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
+#line 9 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/_Imports.razor"
+=======
 #line 9 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/_Imports.razor"
+>>>>>>> origin/master
 using Blazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
+#line 10 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/_Imports.razor"
+=======
 #line 10 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/_Imports.razor"
+>>>>>>> origin/master
 using Blazor.Shared;
 
 #line default
 #line hidden
 #nullable disable
+<<<<<<< HEAD
+    [Microsoft.AspNetCore.Components.RouteAttribute("/ContactsPage")]
+    public partial class ContactsPage : Microsoft.AspNetCore.Components.ComponentBase
+=======
 #nullable restore
 #line 2 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/Pages/ContactsPage.razor"
 using Syncfusion.Blazor.Lists;
@@ -98,12 +142,15 @@ using Syncfusion.Blazor.Buttons;
 #nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/ContactsPage")]
     public partial class ContactsPage : Syncfusion.Blazor.SfBaseComponent
+>>>>>>> origin/master
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
+<<<<<<< HEAD
+=======
 #nullable restore
 #line 26 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/Pages/ContactsPage.razor"
       
@@ -137,6 +184,7 @@ using Syncfusion.Blazor.Buttons;
 #line default
 #line hidden
 #nullable disable
+>>>>>>> origin/master
     }
 }
 #pragma warning restore 1591
