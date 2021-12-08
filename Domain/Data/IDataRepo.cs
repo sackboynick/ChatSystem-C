@@ -11,8 +11,6 @@ namespace Domain.Data
 
         public void UpdateGroup(GroupChat groupChat);
 
-        void ForwardMessage(Message message, Entities.User user);
-
         void RemoveFriend(int friendshipId);
 
         Message GetMessage(int messageId);

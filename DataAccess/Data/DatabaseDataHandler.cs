@@ -70,10 +70,6 @@ namespace DataAccess.Data
             chatContext.SaveChanges();
         }
 
-        public void ForwardMessage(Message message, User user)
-        {
-            throw new NotImplementedException();
-        }
 
         public void RemoveFriend(int friendshipId)
         {

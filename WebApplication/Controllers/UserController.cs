@@ -19,11 +19,11 @@ namespace WebApplication.Controllers
 
         [HttpGet]
         [Route("{username}")]
-        public async Task<ActionResult<User>> GetUser([FromRoute] string username)
+        public async Task<ActionResult<User>> GetUser([FromRoute] int userId)
         {
             try
             {
-                User user = _data.GetUser(username);
+                User user = _data.GetUser(userId);
                 return Ok(user);
             }
             catch (Exception e)
