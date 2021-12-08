@@ -48,16 +48,7 @@ namespace Domain.Data
         {
             throw new System.NotImplementedException();
         }
-
-        public Entities.User GetUser(string username)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void AddFriend(string username, Friendship friendship)
-        {
-            throw new System.NotImplementedException();
-        }
+        
 
         public void RemoveFriend(string username)
         {
