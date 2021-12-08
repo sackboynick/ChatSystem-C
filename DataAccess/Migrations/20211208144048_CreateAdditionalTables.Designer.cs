@@ -3,14 +3,16 @@ using System;
 using DataAccess.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(ChatContext))]
-    partial class ChatContextModelSnapshot : ModelSnapshot
+    [Migration("20211208144048_CreateAdditionalTables")]
+    partial class CreateAdditionalTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,7 +58,7 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ForwardedMessageId")
+                    b.Property<int>("ChatId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("GroupChatId")
@@ -65,17 +67,11 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("LocalDateTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<bool?>("PinnedMessage")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int?>("PrivateChatId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("ReceiverUsername")
                         .HasColumnType("TEXT");
-
-                    b.Property<int?>("RepliedMessageId")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("SenderUsername")
                         .IsRequired()
@@ -114,7 +110,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("GroupChatId");
 
-                    b.ToTable("Participants");
+                    b.ToTable("Participant");
                 });
 
             modelBuilder.Entity("Entities.PrivateChat", b =>

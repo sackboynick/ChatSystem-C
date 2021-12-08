@@ -4,23 +4,25 @@ namespace Domain.Data
 {
     public interface IDataRepo
     {
-        void SendMessage(Message message);
-        PrivateChat GetPrivateChat(int chatId);
-        GroupChat GetGroupChat(int chatId);
-        void CreateGroup(GroupChat groupChat);
-        void UpdateGroup(GroupChat groupChat);
+        public void SendMessage(Message message);
+        public PrivateChat GetPrivateChat(int chatId);
+        public GroupChat GetGroupChat(int chatId);
+        public void CreateGroup(GroupChat groupChat);
 
-        void RemoveGroup(GroupChat groupChat);
+        public void UpdateGroup(GroupChat groupChat);
 
-        void PinMessage(Message message);
+        void RemoveFriend(int friendshipId);
 
-        void ReplyMessage(Message message);
+        Message GetMessage(int messageId);
+        void RemoveMessage(int messageId);
 
-        void ForwardMessage(Message message, Entities.User user);
-
-        void RemoveFriend(string username);
-
-        void RemoveMessage(Message message);
-
+        Participant GetParticipant(int participantId);
+        void AddParticipant(Participant participant);
+        void UpdateParticipant(Participant participant);
+        void RemoveParticipant(int participantId);
+        void UpdateMessage(Message message);
+        Friendship GetFriendship(int friendshipId);
+        void AddFriendship(Friendship friendship);
+        void UpdateFriendship(Friendship friendship);
     }
 }
