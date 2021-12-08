@@ -39,7 +39,7 @@ namespace WebApplication.Controllers
         {
             try
             {
-                _data.AddFriend(username,friendToAdd,closeFriend);
+                _data.AddFriend(username,new Friendship(friendToAdd,closeFriend));
                 
                 return Ok();
             }catch (Exception e) {

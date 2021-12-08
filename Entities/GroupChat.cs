@@ -13,7 +13,7 @@ namespace Entities
         public int Id { get; set; }
         [Required]
         [JsonPropertyName("participants")]
-        public ICollection<Participant> Participants { get; set; }
+        public virtual ICollection<Participant> Participants { get; set; }
 
         public GroupChat()
         {

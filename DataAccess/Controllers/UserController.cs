@@ -33,21 +33,22 @@ namespace DataAccess.Controllers
                 return StatusCode(500, e.Message);
             }
         }
-        
-        [HttpPatch]
-        [Route("{username}/{friendToAdd}/{closeFriend}")]
-        public async Task<ActionResult> AddFriend([FromRoute] string username,[FromRoute] string friendToAdd,[FromRoute] bool closeFriend)
+
+        [HttpPut]
+        public async Task<ActionResult> AddFriend([FromRoute] string username,[FromBody] Friendship friendship)
+
         {
             try
             {
-                _data.AddFriend(username,friendToAdd,closeFriend);
-                
+                _data.AddFriend(username, friendship);
+
                 return Ok();
-            }catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 Console.WriteLine(e);
                 return StatusCode(500, e.Message);
             }
         }
-        
     }
 }

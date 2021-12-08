@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -90,19 +91,49 @@ namespace WebApplication.Data
             return groupChat;
         }
 
-        public void AddParticipantToGroup(int groupId, string userToAdd)
+        private async Task<Task> UpdateGroup(GroupChat groupChat)
         {
-            throw new NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+
+            string groupChatAsJson = JsonSerializer.Serialize(groupChat);
+            StringContent content = new StringContent(
+                groupChatAsJson,
+                Encoding.UTF8,
+                "application/json"
+            );
+            HttpResponseMessage response = await client.PutAsync("https://localhost:5001/Group", content).ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+
+            return Task.CompletedTask;
+        }
+        public async void AddParticipantToGroup(int groupId, string userToAdd)
+        {
+            GroupChat groupChat = GetGroupChat(groupId).Result;
+            groupChat.Participants.Add(new Participant(userToAdd,false));
+            await UpdateGroup(groupChat);
         }
 
-        public void RemoveParticipantFromGroup(int groupId, string userToRemove)
+        public async void RemoveParticipantFromGroup(int groupId, string userToRemove)
         {
-            throw new NotImplementedException();
+            GroupChat groupChat = GetGroupChat(groupId).Result;
+            groupChat.Participants.Remove(groupChat.Participants.First(participant => participant.Equals(new Participant(userToRemove,false))));
+            await UpdateGroup(groupChat);
         }
 
-        public void PromoteParticipantToAdmin(int groupId, string userToPromote)
+        public async void PromoteParticipantToAdmin(int groupId, string userToPromote)
         {
-            throw new NotImplementedException();
+            GroupChat groupChat = GetGroupChat(groupId).Result;
+            groupChat.Participants.First(participant => participant.Username==userToPromote).Admin=true;
+            await UpdateGroup(groupChat);
         }
 
         public async Task<Task> CreateGroup(string groupCreator)
@@ -116,10 +147,13 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
-            
-            
+
+            GroupChat groupChat = new GroupChat(groupCreator);
+            string userAsJson = JsonSerializer.Serialize(groupChat);
             StringContent content = new StringContent(
-                groupCreator
+                userAsJson,
+                Encoding.UTF8,
+                "application/json"
             );
             HttpResponseMessage response = await client.PostAsync("https://localhost:5001/Group?groupCreator=", content).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
@@ -127,11 +161,7 @@ namespace WebApplication.Data
 
             return Task.CompletedTask;
         }
-
-        public Task<Task> UpdateGroup(GroupChat groupChat)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public async Task<User> GetUser(string username)
         {
@@ -160,9 +190,30 @@ namespace WebApplication.Data
             return user;
         }
 
-        public Task<Task> AddFriend(string user, string friendToAdd, bool closeFriend)
+        public async Task<Task> AddFriend(string user, string friendToAdd, bool closeFriend)
         {
-            throw new NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+
+            Friendship friendship = new Friendship(friendToAdd, closeFriend);
+            string friendshipAsJson = JsonSerializer.Serialize(friendship);
+            StringContent content = new StringContent(
+                friendshipAsJson,
+                Encoding.UTF8,
+                "application/json"
+            );
+            HttpResponseMessage response = await client.PutAsync("https://localhost:5001/User/"+user, content).ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+
+            return Task.CompletedTask;
         }
     }
 }

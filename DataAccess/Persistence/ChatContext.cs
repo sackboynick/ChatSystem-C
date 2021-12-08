@@ -9,12 +9,13 @@ namespace DataAccess.Persistence
         public DbSet<User> Users { get; set; }
         public DbSet<PrivateChat> PrivateChats { get; set; }
         public DbSet<GroupChat> GroupChats { get; set; }
-        
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // name of database
             optionsBuilder.UseSqlite("Data Source = chats.db");
         }
+
     }
 }

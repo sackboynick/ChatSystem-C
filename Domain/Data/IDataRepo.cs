@@ -7,7 +7,7 @@ namespace Domain.Data
         public void SendMessage(Message message);
         public PrivateChat GetPrivateChat(int chatId);
         public GroupChat GetGroupChat(int chatId);
-        public void CreateGroup(string groupCreator);
+        public void CreateGroup(GroupChat groupChat);
 
         public void UpdateGroup(GroupChat groupChat);
         

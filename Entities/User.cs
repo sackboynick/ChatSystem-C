@@ -25,7 +25,7 @@ namespace Entities
         public string Password { get; set;}
         [Required]
         [JsonPropertyName("friends")]
-        public ICollection<Friendship> Friends { get; set;}
+        public virtual ICollection<Friendship> Friends { get; set;}
 
 
         public User()
@@ -48,8 +48,8 @@ namespace Entities
         }
   
 
-        public void AddFriend(string friendUsername,bool closeFriend){
-            Friends.Add(new Friendship(friendUsername, closeFriend));
+        public void AddFriend(Friendship friendship){
+            Friends.Add(friendship);
         }
 
         public new bool Equals(Object obj) {

@@ -5,9 +5,10 @@ namespace Entities
 {
     public class Friendship
     {
-        [Key] public int Id { get; set; } 
+        public int Id { get; set; }
+
         [Required]
-        [JsonPropertyName("username")]
+        [JsonPropertyName("friendUsername")]
         public string Username{ get; set; } 
         [Required]
         [JsonPropertyName("closeFriend")]
@@ -15,6 +16,7 @@ namespace Entities
 
         public Friendship()
         {
+
             Username = null;
             CloseFriend = false;
         }
