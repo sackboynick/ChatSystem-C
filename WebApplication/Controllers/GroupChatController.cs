@@ -8,7 +8,7 @@ using WebApplication.Data;
 namespace WebApplication.Controllers
 {
     [ApiController]
-    [Route("[controller]Server")]
+    [Route("[GroupChatServer")]
     public class GroupController : ControllerBase
     {
         private readonly IData _data;
@@ -56,12 +56,13 @@ namespace WebApplication.Controllers
             }
         }
         
-        [HttpPut]
+        [HttpPost]
         public async Task<ActionResult> AddParticipantToGroup([FromQuery] int groupId, [FromQuery] string userToAdd)
         {
             try
             {
-                _data.AddParticipantToGroup(groupId,userToAdd);
+                
+                await _data.AddParticipantToGroup(groupId,userToAdd);
                 
                 return Ok();
             }catch (Exception e) {
@@ -71,11 +72,11 @@ namespace WebApplication.Controllers
         }
         
         [HttpDelete]
-        public async Task<ActionResult> DeleteParticipantToGroup([FromQuery] int groupId, [FromQuery] string userToRemove)
+        public async Task<ActionResult> DeleteParticipantToGroup([FromQuery] int participantId)
         {
             try
             {
-                _data.AddParticipantToGroup(groupId,userToRemove);
+                await _data.RemoveParticipantFromGroup(participantId);
                 
                 return Ok();
             }catch (Exception e) {
@@ -84,11 +85,11 @@ namespace WebApplication.Controllers
             }
         }
         [HttpPatch]
-        public async Task<ActionResult> PromoteParticipantToAdmin([FromQuery] int groupId, [FromQuery] string userToPromote)
+        public async Task<ActionResult> PromoteParticipantToAdmin([FromQuery] int participantId)
         {
             try
             {
-                _data.PromoteParticipantToAdmin(groupId,userToPromote);
+                await _data.PromoteParticipantToAdmin(participantId);
                 
                 return Ok();
             }catch (Exception e) {

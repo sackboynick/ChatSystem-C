@@ -13,15 +13,9 @@
         "packagesPath": "/home/c/.nuget/packages/",
         "outputPath": "/home/c/Desktop/RiderProjects/ChatSystem/DataAccess/obj/",
         "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/home/c/.nuget/NuGet/NuGet.Config"
-        ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
@@ -103,15 +97,9 @@
         "packagesPath": "/home/c/.nuget/packages/",
         "outputPath": "/home/c/Desktop/RiderProjects/ChatSystem/Domain/obj/",
         "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/home/c/.nuget/NuGet/NuGet.Config"
-        ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
@@ -165,15 +153,9 @@
         "packagesPath": "/home/c/.nuget/packages/",
         "outputPath": "/home/c/Desktop/RiderProjects/ChatSystem/Entities/obj/",
         "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/home/c/.nuget/NuGet/NuGet.Config"
-        ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
@@ -223,15 +205,9 @@
         "packagesPath": "/home/c/.nuget/packages/",
         "outputPath": "/home/c/Desktop/RiderProjects/ChatSystem/WebApplication/obj/",
         "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/home/c/.nuget/NuGet/NuGet.Config"
-        ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
