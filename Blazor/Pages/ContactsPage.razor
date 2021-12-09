@@ -3,8 +3,8 @@
 @using Syncfusion.Blazor.Buttons
 @inherits Syncfusion.Blazor.SfBaseComponent
 
-<SfButton IconCss="e-icons e-add-icon" IconPosition="IconPosition.Right">Add</SfButton>
-<SfButton IconCss="e-icons e-add-icon" IconPosition="IconPosition.Right">Edit</SfButton>
+<SfButton IconCss="oi oi-plus" IconPosition="IconPosition.Right">New Contact</SfButton>
+<SfButton IconCss="oi oi-plus" IconPosition="IconPosition.Right">New Group</SfButton>
 
 <input @bind-value="SearchTerm" @bind-value:event="oninput" />
 
@@ -15,6 +15,8 @@
             <div class="e-list-wrapper e-list-multi-line e-list-avatar">
                 <span id="showUI" class="e-avatar e-avatar-circle" icon="@context.Icon"> @context.Icon</span>
                 <span class="e-list-content">@context.Name</span>
+                <span class="e-list-content">@context.Nickname</span>
+                <span class="status">@context.Status</span>
             </div>
         </Template>
         <GroupTemplate>
@@ -36,16 +38,16 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        ListData.Add(new DataModel { Name = "Nancy", Icon = "N", Id = "0", Category = "Contacts"});
-        ListData.Add(new DataModel { Name = "Andrew", Icon = "A", Id = "1", Category = "Contacts" });
-        ListData.Add(new DataModel { Name = "Janet", Icon = "J", Id = "2", Category = "Friends" });
-        ListData.Add(new DataModel { Name = "Margaret", Icon = "M", Category = "Contacts", Id = "3" });
-        ListData.Add(new DataModel { Name = "Steven", Icon = "S", Id = "4", Category = "Contacts" });
-        ListData.Add(new DataModel { Name = "Laura", Icon = "", Category = "Contacts", Id = "5" });
-        ListData.Add(new DataModel { Name = "Robert", Icon = "R", Id = "6", Category = "Friends" });
-        ListData.Add(new DataModel { Name = "Michael", Icon = "M", Id = "7", Category = "Contacts" });
-        ListData.Add(new DataModel { Name = "Albert", Icon = "A", Category = "Contacts", Id = "8" });
-        ListData.Add(new DataModel { Name = "Nolan", Icon = "N", Id = "9", Category = "Friends" });
+        ListData.Add(new DataModel { Name = "Nancy", Icon = "N", Id = "0", Category = "Contacts", Nickname = "", Status = ""});
+        ListData.Add(new DataModel { Name = "Andrew", Icon = "A", Id = "1", Category = "Contacts", Nickname = "", Status = ""});
+        ListData.Add(new DataModel { Name = "Margaret", Icon = "M", Category = "Contacts", Id = "3", Nickname = "", Status = ""});
+        ListData.Add(new DataModel { Name = "$teven2001", Icon = "S", Id = "4", Category = "Contacts", Nickname = "'Steven Thompson'", Status = "online"});
+        ListData.Add(new DataModel { Name = "Laura", Icon = "L", Category = "Contacts", Id = "5", Nickname = "", Status = ""});
+        ListData.Add(new DataModel { Name = "Michael", Icon = "M", Id = "7", Category = "Contacts", Nickname = "", Status = ""});
+        ListData.Add(new DataModel { Name = "Albert", Icon = "A", Category = "Contacts", Id = "8", Nickname = "", Status = ""});
+        ListData.Add(new DataModel { Name = "Bums United", Icon = "M", Id = "7", Category = "Groups", Nickname = "", Status = ""});
+        ListData.Add(new DataModel { Name = "Amogus", Icon = "A", Category = "Groups", Id = "8", Nickname = "", Status = ""});
+        ListData.Add(new DataModel { Name = "DOL", Icon = "N", Id = "9", Category = "Groups", Nickname = "", Status = ""});
     }
 
     public class DataModel
@@ -54,6 +56,8 @@
         public string Icon { get; set; }
         public string Id { get; set; }
         public string Category { get; set; }
+        public string Nickname { get; set; }
+        public string Status { get; set; }
     }
 
 }
@@ -62,9 +66,11 @@
     /* ListView position alignment */
     .ui-list.e-listview {
         margin: auto;
-        max-width: 325px;
+        margin-top: 20px;
+        max-width: 100%;
         line-height: initial;
         border: 1px solid lightgray;
+        overflow: scroll;
     }
     /* ListView header alignment */
     .ui-list.e-listview .e-list-header {
@@ -79,6 +85,8 @@
     }
     .ui-list.e-listview .e-list-item {
         padding: 3px 0;
+        height: 70px;
+        vertical-align: middle;
     }
     .ui-list.e-listview [icon="R"] {
         background: lightgrey;
@@ -114,7 +122,8 @@
         text-overflow: ellipsis;
     }
     .e-list-avatar {
-        top: 0
+        top: 0;
+        vertical-align: middle;
     }
     .e-avatar {
         -ms-flex-line-pack: center;
@@ -138,6 +147,13 @@
         overflow: hidden;
         position: relative;
         top: 0;
-        width:1.5em
+        width:1.5em;
+        vertical-align: middle;
+    }
+    .e-list-content {
+        vertical-align: middle;
+    }
+    .status {
+        right: 0;
     }
 </style>
