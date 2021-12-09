@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Domain.Data;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication.Data;
 
 namespace WebApplication.Controllers
 {
@@ -10,21 +11,36 @@ namespace WebApplication.Controllers
     [Route("UserServer")]
     public class UserController : ControllerBase
     {
-        private readonly IUserRepo _data;
+        private readonly IData _data;
 
-        public UserController([FromServices] IUserRepo data)
+        public UserController([FromServices] IData data)
         {
             _data = data;
         }
 
         [HttpGet]
-        [Route("{username}")]
+        [Route("{userId}")]
         public async Task<ActionResult<User>> GetUser([FromRoute] int userId)
         {
             try
             {
-                User user = _data.GetUser(userId);
+                User user = _data.GetUser(userId).Result;
                 return Ok(user);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
+        
+        [HttpPut]
+        public async Task<ActionResult> UpdateUser([FromBody] User user)
+        {
+            try
+            {
+                await _data.UpdateUser(user);
+                return Ok();
             }
             catch (Exception e)
             {
@@ -39,7 +55,7 @@ namespace WebApplication.Controllers
         {
             try
             {
-                _data.AddFriend(username,new Friendship(friendToAdd,closeFriend));
+                await _data.AddFriend(username,friendToAdd,closeFriend);
                 
                 return Ok();
             }catch (Exception e) {

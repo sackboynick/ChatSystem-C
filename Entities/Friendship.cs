@@ -30,6 +30,12 @@ namespace Entities
             Username=username;
             CloseFriend=closeFriend;
         }
+        
+        public Friendship(int userId,string username,bool closeFriend) {
+            Username=username;
+            CloseFriend=closeFriend;
+            UserId = userId;
+        }
 
     }
 }
