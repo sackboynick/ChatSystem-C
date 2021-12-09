@@ -28,5 +28,11 @@ namespace Entities
             Username = username;
             Admin = admin;
         }
+        public Participant(int groupChatId,string username, bool admin)
+        {
+            Username = username;
+            Admin = admin;
+            GroupChatId = groupChatId;
+        }
     }
 }

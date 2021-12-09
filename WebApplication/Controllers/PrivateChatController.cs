@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebApplication.Controllers
 {
     [ApiController]
-    [Route("[controller]Server")]
+    [Route("PrivateChatServer")]
     public class PrivateChatController : ControllerBase
     {
         private readonly IDataRepo _data;
@@ -19,7 +19,7 @@ namespace WebApplication.Controllers
 
         [HttpGet]
         [Route("{chatId}")]
-        public async Task<ActionResult<PrivateChat>> GetChat([FromRoute] int? chatId)
+        public async Task<ActionResult<PrivateChat>> GetPrivateChat([FromRoute] int? chatId)
         {
             try
             {
