@@ -9,7 +9,7 @@ using WebApplication.Data;
 namespace WebApplication.Controllers
 {
     [ApiController]
-    [Route("[FriendshipServer]")]
+    [Route("FriendshipServer")]
     public class FriendshipController : Controller
     {
         private readonly IData _data;
@@ -20,16 +20,37 @@ namespace WebApplication.Controllers
         }
 
         [HttpGet]
-        [Route("{friendshipId}")]
-        public async Task<ActionResult<List<Friendship>>> GetFriendships([FromRoute] int? usernameId)
+        [Route("/FriendsOf/{userId}")]
+        public async Task<ActionResult<List<Friendship>>> GetFriendships([FromRoute] int? userId)
         {
             try
             {
-                if (usernameId != null)
+                if (userId != null)
                 {
-                    List<Friendship> friendships = _data.GetAllFriendsOfUser(usernameId.Value);
+                    List<Friendship> friendships = _data.GetAllFriendsOfUser(userId.Value).Result;
 
                     return Ok(friendships);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+
+            return null;
+        }
+        [HttpGet]
+        [Route("{friendshipId}")]
+        public async Task<ActionResult<Friendship>> GetFriendship([FromRoute] int? friendshipId)
+        {
+            try
+            {
+                if (friendshipId != null)
+                {
+                    Friendship friendship = _data.GetFriendship(friendshipId.Value).Result;
+
+                    return Ok(friendship);
                 }
             }
             catch (Exception e)

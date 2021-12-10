@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Domain.Data;
 using Entities;
@@ -18,6 +19,21 @@ namespace WebApplication.Controllers
             _data = data;
         }
 
+        [HttpGet]
+        public async Task<ActionResult<List<User>>> GetAllUsers()
+        {
+            try
+            {
+                List<User> users = _data.GetAllUsers().Result;
+                return Ok(users);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
+        
         [HttpGet]
         [Route("{userId}")]
         public async Task<ActionResult<User>> GetUser([FromRoute] int userId)

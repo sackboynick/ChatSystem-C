@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Domain.Data;
 using Entities;
@@ -17,6 +18,29 @@ namespace WebApplication.Controllers
         {
             _data = data;
         }
+        
+        [HttpGet]
+        [Route("Group/{groupId}")]
+        public async Task<ActionResult<List<Participant>>> GetParticipantsFromGroup([FromRoute] int? groupId)
+        {
+            try
+            {
+                if (groupId != null)
+                {
+                    List<Participant> participant = _data.GetAllGroupParticipants(groupId.Value).Result;
+
+                    return Ok(participant);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+
+            return null;
+        }
+        
 
         [HttpGet]
         [Route("{participantId}")]

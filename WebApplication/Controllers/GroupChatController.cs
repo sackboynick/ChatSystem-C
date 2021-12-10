@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Domain.Data;
 using Entities;
@@ -8,7 +9,7 @@ using WebApplication.Data;
 namespace WebApplication.Controllers
 {
     [ApiController]
-    [Route("[GroupChatServer")]
+    [Route("GroupChatServer")]
     public class GroupController : ControllerBase
     {
         private readonly IData _data;
@@ -16,6 +17,28 @@ namespace WebApplication.Controllers
         public GroupController([FromServices] IData data)
         {
             _data = data;
+        }
+        
+        [HttpGet]
+        [Route("OfUser/{userId}")]
+        public async Task<ActionResult<List<GroupChat>>> GetUserGroupChats([FromRoute] int? userId)
+        {
+            try
+            {
+                if (userId != null)
+                {
+                    List<GroupChat> groupChats = _data.GetAllUserGroupChats(userId.Value).Result;
+
+                    return Ok(groupChats);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+
+            return null;
         }
 
         [HttpGet]

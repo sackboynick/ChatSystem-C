@@ -1,10 +1,13 @@
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using System.Text.Json.Serialization;
 
 namespace Entities
 {
-    public class PrivateChat:Chat
+    public class PrivateChat:Chat,IComparer<Chat>
     {
 
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -28,6 +31,12 @@ namespace Entities
         }
 
 
-
+        public int Compare(Chat? x, Chat? y)
+        {
+            if (x != null)
+                if (y != null)
+                    return x.Messages.Last().LocalDateTime.CompareTo(y.Messages.Last().LocalDateTime);
+            return 0;
+        }
     }
 }

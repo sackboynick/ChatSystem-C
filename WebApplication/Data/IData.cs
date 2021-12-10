@@ -24,9 +24,17 @@ namespace WebApplication.Data
         public Task<Participant> GetParticipant(int participantId);
 
         public Task<Task> UpdateUser(User user);
-        public Task<Task> UpdatePrivateChat(PrivateChat privateChat);
-        public Task<Task> UpdateGroupChat(GroupChat groupChat);
 
-        List<Friendship> GetAllFriendsOfUser(int usernameId);
+        Task<List<Friendship>> GetAllFriendsOfUser(int userId);
+        Task<List<PrivateChat>> GetAllUserPrivateChats(int userId);
+        Task<List<GroupChat>> GetAllUserGroupChats(int userId);
+        Task<List<Message>> GetAllChatMessages(int chatId);
+        Task<List<Message>> GetAllGroupMessages(int groupId);
+        Task<List<Participant>> GetAllGroupParticipants(int groupId);
+        Task<List<Chat>> GetAllUserChats(int userId);
+
+        Task<Task> RemoveMessages(int messageId);
+        Task<Friendship> GetFriendship(int friendshipId);
+        Task<List<User>> GetAllUsers();
     }
 }
