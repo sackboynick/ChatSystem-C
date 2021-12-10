@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Domain.Data;
 using Entities;
@@ -15,6 +16,22 @@ namespace DataAccess.Controllers
         public GroupController([FromServices] IDataRepo data)
         {
             _data = data;
+        }
+        
+        [HttpGet]
+        public async Task<ActionResult<List<GroupChat>>> GetGroupChats()
+        {
+            try
+            {
+                List<GroupChat> groupChats = _data.GetGroupChats();
+
+                return Ok(groupChats);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
         }
 
         [HttpGet]

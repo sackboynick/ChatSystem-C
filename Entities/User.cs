@@ -26,7 +26,7 @@ namespace Entities
         public string Password { get; set;}
         [Required]
         [JsonPropertyName("friends")]
-        public virtual ICollection<Friendship> Friends { get; set;}
+        public ICollection<Friendship> Friends { get; set;}
 
 
         public User()
