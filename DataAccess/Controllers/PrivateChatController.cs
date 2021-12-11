@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Domain.Data;
 using Entities;
@@ -15,6 +16,22 @@ namespace DataAccess.Controllers
         public PrivateChatController([FromServices] IDataRepo data)
         {
             _data = data;
+        }
+        
+        [HttpGet]
+        public async Task<ActionResult<List<PrivateChat>>> GetPrivateChats()
+        {
+            try
+            {
+                List<PrivateChat> privateChats = _data.GetPrivateChats();
+
+                return Ok(privateChats);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
         }
 
         [HttpGet]

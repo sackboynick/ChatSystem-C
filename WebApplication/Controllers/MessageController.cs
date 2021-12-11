@@ -4,35 +4,65 @@ using System.Threading.Tasks;
 using Domain.Data;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication.Data;
 
-namespace DataAccess.Controllers
+namespace WebApplication.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("MessageServer")]
     public class MessageController : Controller
     {
-        private readonly IDataRepo _data;
+        private readonly IData _data;
         
-        public MessageController([FromServices] IDataRepo data)
+        public MessageController([FromServices] IData data)
         {
             _data = data;
         }
-        
         [HttpGet]
-        public async Task<ActionResult<List<Message>>> GetMessages()
+        [Route("Group/{groupId}")]
+        public async Task<ActionResult<List<Message>>> GetAllGroupMessages([FromRoute] int? groupId)
         {
             try
             {
-                List<Message> messages = _data.GetMessages();
+                if (groupId != null)
+                {
+                    List<Message> messages = _data.GetAllGroupMessages(groupId.Value).Result;
 
-                return Ok(messages);
+                    return Ok(messages);
+                }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
                 return StatusCode(500, e.Message);
             }
+
+            return null;
         }
+        
+        [HttpGet]
+        [Route("PrivateChat/{chatId}")]
+        public async Task<ActionResult<List<Message>>> GetAllPrivateChatMessages([FromRoute] int? chatId)
+        {
+            try
+            {
+                if (chatId != null)
+                {
+                    List<Message> messages = _data.GetAllChatMessages(chatId.Value).Result;
+
+                    return Ok(messages);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+
+            return null;
+        }
+        
+        
 
         [HttpGet]
         [Route("{messageId}")]
@@ -42,7 +72,7 @@ namespace DataAccess.Controllers
             {
                 if (messageId != null)
                 {
-                    Message message = _data.GetMessage(messageId.Value);
+                    Message message = _data.GetMessage(messageId.Value).Result;
 
                     return Ok(message);
                 }
@@ -61,7 +91,7 @@ namespace DataAccess.Controllers
         {
             try
             {
-                _data.SendMessage(message);
+                await _data.SendMessage(message);
 
                 return Ok();
             }
@@ -77,7 +107,10 @@ namespace DataAccess.Controllers
         {
             try
             {
-                _data.UpdateMessage(message);
+                if (message.PinnedMessage != null && message.PinnedMessage.Value)
+                {
+                    await _data.PinMessage(message.Id);
+                }
                 
                 return Ok();
             }catch (Exception e) {
@@ -93,7 +126,7 @@ namespace DataAccess.Controllers
             {
                 if (messageId != null)
                 {
-                    _data.RemoveMessage(messageId.Value);
+                    await _data.RemoveMessages(messageId.Value);
 
                     return Ok();
                 }

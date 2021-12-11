@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Entities;
 
 namespace Domain.Data
@@ -6,7 +7,8 @@ namespace Domain.Data
     {
         
         public Entities.User GetUser(int userId);
-        public void AddFriendship(Friendship friendship);
         void UpdateUser(Entities.User user);
+        
+        List<Entities.User> GetUsersList();
     }
 }

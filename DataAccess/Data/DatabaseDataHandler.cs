@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using DataAccess.Persistence;
 using Domain.Data;
@@ -166,6 +167,49 @@ namespace DataAccess.Data
             chatContext.Friendships.Update(friendship);
             chatContext.SaveChanges();
         }
+
+        public List<Friendship> GetFriendshipsList()
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            return chatContext.Friendships.ToList();
+        }
+
+        public List<User> GetUsersList()
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            return chatContext.Users.ToList();
+        }
+
+        public List<PrivateChat> GetPrivateChats()
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            return chatContext.PrivateChats.ToList();
+        }
+
+        public List<GroupChat> GetGroupChats()
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            return chatContext.GroupChats.ToList();
+        }
+
+        public List<Message> GetMessages()
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            return chatContext.Messages.ToList();
+        }
+
+        public List<Participant> GetParticipants()
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            return chatContext.Participants.ToList();
+        }
+
 
         public void UpdateUser(User user)
         {

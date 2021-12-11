@@ -12,14 +12,14 @@ namespace Blazor.Data
 
         Task AddFriendToGroup(string username);
         
-        Task<IList<Friendship>> UsersFriendships();
-        Task<IList<GroupChat>> UsersGroupChats();
-        Task<IList<Participant>> GetParticipants();
-        Task<IList<Message>> GetPrivateMessages();
-        Task<IList<Message>> GetGroupMessages();
+        Task<IList<Friendship>> UserFriendships(int userId);
+        Task<IList<Chat>> UserChats(int userId);
+        Task<IList<Participant>> GetParticipants(int groupId);
+        Task<IList<Message>> GetPrivateMessages(int chatId);
+        Task<IList<Message>> GetGroupMessages(int groupId);
         
         // IList<GroupChat> UserCreatedGroupChats(int userId);
-        Task<Message> GetMessage(Message message);
+        Task<Message> GetMessage(int messageId);
         Task UpdateMessage(Message message);
         Task RemoveMessage(int messageId);
         
@@ -27,7 +27,7 @@ namespace Blazor.Data
         Task RemoveFriend(int friendshipId);
         
         
-        Task CreateGroup(GroupChat groupChat);
+        Task CreateGroup(string groupCreator);
         Task UpdateGroup(GroupChat groupChat);
         
         Task AddParticipant(Participant participant);

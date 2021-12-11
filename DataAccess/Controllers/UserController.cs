@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DataAccess.Data;
@@ -17,6 +18,22 @@ namespace DataAccess.Controllers
         public UserController([FromServices] IUserRepo data)
         {
             _data = data;
+        }
+        
+        [HttpGet]
+        public async Task<ActionResult<List<User>>> GetUsers()
+        {
+            try
+            {
+                List<User> users = _data.GetUsersList();
+
+                return Ok(users);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
         }
 
         [HttpGet]

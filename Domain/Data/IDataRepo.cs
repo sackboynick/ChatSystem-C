@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Entities;
 
 namespace Domain.Data
@@ -24,5 +25,11 @@ namespace Domain.Data
         Friendship GetFriendship(int friendshipId);
         void AddFriendship(Friendship friendship);
         void UpdateFriendship(Friendship friendship);
+        List<Friendship> GetFriendshipsList();
+        List<PrivateChat> GetPrivateChats();
+        List<GroupChat> GetGroupChats();
+        List<Message> GetMessages();
+        List<Participant> GetParticipants();
+
     }
 }
