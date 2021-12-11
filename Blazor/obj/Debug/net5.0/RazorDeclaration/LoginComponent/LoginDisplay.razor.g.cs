@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace Blazor.Shared
+namespace Blazor.LoginComponent
 {
     #line hidden
     using System;
@@ -82,7 +82,14 @@ using Blazor.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 1 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/LoginComponent/LoginDisplay.razor"
+using AspNetCore.Components.Authentication;
+
+#line default
+#line hidden
+#nullable disable
+    public partial class LoginDisplay : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -90,21 +97,19 @@ using Blazor.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/Shared/NavMenu.razor"
-       
-    private bool collapseNavMenu = true;
-
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
+#line 16 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/LoginComponent/LoginDisplay.razor"
+      
+    private async Task BeginLogout(MouseEventArgs args)
     {
-        collapseNavMenu = !collapseNavMenu;
+        await SignOutManager.SetSignOutState();
+        Navigation.NavigateTo("authentication/logout");
     }
-
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private SignOutSessionStateManager SignOutManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager Navigation { get; set; }
     }
 }
 #pragma warning restore 1591
