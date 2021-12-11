@@ -31,12 +31,12 @@ namespace Blazor
             services.AddServerSideBlazor();
             services.AddSingleton<IUserService, ValidatorLogInHttp>();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
-            //services.AddAuthorization(options =>
-            //    options.AddPolicy("RequireAdmin", builder =>
-             //       builder.RequireAuthenticatedUser().RequireClaim("Role", "Admin")));
-            //services.AddAuthorization(options =>
-            //    options.AddPolicy("RequireLogIn",  a => 
-             //       a.RequireAuthenticatedUser()));
+            services.AddAuthorization(options =>
+                options.AddPolicy("RequireAdmin", builder =>
+                    builder.RequireAuthenticatedUser().RequireClaim("Role", "Admin")));
+            services.AddAuthorization(options =>
+                options.AddPolicy("RequireLogIn",  a => 
+                    a.RequireAuthenticatedUser()));
 
         }
 
