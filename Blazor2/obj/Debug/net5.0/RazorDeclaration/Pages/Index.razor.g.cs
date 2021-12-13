@@ -13,84 +13,84 @@ namespace Blazor2.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
+#line 1 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor2/_Imports.razor"
 using Blazor2;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
+#line 2 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor2/_Imports.razor"
 using Blazor2.Helpers;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
+#line 3 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor2/_Imports.razor"
 using Blazor2.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
+#line 4 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor2/_Imports.razor"
 using Blazor2.Models.Account;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
+#line 6 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor2/_Imports.razor"
 using Blazor2.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
+#line 8 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor2/_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
+#line 9 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor2/_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
+#line 10 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor2/_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
+#line 11 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor2/_Imports.razor"
 using System.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/Pages/Index.razor"
+#line 2 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor2/Pages/Index.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/Pages/Index.razor"
+#line 3 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor2/Pages/Index.razor"
 using Blazor2.Services;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/Pages/Index.razor"
+#line 4 "/home/c/Desktop/RiderProjects/ChatSystem/Blazor2/Pages/Index.razor"
            [Authorize]
 
 #line default
