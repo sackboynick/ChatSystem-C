@@ -90,7 +90,7 @@ using BlazorFinal.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorFinal/Shared/NavMenu.razor"
+#line 33 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorFinal/Shared/NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

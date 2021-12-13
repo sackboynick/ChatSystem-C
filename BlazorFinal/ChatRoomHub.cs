@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
 
-namespace Blazor
+namespace BlazorFinal
 {
     public class BlazorChatHub : Hub
     {
