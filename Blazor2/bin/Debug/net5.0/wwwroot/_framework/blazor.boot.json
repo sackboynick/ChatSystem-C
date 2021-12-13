@@ -1,7 +1,6 @@
 {
   "cacheBootResources": true,
   "config": [
-    "appsettings.Development.json",
     "appsettings.json"
   ],
   "debugBuild": true,
@@ -200,11 +199,11 @@
       "mscorlib.dll": "sha256-heWnofXFSc\/TfAxrWpjQxeuS+nlIOs9YycfI2QGXGM8=",
       "netstandard.dll": "sha256-mbIVAluJ7cAx0vUQshB\/c1zEIK5JcYwIYxo\/BQ\/meRU=",
       "System.Private.CoreLib.dll": "sha256-FrZbEyy47f3RDuj77R5oHUGxSGEDgRRxykTjImrLqfM=",
-      "Blazor2.dll": "sha256-kqdSBfgXKpHQDGzN97ouskf5xZAudnIdhPLIHS6bXi8="
+      "Blazor2.dll": "sha256-udQx5fkWllYGJxyW4qXv\/0kUfii79Fw47qhlSgdsB4k="
     },
     "lazyAssembly": null,
     "pdb": {
-      "Blazor2.pdb": "sha256-HPJTXuCFr8EDU\/+6ac9MUtrrmFKPGCbjRPJ++P9P2Uo="
+      "Blazor2.pdb": "sha256-O+T1MG+cB65QFToPIX4ocKyjsjZ9dx8cXQcvpc+JaPo="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-5ttRwTa4Rar530elwLdfGDeH9I9NX9MPyDl6zLi9uug=",

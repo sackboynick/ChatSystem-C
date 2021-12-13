@@ -413,9 +413,6 @@
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/obj/Debug/net5.0/RazorDeclaration/Pages/Accounts/Logout.razor.g.cs
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/obj/Debug/net5.0/RazorDeclaration/Pages/Accounts/Register.razor.g.cs
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/obj/Debug/net5.0/RazorDeclaration/Pages/Accounts/_imports.razor.g.cs
-/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/obj/Debug/net5.0/RazorDeclaration/Pages/Authentication.razor.g.cs
-/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/obj/Debug/net5.0/RazorDeclaration/Pages/Counter.razor.g.cs
-/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/obj/Debug/net5.0/RazorDeclaration/Pages/FetchData.razor.g.cs
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/obj/Debug/net5.0/RazorDeclaration/Pages/Index.razor.g.cs
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/obj/Debug/net5.0/RazorDeclaration/Pages/Users/Add.razor.g.cs
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/obj/Debug/net5.0/RazorDeclaration/Pages/Users/Edit.razor.g.cs
@@ -437,9 +434,6 @@
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/obj/Debug/net5.0/Razor/Pages/Accounts/Logout.razor.g.cs
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/obj/Debug/net5.0/Razor/Pages/Accounts/Register.razor.g.cs
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/obj/Debug/net5.0/Razor/Pages/Accounts/_imports.razor.g.cs
-/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/obj/Debug/net5.0/Razor/Pages/Authentication.razor.g.cs
-/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/obj/Debug/net5.0/Razor/Pages/Counter.razor.g.cs
-/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/obj/Debug/net5.0/Razor/Pages/FetchData.razor.g.cs
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/obj/Debug/net5.0/Razor/Pages/Index.razor.g.cs
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/obj/Debug/net5.0/Razor/Pages/Users/Add.razor.g.cs
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/obj/Debug/net5.0/Razor/Pages/Users/Edit.razor.g.cs
