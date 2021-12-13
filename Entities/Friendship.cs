@@ -8,33 +8,30 @@ namespace Entities
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
-        [Required]
-        [JsonPropertyName("friendUsername")]
-        public string Username{ get; set; } 
+        
         [Required]
         [JsonPropertyName("closeFriend")]
         public bool CloseFriend { get; set; } 
         
         [ForeignKey("User")]
         public int UserId { get; set; }
+        
+        [ForeignKey("FriendUser")]
+        public int FriendUserId { get; set; }
 
         public Friendship()
         {
-
-            Username = null;
             CloseFriend = false;
         }
 
-        public Friendship(string username,bool closeFriend) {
-            Username=username;
+        public Friendship(bool closeFriend) {
             CloseFriend=closeFriend;
         }
         
-        public Friendship(int userId,string username,bool closeFriend) {
-            Username=username;
+        public Friendship(int userId,int friendUserId,bool closeFriend) {
             CloseFriend=closeFriend;
             UserId = userId;
+            FriendUserId = friendUserId;
         }
 
     }

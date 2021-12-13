@@ -71,19 +71,7 @@ namespace DataAccess.Controllers
                 return StatusCode(500, e.Message);
             }
         }
-        [HttpPut]
-        public async Task<ActionResult> UpdateGroup([FromBody] GroupChat groupChat)
-        {
-            try
-            {
-                _data.UpdateGroup(groupChat);
-                
-                return Ok();
-            }catch (Exception e) {
-                Console.WriteLine(e);
-                return StatusCode(500, e.Message);
-            }
-        }
+
 
     }
 }

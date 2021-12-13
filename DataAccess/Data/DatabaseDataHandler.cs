@@ -64,13 +64,7 @@ namespace DataAccess.Data
             chatContext.SaveChanges();
         }
 
-        public void UpdateGroup(GroupChat groupChat)
-        {
-            using ChatContext chatContext = new ChatContext();
 
-            chatContext.GroupChats.Update(groupChat);
-            chatContext.SaveChanges();
-        }
 
 
         public void RemoveFriend(int friendshipId)
@@ -180,7 +174,7 @@ namespace DataAccess.Data
         {
             using ChatContext chatContext = new ChatContext();
 
-            return chatContext.Users.ToList();
+            return chatContext.Users.Include(m => m.Friends).ToList();
         }
 
         public User GetUserFromUsername(string username)
@@ -201,14 +195,14 @@ namespace DataAccess.Data
         {
             using ChatContext chatContext = new ChatContext();
 
-            return chatContext.PrivateChats.ToList();
+            return chatContext.PrivateChats.Include(m=> m.Messages).ToList();
         }
 
         public List<GroupChat> GetGroupChats()
         {
             using ChatContext chatContext = new ChatContext();
 
-            return chatContext.GroupChats.ToList();
+            return chatContext.GroupChats.Include(m=> m.Messages).Include(m=> m.Participants).ToList();
         }
 
         public List<Message> GetMessages()

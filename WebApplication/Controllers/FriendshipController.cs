@@ -61,7 +61,20 @@ namespace WebApplication.Controllers
 
             return null;
         }
-
+        
+        [HttpPost]
+        public async Task<ActionResult> AddFriendship([FromBody] Friendship friendship)
+        {
+            try
+            {
+                await _data.AddFriendship(friendship);
+                
+                return Ok();
+            }catch (Exception e) {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
         [HttpPut]
         public async Task<ActionResult> UpdateFriendship([FromBody] Friendship friendship)
         {

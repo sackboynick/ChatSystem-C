@@ -11,11 +11,11 @@ namespace WebApplication.Data
         public Task<GroupChat> GetGroupChat(int chatId);       
         public Task<Task> AddParticipantToGroup(int groupId, string userToAdd);
         public Task<Task> RemoveParticipantFromGroup(int participantId);
-        public Task<Task> PromoteParticipantToAdmin(int participantId);
+        public Task<Task> PromoteParticipantToAdmin(Participant participant);
         public Task<Task> CreateGroup(GroupChat groupChat);
         public Task<User> GetUser(int userId);
         public Task<User> GetUserFromUsername(string username);
-        public Task<Task> AddFriend(string user,string friendToAdd,bool closeFriend);
+        public Task<Task> AddFriendship(Friendship friendship);
         public Task<Task> RemoveFriend(int friendshipId);
         public Task<Task> UpdateFriendship(Friendship friendship);
         public Task<Task> UpdateMessage(Message message);

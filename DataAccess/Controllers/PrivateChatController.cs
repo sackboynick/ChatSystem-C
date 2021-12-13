@@ -56,19 +56,6 @@ namespace DataAccess.Controllers
             return null;
         }
 
-        [HttpPost]
-        public async Task<ActionResult> SendPrivateMessage([FromBody] Message message)
-        {
-            try
-            {
-                _data.SendMessage(message);
-                
-                return Ok();
-            }catch (Exception e) {
-                Console.WriteLine(e);
-                return StatusCode(500, e.Message);
-            }
-        }
 
         
     }
