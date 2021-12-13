@@ -6418,20 +6418,26 @@
     ]
   },
   "packageFolders": {
-    "/home/c/.nuget/packages/": {}
+    "/Users/henrikkoster/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj",
+      "projectUniqueName": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/Entities.csproj",
       "projectName": "Entities",
-      "projectPath": "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj",
-      "packagesPath": "/home/c/.nuget/packages/",
-      "outputPath": "/home/c/Desktop/RiderProjects/ChatSystem/Entities/obj/",
+      "projectPath": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/Entities.csproj",
+      "packagesPath": "/Users/henrikkoster/.nuget/packages/",
+      "outputPath": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/obj/",
       "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/henrikkoster/.nuget/NuGet/NuGet.Config"
+      ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
@@ -6468,7 +6474,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
       }
     }
   }

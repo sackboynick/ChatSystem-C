@@ -27,13 +27,6 @@ using Microsoft.AspNetCore.Authorization;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/_Imports.razor"
-using Microsoft.AspNetCore.Components.Authorization;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 4 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
@@ -84,7 +77,14 @@ using Blazor.Shared;
 #nullable disable
 #nullable restore
 #line 1 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/LoginComponent/LoginDisplay.razor"
-using AspNetCore.Components.Authentication;
+using Microsoft.AspNetCore.Components.Authorization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/LoginComponent/LoginDisplay.razor"
+using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 
 #line default
 #line hidden
@@ -97,7 +97,7 @@ using AspNetCore.Components.Authentication;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 16 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/LoginComponent/LoginDisplay.razor"
+#line 17 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/LoginComponent/LoginDisplay.razor"
       
     private async Task BeginLogout(MouseEventArgs args)
     {

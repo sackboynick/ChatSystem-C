@@ -10,3 +10,15 @@
 /home/c/Desktop/RiderProjects/ChatSystem/Entities/obj/Debug/net5.0/Entities.dll
 /home/c/Desktop/RiderProjects/ChatSystem/Entities/obj/Debug/net5.0/ref/Entities.dll
 /home/c/Desktop/RiderProjects/ChatSystem/Entities/obj/Debug/net5.0/Entities.pdb
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/bin/Debug/net5.0/Entities.deps.json
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/bin/Debug/net5.0/Entities.dll
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/bin/Debug/net5.0/ref/Entities.dll
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/bin/Debug/net5.0/Entities.pdb
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/obj/Debug/net5.0/Entities.csproj.AssemblyReference.cache
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/obj/Debug/net5.0/Entities.GeneratedMSBuildEditorConfig.editorconfig
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/obj/Debug/net5.0/Entities.AssemblyInfoInputs.cache
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/obj/Debug/net5.0/Entities.AssemblyInfo.cs
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/obj/Debug/net5.0/Entities.csproj.CoreCompileInputs.cache
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/obj/Debug/net5.0/Entities.dll
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/obj/Debug/net5.0/ref/Entities.dll
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/obj/Debug/net5.0/Entities.pdb
