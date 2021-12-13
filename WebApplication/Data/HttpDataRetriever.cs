@@ -219,6 +219,33 @@ namespace WebApplication.Data
 
             return user;
         }
+        
+        public async Task<User> GetUserFromUsername(string username)
+        {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+            
+            
+            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/User/Username/"+username).ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+            
+            string result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+            User user = JsonSerializer.Deserialize<User>(result, new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            });
+
+            return user;
+        }
 
         public async Task<Task> AddFriend(string user, string friendToAdd, bool closeFriend)
         {
@@ -405,6 +432,25 @@ namespace WebApplication.Data
             if (!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
+            return Task.CompletedTask;
+        }
+
+        public async Task<Task> RemoveUser(int userId)
+        {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+            
+                
+            HttpResponseMessage response = await client.DeleteAsync("https://localhost:5001/User/"+userId).ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             return Task.CompletedTask;
         }
 

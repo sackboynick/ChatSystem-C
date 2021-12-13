@@ -35,6 +35,22 @@ namespace DataAccess.Controllers
                 return StatusCode(500, e.Message);
             }
         }
+        
+        [HttpGet]
+        [Route("Username/{username}")]
+        public async Task<ActionResult<User>> GetUserFromUsername([FromRoute] string username)
+        {
+            try
+            {
+                User user = _data.GetUserFromUsername(username);
+                return Ok(user);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
 
         [HttpGet]
         [Route("{userId}")]
@@ -67,6 +83,28 @@ namespace DataAccess.Controllers
                 Console.WriteLine(e);
                 return StatusCode(500, e.Message);
             }
+        }
+        
+        [HttpDelete]
+        [Route("{userId}")]
+        public async Task<ActionResult> RemoveMessage([FromRoute] int? userId)
+        {
+            try
+            {
+                if (userId != null)
+                {
+                    _data.RemoveUser(userId.Value);
+
+                    return Ok();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+
+            return null;
         }
     }
 }
