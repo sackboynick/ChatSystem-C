@@ -14,77 +14,77 @@ namespace Blazor2.Shared
     using Microsoft.AspNetCore.Components;
 #nullable restore
 #line 1 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
-using System.Net.Http;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 2 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
-using System.Net.Http.Json;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 3 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
-using Microsoft.AspNetCore.Components.Authorization;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 4 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
-using Microsoft.AspNetCore.Components.Forms;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 5 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
-using Microsoft.AspNetCore.Components.Routing;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 6 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
-using Microsoft.AspNetCore.Components.Web;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 7 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
-using Microsoft.AspNetCore.Components.Web.Virtualization;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 8 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
-using Microsoft.AspNetCore.Components.WebAssembly.Http;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 9 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
-using Microsoft.JSInterop;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 10 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
 using Blazor2;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
+#line 2 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
+using Blazor2.Helpers;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
+using Blazor2.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
+using Blazor2.Models.Account;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
 using Blazor2.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
+using Microsoft.AspNetCore.Authorization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
+using Microsoft.AspNetCore.Components.Forms;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
+using Microsoft.AspNetCore.Components.Routing;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 10 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
+using Microsoft.AspNetCore.Components.Web;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 11 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/_Imports.razor"
+using System.Web;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 1 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/Shared/MainLayout.razor"
+using Blazor2.Services;
 
 #line default
 #line hidden
@@ -96,6 +96,19 @@ using Blazor2.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 23 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/Shared/MainLayout.razor"
+       
+    public bool LoggedIn 
+    {
+        get { return AccountService.User != null; }
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IAccountService AccountService { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -5,8 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Blazor2;
-using BlazorApp.Services;
 
 namespace Blazor2
 {

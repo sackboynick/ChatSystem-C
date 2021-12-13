@@ -3,9 +3,6 @@ using Blazor2.Models.Account;
 using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Blazor2.Models;
-using Blazor2.Models.Account;
-using BlazorApp.Services;
 
 namespace Blazor2.Services
 {

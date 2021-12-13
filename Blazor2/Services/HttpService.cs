@@ -11,9 +11,8 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Blazor2.Services;
 
-namespace BlazorApp.Services
+namespace Blazor2.Services
 {
     public interface IHttpService
     {
