@@ -149,7 +149,6 @@
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/obj/Debug/net5.0/Blazor.RazorAssemblyInfo.cs
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/obj/Debug/net5.0/staticwebassets/Blazor.StaticWebAssets.Manifest.cache
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/obj/Debug/net5.0/staticwebassets/Blazor.StaticWebAssets.xml
-/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/obj/Debug/net5.0/scopedcss/Pages/ContactsPage.razor.rz.scp.css
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/obj/Debug/net5.0/scopedcss/Shared/MainLayout.razor.rz.scp.css
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/obj/Debug/net5.0/scopedcss/Shared/NavMenu.razor.rz.scp.css
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/obj/Debug/net5.0/scopedcss/bundle/Blazor.styles.css

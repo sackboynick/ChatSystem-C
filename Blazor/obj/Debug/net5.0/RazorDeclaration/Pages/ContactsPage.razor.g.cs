@@ -105,15 +105,15 @@ using Syncfusion.Blazor.Buttons;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 30 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/Pages/ContactsPage.razor"
+#line 32 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/Pages/ContactsPage.razor"
       
-
+    
     static List<DataModel> ListData = new List<DataModel>();
     
     IEnumerable<DataModel> EListData = ListData.Where(i => i.Name.ToLower().Contains(SearchTerm.ToLower()));
     
     static string SearchTerm { get; set; } = "";
-
+    
     protected override void OnInitialized()
     {
         base.OnInitialized();
