@@ -4,6 +4,7 @@ using System.Linq;
 using DataAccess.Persistence;
 using Domain.Data;
 using Entities;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Data
@@ -180,6 +181,20 @@ namespace DataAccess.Data
             using ChatContext chatContext = new ChatContext();
 
             return chatContext.Users.ToList();
+        }
+
+        public User GetUserFromUsername(string username)
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            return chatContext.Users.FirstOrDefault(user => user.Username == username);
+        }
+
+        public void RemoveUser(int userId)
+        {
+            using ChatContext chatContext = new ChatContext();
+            chatContext.Users.Remove(chatContext.Users.Find(userId));
+            chatContext.SaveChanges();
         }
 
         public List<PrivateChat> GetPrivateChats()

@@ -10,5 +10,8 @@ namespace Domain.Data
         void UpdateUser(Entities.User user);
         
         List<Entities.User> GetUsersList();
+        Entities.User GetUserFromUsername(string username);
+
+        void RemoveUser(int userId);
     }
 }

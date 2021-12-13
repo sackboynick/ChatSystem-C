@@ -6839,6 +6839,7 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "Entities >= 1.0.0",
+      "Microsoft.AspNetCore.Components.WebAssembly.Authentication >= 5.0.0",
       "Microsoft.EntityFrameworkCore.Relational.Design.Specification.Tests >= 2.0.3",
       "Syncfusion.Blazor.Lists >= 19.3.0.57"
     ]
@@ -6878,6 +6879,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Components.WebAssembly.Authentication": {
+            "target": "Package",
+            "version": "[5.0.0, )"
+          },
           "Microsoft.EntityFrameworkCore.Relational.Design.Specification.Tests": {
             "target": "Package",
             "version": "[2.0.3, )"
@@ -6908,5 +6913,16 @@
         "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.AspNetCore.Components.WebAssembly.Authentication (>= 5.0.0)' for 'net5.0'.",
+      "libraryId": "Microsoft.AspNetCore.Components.WebAssembly.Authentication",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

@@ -18,13 +18,13 @@ namespace Blazor.Data
         Task<IList<Message>> GetPrivateMessages(int chatId);
         Task<IList<Message>> GetGroupMessages(int groupId);
         
-        // IList<GroupChat> UserCreatedGroupChats(int userId);
         Task<Message> GetMessage(int messageId);
         Task UpdateMessage(Message message);
         Task RemoveMessage(int messageId);
         
         Task AddFriendship(Friendship friendship);
         Task RemoveFriend(int friendshipId);
+        Task<Friendship> GetFriendship(int friendshipId);
         
         
         Task CreateGroup(string groupCreator);

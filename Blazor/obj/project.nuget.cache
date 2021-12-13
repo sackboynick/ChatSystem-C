@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "EpCXJiPTgWbuzTT4ooAng2frK/Lnpy5AAIB3W7UIocQFfM78mFB4zK+FqsVvwqq/OiAFMF3sKbc4O/S+r2fuQA==",
-  "success": true,
+  "dgSpecHash": "TUsByCSIT3x3+AGoWVxKBNLOwwmkJGZ/gydbv510mTKiIOkv1VyKd6E82TxueuyNFdAxGDQFmxl6qGUHoUeuBA==",
+  "success": false,
   "projectFilePath": "/home/c/Desktop/RiderProjects/ChatSystem/Blazor/Blazor.csproj",
   "expectedPackageFiles": [
     "/home/c/.nuget/packages/microsoft.aspnetcore.authorization/5.0.0/microsoft.aspnetcore.authorization.5.0.0.nupkg.sha512",
@@ -137,5 +137,15 @@
     "/home/c/.nuget/packages/xunit.extensibility.core/2.2.0/xunit.extensibility.core.2.2.0.nupkg.sha512",
     "/home/c/.nuget/packages/xunit.extensibility.execution/2.2.0/xunit.extensibility.execution.2.2.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.AspNetCore.Components.WebAssembly.Authentication (>= 5.0.0)' for 'net5.0'.",
+      "libraryId": "Microsoft.AspNetCore.Components.WebAssembly.Authentication",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

@@ -35,12 +35,12 @@ namespace WebApplication.Controllers
         }
         
         [HttpGet]
-        [Route("{userId}")]
-        public async Task<ActionResult<User>> GetUser([FromRoute] int userId)
+        [Route("{username}")]
+        public async Task<ActionResult<User>> GetUserFromUsername([FromRoute] string username)
         {
             try
             {
-                User user = _data.GetUser(userId).Result;
+                User user = _data.GetUserFromUsername(username).Result;
                 return Ok(user);
             }
             catch (Exception e)
