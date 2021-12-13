@@ -12,13 +12,13 @@ namespace WebApplication.Data
         public Task<Task> AddParticipantToGroup(int groupId, string userToAdd);
         public Task<Task> RemoveParticipantFromGroup(int participantId);
         public Task<Task> PromoteParticipantToAdmin(int participantId);
-        public Task<Task> CreateGroup(string groupCreator);
+        public Task<Task> CreateGroup(GroupChat groupChat);
         public Task<User> GetUser(int userId);
         public Task<User> GetUserFromUsername(string username);
         public Task<Task> AddFriend(string user,string friendToAdd,bool closeFriend);
         public Task<Task> RemoveFriend(int friendshipId);
         public Task<Task> UpdateFriendship(Friendship friendship);
-        public Task<Task> PinMessage(int messageId);
+        public Task<Task> UpdateMessage(Message message);
         public Task<Message> GetMessage(int messageId);
 
         public Task<Participant> GetParticipant(int participantId);
@@ -34,7 +34,7 @@ namespace WebApplication.Data
         Task<List<Participant>> GetAllGroupParticipants(int groupId);
         Task<List<Chat>> GetAllUserChats(int userId);
 
-        Task<Task> RemoveMessages(int messageId);
+        Task<Task> RemoveMessage(int messageId);
         Task<Friendship> GetFriendship(int friendshipId);
         Task<List<User>> GetAllUsers();
     }

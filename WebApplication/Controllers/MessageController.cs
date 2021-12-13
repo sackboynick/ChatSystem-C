@@ -109,7 +109,7 @@ namespace WebApplication.Controllers
             {
                 if (message.PinnedMessage != null && message.PinnedMessage.Value)
                 {
-                    await _data.PinMessage(message.Id);
+                    await _data.UpdateMessage(message);
                 }
                 
                 return Ok();
@@ -126,7 +126,7 @@ namespace WebApplication.Controllers
             {
                 if (messageId != null)
                 {
-                    await _data.RemoveMessages(messageId.Value);
+                    await _data.RemoveMessage(messageId.Value);
 
                     return Ok();
                 }
