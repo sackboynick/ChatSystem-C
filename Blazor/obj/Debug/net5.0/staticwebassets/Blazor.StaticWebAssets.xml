@@ -1,9 +1,9 @@
 ﻿<StaticWebAssets Version="1.0">
-  <ContentRoot BasePath="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication" Path="/Users/henrikkoster/.nuget/packages/microsoft.aspnetcore.components.webassembly.authentication/5.0.0/build/../staticwebassets/" />
-  <ContentRoot BasePath="_content/Syncfusion.Blazor.Buttons" Path="/Users/henrikkoster/.nuget/packages/syncfusion.blazor.buttons/19.3.0.57/build/../staticwebassets/" />
-  <ContentRoot BasePath="_content/Syncfusion.Blazor.Core" Path="/Users/henrikkoster/.nuget/packages/syncfusion.blazor.core/19.3.0.57/build/../staticwebassets/" />
-  <ContentRoot BasePath="_content/Syncfusion.Blazor.Data" Path="/Users/henrikkoster/.nuget/packages/syncfusion.blazor.data/19.3.0.57/build/../staticwebassets/" />
-  <ContentRoot BasePath="_content/Syncfusion.Blazor.Lists" Path="/Users/henrikkoster/.nuget/packages/syncfusion.blazor.lists/19.3.0.57/build/../staticwebassets/" />
-  <ContentRoot BasePath="_content/Syncfusion.Blazor.Themes" Path="/Users/henrikkoster/.nuget/packages/syncfusion.blazor.themes/19.3.0.57/build/../staticwebassets/" />
-  <ContentRoot BasePath="/" Path="/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/obj/Debug/net5.0/scopedcss/bundle/" />
+  <ContentRoot BasePath="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication" Path="/home/c/.nuget/packages/microsoft.aspnetcore.components.webassembly.authentication/5.0.0/build/../staticwebassets/" />
+  <ContentRoot BasePath="_content/Syncfusion.Blazor.Buttons" Path="/home/c/.nuget/packages/syncfusion.blazor.buttons/19.3.0.57/build/../staticwebassets/" />
+  <ContentRoot BasePath="_content/Syncfusion.Blazor.Core" Path="/home/c/.nuget/packages/syncfusion.blazor.core/19.3.0.57/build/../staticwebassets/" />
+  <ContentRoot BasePath="_content/Syncfusion.Blazor.Data" Path="/home/c/.nuget/packages/syncfusion.blazor.data/19.3.0.57/build/../staticwebassets/" />
+  <ContentRoot BasePath="_content/Syncfusion.Blazor.Lists" Path="/home/c/.nuget/packages/syncfusion.blazor.lists/19.3.0.57/build/../staticwebassets/" />
+  <ContentRoot BasePath="_content/Syncfusion.Blazor.Themes" Path="/home/c/.nuget/packages/syncfusion.blazor.themes/19.3.0.57/build/../staticwebassets/" />
+  <ContentRoot BasePath="/" Path="/home/c/Desktop/RiderProjects/ChatSystem/Blazor/obj/Debug/net5.0/scopedcss/bundle/" />
 </StaticWebAssets>

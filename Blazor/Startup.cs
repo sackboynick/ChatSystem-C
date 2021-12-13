@@ -29,7 +29,7 @@ namespace Blazor
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<IUserService, ValidatorLogInHttp>();
+            services.AddScoped<IUserService, ValidatorLogInHttp>();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
             services.AddAuthorization(options =>
                 options.AddPolicy("RequireAdmin", builder =>

@@ -1,0 +1,161 @@
+@page "/ContactsPage"
+@using Syncfusion.Blazor.Lists
+@using Syncfusion.Blazor.Buttons
+@inherits Syncfusion.Blazor.SfBaseComponent
+
+<SfButton IconCss="oi oi-plus" IconPosition="IconPosition.Right">New Contact</SfButton>
+<SfButton IconCss="oi oi-plus" IconPosition="IconPosition.Right">New Group</SfButton>
+
+<input @bind-value="SearchTerm" @bind-value:event="oninput" />
+
+<SfListView ID="list" DataSource="@EListData" CssClass="e-list-template ui-list">
+    <ListViewFieldSettings Id="Id" Text="Name" TValue="DataModel" GroupBy="Category"></ListViewFieldSettings>
+    <ListViewTemplates TValue="DataModel">
+        <Template>
+            <NavLink href="chatroom">
+                <div class="e-list-wrapper e-list-multi-line e-list-avatar">
+                    <span id="showUI" class="e-avatar e-avatar-circle" icon="@context.Icon"> @context.Icon</span>
+                    <span class="e-list-content">@context.Name</span>
+                    <span class="e-list-content">@context.Nickname</span>
+                    <span class="status">@context.Status</span>
+                </div>
+            </NavLink>
+        </Template>
+        <GroupTemplate>
+            <div>
+                <span class="category">@context.Text</span>
+            </div>
+        </GroupTemplate>
+    </ListViewTemplates>
+</SfListView>
+
+@code{
+    
+    static List<DataModel> ListData = new List<DataModel>();
+    
+    IEnumerable<DataModel> EListData = ListData.Where(i => i.Name.ToLower().Contains(SearchTerm.ToLower()));
+    
+    static string SearchTerm { get; set; } = "";
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ListData.Add(new DataModel { Name = "Nancy", Icon = "N", Id = "0", Category = "Contacts", Nickname = "", Status = ""});
+        ListData.Add(new DataModel { Name = "Andrew", Icon = "A", Id = "1", Category = "Contacts", Nickname = "", Status = ""});
+        ListData.Add(new DataModel { Name = "Margaret", Icon = "M", Category = "Contacts", Id = "3", Nickname = "", Status = ""});
+        ListData.Add(new DataModel { Name = "$teven2001", Icon = "S", Id = "4", Category = "Contacts", Nickname = "'Steven Thompson'", Status = "online"});
+        ListData.Add(new DataModel { Name = "Laura", Icon = "L", Category = "Contacts", Id = "5", Nickname = "", Status = ""});
+        ListData.Add(new DataModel { Name = "Michael", Icon = "M", Id = "7", Category = "Contacts", Nickname = "", Status = ""});
+        ListData.Add(new DataModel { Name = "Albert", Icon = "A", Category = "Contacts", Id = "8", Nickname = "", Status = ""});
+        ListData.Add(new DataModel { Name = "Bums United", Icon = "M", Id = "7", Category = "Groups", Nickname = "", Status = ""});
+        ListData.Add(new DataModel { Name = "Amogus", Icon = "A", Category = "Groups", Id = "8", Nickname = "", Status = ""});
+        ListData.Add(new DataModel { Name = "DOL", Icon = "N", Id = "9", Category = "Groups", Nickname = "", Status = ""});
+    }
+
+    public class DataModel
+    {
+        public string Name { get; set; }
+        public string Icon { get; set; }
+        public string Id { get; set; }
+        public string Category { get; set; }
+        public string Nickname { get; set; }
+        public string Status { get; set; }
+    }
+
+}
+
+<style>
+    /* ListView position alignment */
+    .ui-list.e-listview {
+        margin: auto;
+        margin-top: 20px;
+        max-width: 100%;
+        line-height: initial;
+        border: 1px solid lightgray;
+        overflow: scroll;
+    }
+    /* ListView header alignment */
+    .ui-list.e-listview .e-list-header {
+        height: 50px
+    }
+    .ui-list.e-listview .e-list-header .e-text {
+        line-height: 18px
+    }
+    /* ListView template customization */
+    .ui-list.e-listview #showUI {
+        display: flex;
+    }
+    .ui-list.e-listview .e-list-item {
+        padding: 3px 0;
+        height: 70px;
+        vertical-align: middle;
+    }
+    .ui-list.e-listview [icon="R"] {
+        background: lightgrey;
+    }
+    .ui-list.e-listview [icon="M"] {
+        background: pink;
+    }
+    .ui-list.e-listview [icon="A"] {
+        background: lightgreen;
+    }
+    .ui-list.e-listview [icon="S"] {
+        background: lightskyblue;
+    }
+    .ui-list.e-listview [icon="J"] {
+        background: orange;
+    }
+    .ui-list.e-listview [icon="N"] {
+        background: lightblue;
+    }
+    /* ListView theme customization */
+    .ui-list.e-listview .e-list-item.e-active {
+        background: #ffd939;
+        color: #000000;
+    }
+    .e-list-wrapper {
+        flex: 1;
+        display: block;
+        word-wrap: break-word;
+        white-space: nowrap;
+        padding: 2px;
+        font-size: 14px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .e-list-avatar {
+        top: 0;
+        vertical-align: middle;
+    }
+    .e-avatar {
+        -ms-flex-line-pack: center;
+        align-content: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background-color: #e9ecef;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 4px;
+        color: #212529;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif, "-apple-system", "BlinkMacSystemFont";
+        font-size: 1.05em;
+        font-weight: 400;
+        height: 1.5em;
+        -ms-flex-pack: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+        top: 0;
+        width:1.5em;
+        vertical-align: middle;
+    }
+    .e-list-content {
+        vertical-align: middle;
+    }
+    .status {
+        right: 0;
+    }
+</style>

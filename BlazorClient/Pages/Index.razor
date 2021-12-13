@@ -1,0 +1,20 @@
+@page "/"
+@using BlazorClient.Data
+@inject NavigationManager NavigationManager
+
+
+
+<h1>WELCOME TO CHATTUS</h1>
+
+
+
+
+@code {
+    protected override void OnInitialized()
+    {
+    }
+
+    static readonly ValidatorLogInHttp ValidatorLogInHttp = new();
+    readonly string _lastName=ValidatorLogInHttp.ValidateUser("sackboynick", "Password").Result.LastName;
+
+}
