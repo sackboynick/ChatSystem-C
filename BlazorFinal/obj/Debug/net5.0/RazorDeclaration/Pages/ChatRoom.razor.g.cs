@@ -69,13 +69,6 @@ using Microsoft.JSInterop;
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorFinal/_Imports.razor"
-using BlazorFinal;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 10 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorFinal/_Imports.razor"
 using BlazorFinal.Shared;
 
@@ -91,7 +84,7 @@ using Microsoft.AspNetCore.SignalR.Client;
 #nullable disable
 #nullable restore
 #line 4 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorFinal/Pages/ChatRoom.razor"
-using Blazor;
+using BlazorFinal;
 
 #line default
 #line hidden
