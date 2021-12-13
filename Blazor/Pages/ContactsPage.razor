@@ -12,12 +12,14 @@
     <ListViewFieldSettings Id="Id" Text="Name" TValue="DataModel" GroupBy="Category"></ListViewFieldSettings>
     <ListViewTemplates TValue="DataModel">
         <Template>
-            <div class="e-list-wrapper e-list-multi-line e-list-avatar">
-                <span id="showUI" class="e-avatar e-avatar-circle" icon="@context.Icon"> @context.Icon</span>
-                <span class="e-list-content">@context.Name</span>
-                <span class="e-list-content">@context.Nickname</span>
-                <span class="status">@context.Status</span>
-            </div>
+            <NavLink href="chatroom">
+                <div class="e-list-wrapper e-list-multi-line e-list-avatar">
+                    <span id="showUI" class="e-avatar e-avatar-circle" icon="@context.Icon"> @context.Icon</span>
+                    <span class="e-list-content">@context.Name</span>
+                    <span class="e-list-content">@context.Nickname</span>
+                    <span class="status">@context.Status</span>
+                </div>
+            </NavLink>
         </Template>
         <GroupTemplate>
             <div>
@@ -28,13 +30,13 @@
 </SfListView>
 
 @code{
-
+    
     static List<DataModel> ListData = new List<DataModel>();
     
     IEnumerable<DataModel> EListData = ListData.Where(i => i.Name.ToLower().Contains(SearchTerm.ToLower()));
     
     static string SearchTerm { get; set; } = "";
-
+    
     protected override void OnInitialized()
     {
         base.OnInitialized();
