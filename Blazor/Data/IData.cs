@@ -22,7 +22,7 @@ namespace Blazor.Data
         Task<Task> UpdateMessage(Message message);
         Task<Task> RemoveMessage(int messageId);
         
-        Task<Task> AddFriendship(string user, string friendToAdd, bool closeFriend);
+        Task<Task> AddFriendship(int userId,int friendUserId, bool closeFriend);
         Task<Task> RemoveFriend(int friendshipId);
         Task<Friendship> GetFriendship(int friendshipId);
         

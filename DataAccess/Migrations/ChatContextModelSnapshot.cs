@@ -25,12 +25,11 @@ namespace DataAccess.Migrations
                     b.Property<bool>("CloseFriend")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("FriendUserId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 

@@ -65,20 +65,6 @@ namespace WebApplication.Controllers
             }
         }
         
-        [HttpPatch]
-        [Route("{username}/{friendToAdd}/{closeFriend}")]
-        public async Task<ActionResult> AddFriend([FromRoute] string username,[FromRoute] string friendToAdd,[FromRoute] bool closeFriend)
-        {
-            try
-            {
-                await _data.AddFriend(username,friendToAdd,closeFriend);
-                
-                return Ok();
-            }catch (Exception e) {
-                Console.WriteLine(e);
-                return StatusCode(500, e.Message);
-            }
-        }
-        
+
     }
 }

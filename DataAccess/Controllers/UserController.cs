@@ -87,7 +87,7 @@ namespace DataAccess.Controllers
         
         [HttpDelete]
         [Route("{userId}")]
-        public async Task<ActionResult> RemoveMessage([FromRoute] int? userId)
+        public async Task<ActionResult> RemoveUser([FromRoute] int? userId)
         {
             try
             {

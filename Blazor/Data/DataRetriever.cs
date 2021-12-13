@@ -119,9 +119,31 @@ namespace Blazor.Data
             return friendships;
         }
 
-        public Task<IList<Chat>> UserChats(int userId)
+        public async Task<IList<Chat>> UserChats(int userId)
         {
-            throw new System.NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+            
+            
+            HttpResponseMessage response = await client.GetAsync("https://localhost:5003/Chat/"+userId).ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+            
+            string result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+            List<Chat> chats = JsonSerializer.Deserialize<List<Chat>>(result, new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            });
+
+            return chats;
         }
 
         public async Task<IList<Participant>> GetParticipants(int groupId)
@@ -288,7 +310,7 @@ namespace Blazor.Data
             return Task.CompletedTask;
         }
 
-        public async Task<Task> AddFriendship(string user, string friendToAdd, bool closeFriend)
+        public async Task<Task> AddFriendship(int userId,int friendUserId, bool closeFriend)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
@@ -300,14 +322,14 @@ namespace Blazor.Data
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
 
-            Friendship friendship = new Friendship(friendToAdd, closeFriend);
+            Friendship friendship = new Friendship(userId,friendUserId, closeFriend);
             string friendshipAsJson = JsonSerializer.Serialize(friendship);
             StringContent content = new StringContent(
                 friendshipAsJson,
                 Encoding.UTF8,
                 "application/json"
             );
-            HttpResponseMessage response = await client.PostAsync("https://localhost:5001/User/"+user, content).ConfigureAwait(false);
+            HttpResponseMessage response = await client.PostAsync("https://localhost:5001/FriendshipServer/", content).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
 

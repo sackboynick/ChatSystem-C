@@ -80,11 +80,11 @@ namespace WebApplication.Controllers
             }
         }
         [HttpPut]
-        public async Task<ActionResult> PromoteParticipantToAdmin(int participantId)
+        public async Task<ActionResult> PromoteParticipantToAdmin([FromBody] Participant participant)
         {
             try
             {
-                await _data.PromoteParticipantToAdmin(participantId);
+                await _data.PromoteParticipantToAdmin(participant);
                 
                 return Ok();
             }catch (Exception e) {

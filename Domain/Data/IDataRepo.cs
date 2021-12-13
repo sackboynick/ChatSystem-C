@@ -10,7 +10,6 @@ namespace Domain.Data
         public GroupChat GetGroupChat(int chatId);
         public void CreateGroup(GroupChat groupChat);
 
-        public void UpdateGroup(GroupChat groupChat);
 
         void RemoveFriend(int friendshipId);
 
