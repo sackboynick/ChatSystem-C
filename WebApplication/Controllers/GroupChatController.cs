@@ -64,11 +64,11 @@ namespace WebApplication.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateGroup([FromQuery] string groupCreator)
+        public async Task<ActionResult> CreateGroup([FromBody] GroupChat group)
         {
             try
             {
-                await _data.CreateGroup(groupCreator);
+                await _data.CreateGroup(group);
 
                 return Ok();
             }

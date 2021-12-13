@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Entities;
+
 
 namespace Blazor.Data
 {
@@ -38,20 +40,57 @@ namespace Blazor.Data
             return user;
         }
 
-        public Task RemoveUser(string username)
+        public async Task<Task> RemoveUser(int userId)
         {
-            throw new System.NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+            
+                
+            HttpResponseMessage response = await client.DeleteAsync("https://localhost:5003/User/"+userId).ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+            return Task.CompletedTask;
         }
 
-        public Task PromoteUser(string username)
+
+        public async Task<Task> PromoteUser(int groupId, int participantId)
         {
-            throw new System.NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) =>
+            {
+                return true;
+            };
+
+            using HttpClient client = new HttpClient(clientHandler);
+
+
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
+
+            Participant participant= GetParticipants(groupId).Result.FirstOrDefault(participant => participant.Id == participantId);
+            string participantAsJson = JsonSerializer.Serialize(participant != null && (participant.Admin=true));
+            StringContent content = new StringContent(
+                participantAsJson,
+                Encoding.UTF8,
+                "application/json"
+            );
+            HttpResponseMessage response =
+                await client.PutAsync("https://localhost:5003/ParticipantServer/", content).ConfigureAwait(false);
+            if (!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+            
+            return Task.CompletedTask;
         }
 
-        public Task AddFriendToGroup(string username)
-        {
-            throw new System.NotImplementedException();
-        }
 
         public async Task<IList<Friendship>> UserFriendships(int userId)
         {
@@ -85,44 +124,213 @@ namespace Blazor.Data
             throw new System.NotImplementedException();
         }
 
-        public Task<IList<Participant>> GetParticipants(int groupId)
+        public async Task<IList<Participant>> GetParticipants(int groupId)
         {
-            throw new System.NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+            
+            
+            HttpResponseMessage response = await client.GetAsync("https://localhost:5003/ParticipantServer/Group/"+groupId).ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+            
+            string result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+            List<Participant> participants = JsonSerializer.Deserialize<List<Participant>>(result, new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            });
+            
+
+            return participants;
         }
 
-        public Task<IList<Message>> GetPrivateMessages(int chatId)
+        public async Task<IList<Message>> GetPrivateMessages(int chatId)
         {
-            throw new System.NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+            
+            
+            HttpResponseMessage response = await client.GetAsync($"https://localhost:5003/MessageServer/PrivateChat/{chatId}").ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+            
+            string result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+            List<Message> messages = JsonSerializer.Deserialize<List<Message>>(result, new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            });
+
+            return messages;
         }
 
-        public Task<IList<Message>> GetGroupMessages(int groupId)
+        public async Task<IList<Message>> GetGroupMessages(int groupId)
         {
-            throw new System.NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+            
+            
+            HttpResponseMessage response = await client.GetAsync($"https://localhost:5003/MessageServer/Group/{groupId}").ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+            
+            string result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+            List<Message> messages = JsonSerializer.Deserialize<List<Message>>(result, new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            });
+
+            if (messages != null)
+            {
+                messages = messages.Where(message => message.GroupChatId==groupId).ToList();
+
+                return messages;
+            }
+
+            return null;
         }
 
-        public Task<Message> GetMessage(int messageId)
+        public async Task<Message> GetMessage(int messageId)
         {
-            throw new System.NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+            
+            
+            HttpResponseMessage response = await client.GetAsync("https://localhost:5003/MessageServer/"+messageId).ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+            
+            string result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+            Message message = JsonSerializer.Deserialize<Message>(result, new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            });
+
+            return message;
         }
 
-        public Task UpdateMessage(Message message)
+        public async Task<Task> UpdateMessage(Message message)
         {
-            throw new System.NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) =>
+            {
+                return true;
+            };
+
+            using HttpClient client = new HttpClient(clientHandler);
+
+
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
+
+            string messageAsJson = JsonSerializer.Serialize(message);
+            StringContent content = new StringContent(
+                messageAsJson,
+                Encoding.UTF8,
+                "application/json"
+            );
+            HttpResponseMessage response =
+                await client.PutAsync("https://localhost:5003/MessageServer", content).ConfigureAwait(false);
+            if (!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+            return Task.CompletedTask;
         }
 
-        public Task RemoveMessage(int messageId)
+        public async Task<Task> RemoveMessage(int messageId)
         {
-            throw new System.NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+            
+                
+            HttpResponseMessage response = await client.DeleteAsync("https://localhost:5003/MessageServer/"+messageId).ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+            return Task.CompletedTask;
         }
 
-        public Task AddFriendship(Friendship friendship)
+        public async Task<Task> AddFriendship(string user, string friendToAdd, bool closeFriend)
         {
-            throw new System.NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+
+            Friendship friendship = new Friendship(friendToAdd, closeFriend);
+            string friendshipAsJson = JsonSerializer.Serialize(friendship);
+            StringContent content = new StringContent(
+                friendshipAsJson,
+                Encoding.UTF8,
+                "application/json"
+            );
+            HttpResponseMessage response = await client.PostAsync("https://localhost:5001/User/"+user, content).ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+
+            return Task.CompletedTask;
         }
 
-        public Task RemoveFriend(int friendshipId)
+        public async Task<Task> RemoveFriend(int friendshipId)
         {
-            throw new System.NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+            
+                
+            HttpResponseMessage response = await client.DeleteAsync("https://localhost:5003/FriendshipServer/"+friendshipId).ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+            return Task.CompletedTask;
         }
 
         public async Task<Friendship> GetFriendship(int friendshipId)
@@ -152,39 +360,190 @@ namespace Blazor.Data
             return friendship;
         }
 
-        public Task CreateGroup(string groupCreator)
+        public async Task<Task> CreateGroup(string groupCreator)
         {
-            throw new System.NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+
+            GroupChat groupChat = new GroupChat(groupCreator);
+            string userAsJson = JsonSerializer.Serialize(groupChat);
+            StringContent content = new StringContent(
+                userAsJson,
+                Encoding.UTF8,
+                "application/json"
+            );
+            HttpResponseMessage response = await client.PostAsync("https://localhost:5003/GroupChatServer", content).ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+
+            return Task.CompletedTask;
         }
 
-        public Task UpdateGroup(GroupChat groupChat)
+        public async Task<Task> UpdateGroup(GroupChat groupChat)
         {
-            throw new System.NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) =>
+            {
+                return true;
+            };
+
+            using HttpClient client = new HttpClient(clientHandler);
+
+
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
+
+            string groupChatAsJson = JsonSerializer.Serialize(groupChat);
+            StringContent content = new StringContent(
+                groupChatAsJson,
+                Encoding.UTF8,
+                "application/json"
+            );
+            HttpResponseMessage response =
+                await client.PutAsync("https://localhost:5003/GroupChatServer", content).ConfigureAwait(false);
+            if (!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+            return Task.CompletedTask;
         }
 
-        public Task AddParticipant(Participant participant)
+        public async Task<Task> AddParticipant(Participant participant)
         {
-            throw new System.NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+            
+            string participantAsJson = JsonSerializer.Serialize(participant);
+            StringContent content = new StringContent(
+                participantAsJson,
+                Encoding.UTF8,
+                "application/json"
+            );
+            HttpResponseMessage response = await client.PostAsync("https://localhost:5003/ParticipantServer", content).ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+            return Task.CompletedTask;
         }
 
-        public Task UpdateParticipant(Participant participant)
+        public async Task<Task> UpdateParticipant(Participant participant)
         {
-            throw new System.NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+            
+            string groupChatAsJson = JsonSerializer.Serialize(participant);
+            StringContent content = new StringContent(
+                groupChatAsJson,
+                Encoding.UTF8,
+                "application/json"
+            );
+            HttpResponseMessage response = await client.PutAsync("https://localhost:5003/ParticipantServer", content).ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+            return Task.CompletedTask;
         }
 
-        public Task RemoveParticipant(int participantId)
+        public async Task<Task> RemoveParticipant(int participantId)
         {
-            throw new System.NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+            
+                
+            HttpResponseMessage response = await client.DeleteAsync("https://localhost:5003/ParticipantServer/"+participantId).ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+            return Task.CompletedTask;
         }
 
-        public Task ForwardMessage(string toUser, int messageId)
+        public async Task<Task> ForwardMessage(Message message,int forwardedMessageId)
         {
-            throw new System.NotImplementedException();
+            message.ForwardedMessageId = forwardedMessageId;
+            await SendMessage(message);
+            return Task.CompletedTask;
         }
 
-        public Task PinMessage(int messageId)
+        public async Task<Task> SendMessage(Message message)
         {
-            throw new System.NotImplementedException();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+            
+            
+            string userAsJson = JsonSerializer.Serialize(message);
+            StringContent content = new StringContent(
+                userAsJson,
+                Encoding.UTF8,
+                "application/json"
+            );
+            HttpResponseMessage response = await client.PostAsync("https://localhost:5003/MessageServer", content).ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+
+            return Task.CompletedTask;
+        }
+
+        public async Task<Task> PinMessage(int messageId)
+        {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) =>
+            {
+                return true;
+            };
+
+            using HttpClient client = new HttpClient(clientHandler);
+
+
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
+
+            Message message = GetMessage(messageId).Result;
+            message.PinnedMessage = true;
+            string groupChatAsJson = JsonSerializer.Serialize(message);
+            StringContent content = new StringContent(
+                groupChatAsJson,
+                Encoding.UTF8,
+                "application/json"
+            );
+            HttpResponseMessage response =
+                await client.PutAsync("https://localhost:5003/MessageServer", content).ConfigureAwait(false);
+            if (!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+            return Task.CompletedTask;
         }
     }
 }

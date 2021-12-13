@@ -7,11 +7,11 @@ namespace Blazor.Data
     public interface IData
     { 
         Task<User> GetUser(string username);
-        Task RemoveUser(string username);
-        Task PromoteUser(string username);
+        Task<Task> RemoveUser(int userId);
+        Task<Task> PromoteUser(int groupId,int participantId);
 
-        Task AddFriendToGroup(string username);
-        
+        Task<Task> SendMessage(Message message);
+
         Task<IList<Friendship>> UserFriendships(int userId);
         Task<IList<Chat>> UserChats(int userId);
         Task<IList<Participant>> GetParticipants(int groupId);
@@ -19,22 +19,21 @@ namespace Blazor.Data
         Task<IList<Message>> GetGroupMessages(int groupId);
         
         Task<Message> GetMessage(int messageId);
-        Task UpdateMessage(Message message);
-        Task RemoveMessage(int messageId);
+        Task<Task> UpdateMessage(Message message);
+        Task<Task> RemoveMessage(int messageId);
         
-        Task AddFriendship(Friendship friendship);
-        Task RemoveFriend(int friendshipId);
+        Task<Task> AddFriendship(string user, string friendToAdd, bool closeFriend);
+        Task<Task> RemoveFriend(int friendshipId);
         Task<Friendship> GetFriendship(int friendshipId);
         
         
-        Task CreateGroup(string groupCreator);
-        Task UpdateGroup(GroupChat groupChat);
+        Task<Task> CreateGroup(string groupCreator);
+        Task<Task> UpdateGroup(GroupChat groupChat);
         
-        Task AddParticipant(Participant participant);
-        Task UpdateParticipant(Participant participant);
-        Task RemoveParticipant(int participantId);
+        Task<Task> AddParticipant(Participant participant);
+        Task<Task> RemoveParticipant(int participantId);
 
-        Task ForwardMessage(string toUser, int messageId);
-        Task PinMessage(int messageId);
+        Task<Task> ForwardMessage(Message message,int forwardedMessageId);
+        Task<Task> PinMessage(int messageId);
     }
 }
