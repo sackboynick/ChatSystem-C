@@ -134,13 +134,6 @@ using Microsoft.AspNetCore.SignalR.Client;
 
     public async Task Chat()
     {
-        // check username is valid
-        if (string.IsNullOrWhiteSpace(_username))
-        {
-            _message = "Please enter a name";
-            return;
-        };
-
         try
         {
             // Start chatting and force refresh UI.

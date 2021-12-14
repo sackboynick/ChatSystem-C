@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace BlazorClient
 {
-    public class BlazorChatHub : Hub
+    public class ChatRoomHub : Hub
     {
         public const string HubUrl = "/chat";
 

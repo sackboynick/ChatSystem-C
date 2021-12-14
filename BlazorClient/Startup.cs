@@ -56,6 +56,8 @@ namespace BlazorClient
             {
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
+                endpoints.MapHub<ChatRoomHub>(ChatRoomHub.HubUrl);
+
             });
         }
     }
