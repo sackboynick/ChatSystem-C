@@ -172,10 +172,7 @@
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/Microsoft.JSInterop.WebAssembly.dll
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/Newtonsoft.Json.dll
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/Remotion.Linq.dll
-/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/Syncfusion.Blazor.dll
-/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/Syncfusion.ExcelExport.Net.dll
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/Syncfusion.Licensing.dll
-/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/Syncfusion.PdfExport.Net.dll
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/System.Interactive.Async.dll
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/System.IO.Pipelines.dll
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/xunit.abstractions.dll
@@ -210,3 +207,8 @@
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/obj/Debug/net5.0/BlazorClient.csproj.CopyComplete
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/obj/Debug/net5.0/BlazorClient.genruntimeconfig.cache
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/System.Net.WebSockets.WebSocketProtocol.dll
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/Syncfusion.Blazor.Buttons.dll
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/Syncfusion.Blazor.Core.dll
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/Syncfusion.Blazor.Data.dll
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/Syncfusion.Blazor.Lists.dll
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/Syncfusion.Blazor.Themes.dll

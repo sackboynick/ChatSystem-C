@@ -53,14 +53,7 @@ else
     private bool _isChatting = false;
 
     // name of the user who will be chatting
-    private string _username = "";
-
-    private CustomAuthenticationStateProvider _customAuthenticationStateProvider;
-    
-    private void SetCurrentUsername()
-    {
-        _username = _customAuthenticationStateProvider.GetAuthenticationStateAsync().Result.User.Identity.Name;
-    }
+    private string _username = "HennyG";
 
     // on-screen message
     private string _message;
@@ -76,7 +69,6 @@ else
 
     public async Task Chat()
     {
-        SetCurrentUsername();
         try
         {
             // Start chatting and force refresh UI.
