@@ -112,7 +112,7 @@ using Microsoft.AspNetCore.SignalR.Client;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 49 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+#line 48 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
        
     // flag to indicate chat status
     private bool _isChatting = false;
@@ -146,7 +146,7 @@ using Microsoft.AspNetCore.SignalR.Client;
             // Create the chat client
             string baseUrl = navigationManager.BaseUri;
 
-            _hubUrl = baseUrl.TrimEnd('/') + BlazorChatHub.HubUrl;
+            _hubUrl = baseUrl.TrimEnd('/') + ChatRoomHub.HubUrl;
 
             _hubConnection = new HubConnectionBuilder()
                 .WithUrl(_hubUrl)

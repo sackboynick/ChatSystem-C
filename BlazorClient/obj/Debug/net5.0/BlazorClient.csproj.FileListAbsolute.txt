@@ -209,3 +209,4 @@
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/obj/Debug/net5.0/BlazorClient.Views.pdb
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/obj/Debug/net5.0/BlazorClient.csproj.CopyComplete
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/obj/Debug/net5.0/BlazorClient.genruntimeconfig.cache
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/System.Net.WebSockets.WebSocketProtocol.dll
