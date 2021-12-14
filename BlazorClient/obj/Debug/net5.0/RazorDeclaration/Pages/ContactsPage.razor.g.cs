@@ -56,34 +56,41 @@ using Microsoft.AspNetCore.Components.Web;
 #nullable disable
 #nullable restore
 #line 7 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/_Imports.razor"
-using Microsoft.AspNetCore.Components.Web.Virtualization;
+using Syncfusion.Blazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 8 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/_Imports.razor"
-using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
+using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 9 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/_Imports.razor"
-using Microsoft.JSInterop;
+using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 10 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/_Imports.razor"
-using BlazorClient;
+using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 11 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/_Imports.razor"
+using BlazorClient;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/_Imports.razor"
 using BlazorClient.Shared;
 
 #line default
@@ -104,7 +111,7 @@ using Syncfusion.Blazor.Buttons;
 #line hidden
 #nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/ContactsPage")]
-    public partial class ContactsPage : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class ContactsPage : Syncfusion.Blazor.SfBaseComponent
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,7 +119,7 @@ using Syncfusion.Blazor.Buttons;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 31 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ContactsPage.razor"
+#line 32 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ContactsPage.razor"
       
     
     static List<DataModel> ListData = new List<DataModel>();

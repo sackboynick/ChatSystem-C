@@ -61,10 +61,6 @@
             "Syncfusion.Blazor": {
               "target": "Package",
               "version": "[19.3.0.57, )"
-            },
-            "Syncfusion.Blazor.Lists": {
-              "target": "Package",
-              "version": "[19.3.0.57, )"
             }
           },
           "imports": [

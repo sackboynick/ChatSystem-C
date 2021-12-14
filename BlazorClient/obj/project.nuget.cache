@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9EH1lDl7dacJ1LYrfgq4SQUSZ+tr636kjmfei7mdgt7iqOzPMmi45Wdf6pyTXbQ2HfLvgnaqKI9fWgtM7lulmQ==",
+  "dgSpecHash": "LANW+8wxLQlEPdajse3fX8w7GKbsEsQUseG7iRYX04KCPFuRto5EZu9jNacWgoIef7GhTiC+38bMzPrd4GTn0w==",
   "success": true,
   "projectFilePath": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/BlazorClient.csproj",
   "expectedPackageFiles": [
@@ -73,11 +73,6 @@
     "/Users/henrikkoster/.nuget/packages/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/Users/henrikkoster/.nuget/packages/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/Users/henrikkoster/.nuget/packages/syncfusion.blazor/19.3.0.57/syncfusion.blazor.19.3.0.57.nupkg.sha512",
-    "/Users/henrikkoster/.nuget/packages/syncfusion.blazor.buttons/19.3.0.57/syncfusion.blazor.buttons.19.3.0.57.nupkg.sha512",
-    "/Users/henrikkoster/.nuget/packages/syncfusion.blazor.core/19.3.0.57/syncfusion.blazor.core.19.3.0.57.nupkg.sha512",
-    "/Users/henrikkoster/.nuget/packages/syncfusion.blazor.data/19.3.0.57/syncfusion.blazor.data.19.3.0.57.nupkg.sha512",
-    "/Users/henrikkoster/.nuget/packages/syncfusion.blazor.lists/19.3.0.57/syncfusion.blazor.lists.19.3.0.57.nupkg.sha512",
-    "/Users/henrikkoster/.nuget/packages/syncfusion.blazor.themes/19.3.0.57/syncfusion.blazor.themes.19.3.0.57.nupkg.sha512",
     "/Users/henrikkoster/.nuget/packages/syncfusion.excelexport.net.core/19.3.0.57/syncfusion.excelexport.net.core.19.3.0.57.nupkg.sha512",
     "/Users/henrikkoster/.nuget/packages/syncfusion.licensing/19.3.0.57/syncfusion.licensing.19.3.0.57.nupkg.sha512",
     "/Users/henrikkoster/.nuget/packages/syncfusion.pdfexport.net.core/19.3.0.57/syncfusion.pdfexport.net.core.19.3.0.57.nupkg.sha512",
