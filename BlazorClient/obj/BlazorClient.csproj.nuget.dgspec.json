@@ -62,9 +62,13 @@
               "target": "Package",
               "version": "[5.0.11, )"
             },
-            "Syncfusion.Blazor": {
+            "Syncfusion.Blazor.Buttons": {
               "target": "Package",
-              "version": "[19.3.0.57, )"
+              "version": "[19.3.0.59, )"
+            },
+            "Syncfusion.Blazor.Lists": {
+              "target": "Package",
+              "version": "[19.3.0.59, )"
             }
           },
           "imports": [

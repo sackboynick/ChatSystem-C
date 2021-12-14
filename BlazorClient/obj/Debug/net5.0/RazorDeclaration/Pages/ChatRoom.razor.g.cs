@@ -97,14 +97,14 @@ using BlazorClient.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+#line 3 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
 using Microsoft.AspNetCore.SignalR.Client;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+#line 4 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
 using BlazorClient.Data;
 
 #line default
@@ -126,7 +126,14 @@ using BlazorClient.Data;
 
     // name of the user who will be chatting
     private string _username = "";
+
+    private CustomAuthenticationStateProvider _customAuthenticationStateProvider;
     
+    private void SetCurrentUsername()
+    {
+        _username = _customAuthenticationStateProvider.GetAuthenticationStateAsync().Result.User.Identity.Name;
+    }
+
     // on-screen message
     private string _message;
 
@@ -141,6 +148,7 @@ using BlazorClient.Data;
 
     public async Task Chat()
     {
+        SetCurrentUsername();
         try
         {
             // Start chatting and force refresh UI.
@@ -227,7 +235,6 @@ using BlazorClient.Data;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private CustomAuthenticationStateProvider _customAuthenticationStateProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
     }
 }
