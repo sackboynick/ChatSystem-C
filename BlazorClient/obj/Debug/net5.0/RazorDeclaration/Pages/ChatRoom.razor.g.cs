@@ -97,8 +97,15 @@ using BlazorClient.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+#line 4 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
 using Microsoft.AspNetCore.SignalR.Client;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+using BlazorClient.Data;
 
 #line default
 #line hidden
@@ -112,14 +119,14 @@ using Microsoft.AspNetCore.SignalR.Client;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 48 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+#line 51 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
        
     // flag to indicate chat status
     private bool _isChatting = false;
 
     // name of the user who will be chatting
-    private string _username = "hennyg";
-
+    private string _username = "";
+    
     // on-screen message
     private string _message;
 
@@ -145,7 +152,7 @@ using Microsoft.AspNetCore.SignalR.Client;
 
             // Create the chat client
             string baseUrl = navigationManager.BaseUri;
-
+            
             _hubUrl = baseUrl.TrimEnd('/') + ChatRoomHub.HubUrl;
 
             _hubConnection = new HubConnectionBuilder()
@@ -220,6 +227,7 @@ using Microsoft.AspNetCore.SignalR.Client;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private CustomAuthenticationStateProvider _customAuthenticationStateProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
     }
 }
