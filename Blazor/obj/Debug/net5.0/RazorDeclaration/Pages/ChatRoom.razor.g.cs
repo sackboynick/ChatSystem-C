@@ -83,8 +83,15 @@ using Blazor.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/Pages/ChatRoom.razor"
+#line 4 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/Pages/ChatRoom.razor"
 using Microsoft.AspNetCore.SignalR.Client;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/Pages/ChatRoom.razor"
+using Blazor.Data;
 
 #line default
 #line hidden
@@ -98,7 +105,7 @@ using Microsoft.AspNetCore.SignalR.Client;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 49 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/Pages/ChatRoom.razor"
+#line 51 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor/Pages/ChatRoom.razor"
        
     // flag to indicate chat status
     private bool _isChatting = false;
@@ -213,6 +220,7 @@ using Microsoft.AspNetCore.SignalR.Client;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider _authenticationStateProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
     }
 }
