@@ -119,7 +119,7 @@ using Syncfusion.Blazor.Buttons;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 30 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ContactsPage.razor"
+#line 32 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ContactsPage.razor"
       
     
     static List<DataModel> ListData = new List<DataModel>();

@@ -2,6 +2,10 @@
 @inject NavigationManager navigationManager
 @using Microsoft.AspNetCore.SignalR.Client;
 
+<NavLink class="nav-link" href="contactsPage">
+    <button class="btn btn-sm btn-warning ml-md-auto" @onclick="@DisconnectAsync">Back</button>
+</NavLink>
+
 <h1>Chat</h1>
 <hr />
 
@@ -21,8 +25,6 @@ else
     // banner to show current user
     <div class="alert alert-secondary mt-4" role="alert">
         <span class="oi oi-person mr-2" aria-hidden="true"></span>
-        <span><b>@_username</b> is now online!</span>
-        <button class="btn btn-sm btn-warning ml-md-auto" @onclick="@DisconnectAsync">Disconnect</button>
     </div>
     // display messages
     <div id="scrollbox">
@@ -41,7 +43,7 @@ else
             }
         }
         <hr />
-        <textarea class="input-lg" placeholder="enter your comment" @bind="@_newMessage"></textarea>
+        <textarea class="input-lg" placeholder="enter your message" @bind="@_newMessage"></textarea>
         <button class="btn btn-default" @onclick="@(() => SendAsync(_newMessage))">Send</button>
     </div>
 }
