@@ -2,12 +2,10 @@
 @using BlazorClient.LoginComponent
 
 <div class="page">
-    <AuthorizeView Policy="RequireLogIn">
+        <AuthorizeView Policy="RequireLogIn"></AuthorizeView>
     <div class="sidebar">
         <NavMenu/>
     </div>
-    </AuthorizeView>
-
     <div class="main">
         <div class="top-row px-4 h-auto m-10">
             <Login/>
