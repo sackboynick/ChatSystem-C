@@ -1,12 +1,12 @@
 @inherits LayoutComponentBase
 @using BlazorClient.LoginComponent
 
+<div class="page">
 <AuthorizeView Policy="RequireLogIn">
     <div class="sidebar">
         <NavMenu/>
     </div>
     </AuthorizeView>
-<div class="page">
     <div class="main">
         <div class="content px-4">
             @Body

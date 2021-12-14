@@ -111,7 +111,7 @@ using Syncfusion.Blazor.Buttons;
 #line hidden
 #nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/ContactsPage")]
-    public partial class ContactsPage : Syncfusion.Blazor.SfBaseComponent
+    public partial class ContactsPage : Syncfusion.Blazor.BaseComponent
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
