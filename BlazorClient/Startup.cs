@@ -26,7 +26,7 @@ namespace BlazorClient
             services.AddServerSideBlazor();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
             services.AddScoped<IUserService, ValidatorLogInHttp>();
-            services.AddSingleton<SyncfusionBlazorService>();
+            services.AddSyncfusionBlazor();
             services.AddAuthorization(options =>
                 options.AddPolicy("RequireAdmin", builder =>
                     builder.RequireAuthenticatedUser().RequireClaim("Role", "Admin")));

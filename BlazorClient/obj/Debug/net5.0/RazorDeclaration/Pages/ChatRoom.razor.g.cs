@@ -103,13 +103,6 @@ using Microsoft.AspNetCore.SignalR.Client;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 4 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
-using BlazorClient.Data;
-
-#line default
-#line hidden
-#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/chatroom")]
     public partial class ChatRoom : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -119,20 +112,13 @@ using BlazorClient.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 51 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+#line 49 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
        
     // flag to indicate chat status
     private bool _isChatting = false;
 
     // name of the user who will be chatting
-    private string _username = "";
-
-    private CustomAuthenticationStateProvider _customAuthenticationStateProvider;
-    
-    private void SetCurrentUsername()
-    {
-        _username = _customAuthenticationStateProvider.GetAuthenticationStateAsync().Result.User.Identity.Name;
-    }
+    private string _username = "HennyG";
 
     // on-screen message
     private string _message;
@@ -148,7 +134,6 @@ using BlazorClient.Data;
 
     public async Task Chat()
     {
-        SetCurrentUsername();
         try
         {
             // Start chatting and force refresh UI.
