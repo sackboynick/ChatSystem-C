@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = BlazorClient
-build_property.ProjectDir = /home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/
+build_property.ProjectDir = /Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/
