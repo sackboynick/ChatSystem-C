@@ -1,9 +1,10 @@
 @page "/ContactsPage"
 @using Syncfusion.Blazor.Lists
 @using Syncfusion.Blazor.Buttons
+@inherits Syncfusion.Blazor.SfBaseComponent
 
-<SfButton IconCss="oi oi-plus">New Contact</SfButton>
-<SfButton IconCss="oi oi-plus">New Group</SfButton>
+<SfButton IconCss="oi oi-plus" IconPosition="IconPosition.Right">New Contact</SfButton>
+<SfButton IconCss="oi oi-plus" IconPosition="IconPosition.Right">New Group</SfButton>
 
 <input @bind-value="SearchTerm" @bind-value:event="oninput" />
 

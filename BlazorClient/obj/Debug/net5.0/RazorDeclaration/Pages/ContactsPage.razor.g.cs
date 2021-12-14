@@ -104,7 +104,7 @@ using Syncfusion.Blazor.Buttons;
 #line hidden
 #nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/ContactsPage")]
-    public partial class ContactsPage : Syncfusion.Blazor.SfBaseComponent
+    public partial class ContactsPage : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,7 +112,7 @@ using Syncfusion.Blazor.Buttons;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 32 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ContactsPage.razor"
+#line 31 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ContactsPage.razor"
       
     
     static List<DataModel> ListData = new List<DataModel>();
