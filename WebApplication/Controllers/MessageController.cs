@@ -107,10 +107,7 @@ namespace WebApplication.Controllers
         {
             try
             {
-                if (message.PinnedMessage != null && message.PinnedMessage.Value)
-                {
                     await _data.UpdateMessage(message);
-                }
                 
                 return Ok();
             }catch (Exception e) {

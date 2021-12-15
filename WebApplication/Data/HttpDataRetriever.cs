@@ -31,7 +31,7 @@ namespace WebApplication.Data
                 Encoding.UTF8,
                 "application/json"
             );
-            HttpResponseMessage response = await client.PostAsync("https://localhost:5001/Message", content).ConfigureAwait(false);
+            HttpResponseMessage response = await client.PostAsync("http://localhost:5001/Message", content).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
 
@@ -51,7 +51,7 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/PrivateChat/"+chatId).ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5001/PrivateChat/"+chatId).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -78,7 +78,7 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/Group/"+chatId).ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5001/Group/"+chatId).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -92,7 +92,7 @@ namespace WebApplication.Data
             return groupChat;
         }
         
-        public async Task<Task> AddParticipantToGroup(int groupId, string userToAdd)
+        public async Task<Task> AddParticipantToGroup(Participant participant)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
@@ -103,18 +103,14 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
-
-            Participant participant = new Participant(userToAdd, false)
-            {
-                GroupChatId = groupId
-            };
+            
             string participantAsJson = JsonSerializer.Serialize(participant);
             StringContent content = new StringContent(
                 participantAsJson,
                 Encoding.UTF8,
                 "application/json"
             );
-            HttpResponseMessage response = await client.PostAsync("https://localhost:5001/Participant", content).ConfigureAwait(false);
+            HttpResponseMessage response = await client.PostAsync("http://localhost:5001/Participant", content).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             return Task.CompletedTask;
@@ -133,7 +129,7 @@ namespace WebApplication.Data
                 client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
                 
-                HttpResponseMessage response = await client.DeleteAsync("https://localhost:5001/Participant/"+participantId).ConfigureAwait(false);
+                HttpResponseMessage response = await client.DeleteAsync("http://localhost:5001/Participant/"+participantId).ConfigureAwait(false);
                 if(!response.IsSuccessStatusCode)
                     throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
                 return Task.CompletedTask;
@@ -157,7 +153,7 @@ namespace WebApplication.Data
                 Encoding.UTF8,
                 "application/json"
             );
-            HttpResponseMessage response = await client.PutAsync("https://localhost:5001/Participant", content).ConfigureAwait(false);
+            HttpResponseMessage response = await client.PutAsync("http://localhost:5001/Participant", content).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             return Task.CompletedTask;
@@ -182,7 +178,7 @@ namespace WebApplication.Data
                 Encoding.UTF8,
                 "application/json"
             );
-            HttpResponseMessage response = await client.PostAsync("https://localhost:5001/Group", content).ConfigureAwait(false);
+            HttpResponseMessage response = await client.PostAsync("http://localhost:5001/Group", content).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
 
@@ -203,7 +199,7 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/User/"+userId).ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5001/User/"+userId).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -230,7 +226,7 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/User/Username/"+username).ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5001/User/Username/"+username).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -262,7 +258,7 @@ namespace WebApplication.Data
                 Encoding.UTF8,
                 "application/json"
             );
-            HttpResponseMessage response = await client.PostAsync("https://localhost:5001/Friendship/"+friendship, content).ConfigureAwait(false);
+            HttpResponseMessage response = await client.PostAsync("http://localhost:5001/Friendship/", content).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
 
@@ -282,7 +278,7 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
                 
-            HttpResponseMessage response = await client.DeleteAsync("https://localhost:5001/Friendship/"+friendshipId).ConfigureAwait(false);
+            HttpResponseMessage response = await client.DeleteAsync("http://localhost:5001/Friendship/"+friendshipId).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             return Task.CompletedTask;
@@ -312,7 +308,7 @@ namespace WebApplication.Data
                 "application/json"
             );
             HttpResponseMessage response =
-                await client.PutAsync("https://localhost:5001/Friendship", content).ConfigureAwait(false);
+                await client.PutAsync("http://localhost:5001/Friendship", content).ConfigureAwait(false);
             if (!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             return Task.CompletedTask;
@@ -341,7 +337,7 @@ namespace WebApplication.Data
                 "application/json"
             );
             HttpResponseMessage response =
-                await client.PutAsync("https://localhost:5001/Message", content).ConfigureAwait(false);
+                await client.PutAsync("http://localhost:5001/Message", content).ConfigureAwait(false);
             if (!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             return Task.CompletedTask;
@@ -360,7 +356,7 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/Message/"+messageId).ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5001/Message/"+messageId).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -387,7 +383,7 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/Participant/"+participantId).ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5001/Participant/"+participantId).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -424,7 +420,7 @@ namespace WebApplication.Data
                 "application/json"
             );
             HttpResponseMessage response =
-                await client.PutAsync("https://localhost:5001/User", content).ConfigureAwait(false);
+                await client.PutAsync("http://localhost:5001/User", content).ConfigureAwait(false);
             if (!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             return Task.CompletedTask;
@@ -444,7 +440,7 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
                 
-            HttpResponseMessage response = await client.DeleteAsync("https://localhost:5001/User/"+userId).ConfigureAwait(false);
+            HttpResponseMessage response = await client.DeleteAsync("http://localhost:5001/User/"+userId).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             return Task.CompletedTask;
@@ -465,7 +461,7 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/Friendship/").ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5001/Friendship/").ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -499,7 +495,7 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/PrivateChat/").ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5001/PrivateChat/").ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -534,7 +530,7 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/Group/").ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5001/Group/").ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -569,7 +565,7 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/PrivateChat/"+chatId).ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5001/PrivateChat/"+chatId).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -604,7 +600,7 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/Message/").ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5001/Message/").ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -638,7 +634,7 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/Participant/").ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5001/Participant/").ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -667,7 +663,6 @@ namespace WebApplication.Data
             List<GroupChat> groupChats = GetAllUserGroupChats(userId).Result;
             List<Chat> chats = privateChats.Union<Chat>(groupChats).ToList();
 
-            chats.Sort();
             return chats;
         }
 
@@ -684,7 +679,7 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
                 
-            HttpResponseMessage response = await client.DeleteAsync("https://localhost:5001/Message/"+messageId).ConfigureAwait(false);
+            HttpResponseMessage response = await client.DeleteAsync("http://localhost:5001/Message/"+messageId).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             return Task.CompletedTask;
@@ -703,7 +698,7 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/Friendship/"+friendshipId).ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5001/Friendship/"+friendshipId).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -730,7 +725,7 @@ namespace WebApplication.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/User/").ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5001/User/").ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             

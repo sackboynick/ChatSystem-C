@@ -9,11 +9,11 @@ namespace WebApplication.Data
         public Task<Task> SendMessage(Message message);
         public Task<PrivateChat> GetPrivateChat(int chatId);
         public Task<GroupChat> GetGroupChat(int chatId);       
-        public Task<Task> AddParticipantToGroup(int groupId, string userToAdd);
+        public Task<Task> AddParticipantToGroup(Participant participant);
         public Task<Task> RemoveParticipantFromGroup(int participantId);
         public Task<Task> PromoteParticipantToAdmin(Participant participant);
         public Task<Task> CreateGroup(GroupChat groupChat);
-        public Task<User> GetUser(int userId);
+        
         public Task<User> GetUserFromUsername(string username);
         public Task<Task> AddFriendship(Friendship friendship);
         public Task<Task> RemoveFriend(int friendshipId);
@@ -24,7 +24,6 @@ namespace WebApplication.Data
         public Task<Participant> GetParticipant(int participantId);
 
         public Task<Task> UpdateUser(User user);
-        public Task<Task> RemoveUser(int friendshipId);
 
         Task<List<Friendship>> GetAllFriendsOfUser(int userId);
         Task<List<PrivateChat>> GetAllUserPrivateChats(int userId);

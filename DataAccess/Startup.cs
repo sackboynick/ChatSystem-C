@@ -28,7 +28,7 @@ namespace DataAccess
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "DataAccess", Version = "v1"});
             });
             
-            services.AddScoped<IUserValidation, DatabaseLogInValidator>();
+            services.AddSingleton<IUserValidation, DatabaseLogInValidator>();
             services.AddSingleton<IDataRepo, DatabaseDataHandler>();
             services.AddSingleton<IUserRepo, DatabaseDataHandler>();
         }

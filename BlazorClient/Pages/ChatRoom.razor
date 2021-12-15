@@ -1,5 +1,5 @@
 @page "/chatroom"
-@inject NavigationManager navigationManager
+@inject NavigationManager _navigationManager
 @using Microsoft.AspNetCore.SignalR.Client;
 
 <h1>Chat</h1>
@@ -84,7 +84,7 @@ else
             _messages.Clear();
 
             // Create the chat client
-            string baseUrl = navigationManager.BaseUri;
+            string baseUrl = _navigationManager.BaseUri;
 
             _hubUrl = baseUrl.TrimEnd('/') + BlazorChatHub.HubUrl;
 

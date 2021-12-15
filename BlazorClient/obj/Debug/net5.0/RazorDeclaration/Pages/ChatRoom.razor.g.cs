@@ -144,7 +144,7 @@ using Microsoft.AspNetCore.SignalR.Client;
             _messages.Clear();
 
             // Create the chat client
-            string baseUrl = navigationManager.BaseUri;
+            string baseUrl = _navigationManager.BaseUri;
 
             _hubUrl = baseUrl.TrimEnd('/') + BlazorChatHub.HubUrl;
 
@@ -220,7 +220,7 @@ using Microsoft.AspNetCore.SignalR.Client;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager _navigationManager { get; set; }
     }
 }
 #pragma warning restore 1591

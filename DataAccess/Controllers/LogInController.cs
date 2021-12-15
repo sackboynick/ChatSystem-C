@@ -1,11 +1,8 @@
 using System;
 using System.Threading.Tasks;
-using DataAccess.Data;
-using DataAccess.Persistence;
 using Domain.User;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Controllers
 {
