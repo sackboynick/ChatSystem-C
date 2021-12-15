@@ -65,11 +65,11 @@ namespace WebApplication.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddParticipant([FromQuery] int groupId,[FromQuery] string userToAdd)
+        public async Task<ActionResult> AddParticipant([FromBody] Participant participant)
         {
             try
             {
-                await _data.AddParticipantToGroup(groupId,userToAdd);
+                await _data.AddParticipantToGroup(participant);
 
                 return Ok();
             }

@@ -1245,19 +1245,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/henrikkoster/.nuget/packages/": {}
+    "/home/c/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/Blazor2.csproj",
+      "projectUniqueName": "/home/c/Desktop/RiderProjects/ChatSystem/Blazor2/Blazor2.csproj",
       "projectName": "Blazor2",
-      "projectPath": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/Blazor2.csproj",
-      "packagesPath": "/Users/henrikkoster/.nuget/packages/",
-      "outputPath": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Blazor2/obj/",
+      "projectPath": "/home/c/Desktop/RiderProjects/ChatSystem/Blazor2/Blazor2.csproj",
+      "packagesPath": "/home/c/.nuget/packages/",
+      "outputPath": "/home/c/Desktop/RiderProjects/ChatSystem/Blazor2/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/henrikkoster/.nuget/NuGet/NuGet.Config"
+        "/home/c/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -1312,7 +1312,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Runtime.browser-wasm",
-            "version": "[5.0.11, 5.0.11]"
+            "version": "[5.0.12, 5.0.12]"
           }
         ],
         "frameworkReferences": {
@@ -1320,7 +1320,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
