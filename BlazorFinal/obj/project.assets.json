@@ -2047,19 +2047,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/henrikkoster/.nuget/packages/": {}
+    "/home/c/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorFinal/BlazorFinal.csproj",
+      "projectUniqueName": "/home/c/Desktop/RiderProjects/ChatSystem/BlazorFinal/BlazorFinal.csproj",
       "projectName": "BlazorFinal",
-      "projectPath": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorFinal/BlazorFinal.csproj",
-      "packagesPath": "/Users/henrikkoster/.nuget/packages/",
-      "outputPath": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorFinal/obj/",
+      "projectPath": "/home/c/Desktop/RiderProjects/ChatSystem/BlazorFinal/BlazorFinal.csproj",
+      "packagesPath": "/home/c/.nuget/packages/",
+      "outputPath": "/home/c/Desktop/RiderProjects/ChatSystem/BlazorFinal/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/henrikkoster/.nuget/NuGet/NuGet.Config"
+        "/home/c/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -2126,7 +2126,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
       }
     }
   }
