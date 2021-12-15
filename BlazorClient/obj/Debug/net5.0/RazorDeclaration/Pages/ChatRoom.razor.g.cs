@@ -56,34 +56,41 @@ using Microsoft.AspNetCore.Components.Web;
 #nullable disable
 #nullable restore
 #line 7 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/_Imports.razor"
-using Microsoft.AspNetCore.Components.Web.Virtualization;
+using Syncfusion.Blazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 8 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/_Imports.razor"
-using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
+using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 9 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/_Imports.razor"
-using Microsoft.JSInterop;
+using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 10 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/_Imports.razor"
-using BlazorClient;
+using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 11 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/_Imports.razor"
+using BlazorClient;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/_Imports.razor"
 using BlazorClient.Shared;
 
 #line default
