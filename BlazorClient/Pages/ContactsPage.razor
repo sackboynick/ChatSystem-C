@@ -1,10 +1,11 @@
 @page "/contactsPage"
 @using Syncfusion.Blazor.Lists
 @using Syncfusion.Blazor.Buttons
+@inject NavigationManager _navigationManager
 @inherits Syncfusion.Blazor.SfBaseComponent
 
-<SfButton IconCss="oi oi-plus" IconPosition="IconPosition.Right">New Contact</SfButton>
-<SfButton IconCss="oi oi-plus" IconPosition="IconPosition.Right">New Group</SfButton>
+<SfButton IconCss="oi oi-plus" IconPosition="IconPosition.Right" @onclick="@(e => AddChat("Adam"))">New Contact</SfButton>
+<SfButton IconCss="oi oi-plus" IconPosition="IconPosition.Right" @onclick="@(e => AddGroupChat("HungryWanderers"))">New Group</SfButton>
 
 <input @bind-value="SearchTerm" @bind-value:event="oninput" />
 
@@ -12,14 +13,13 @@
     <ListViewFieldSettings Id="Id" Text="Name" TValue="DataModel" GroupBy="Category"></ListViewFieldSettings>
     <ListViewTemplates TValue="DataModel">
         <Template>
-            <NavLink class="chatLinks" href="chatroom">
-                <div class="e-list-wrapper e-list-multi-line e-list-avatar">
-                    <span id="showUI" class="e-avatar e-avatar-circle" icon="@context.Icon"> @context.Icon</span>
-                    <span class="e-list-content">@context.Name</span>
-                    <span class="e-list-content">@context.Nickname</span>
-                    <span class="status">@context.Status</span>
-                </div>
-            </NavLink>
+            <div class="e-list-wrapper e-list-multi-line e-list-avatar" @onclick="@OpenChat">
+                <span id="showUI" class="e-avatar e-avatar-circle" icon="@context.Icon"> @context.Icon</span>
+                <span class="e-list-content">@context.Name</span>
+                <span class="e-list-content">@context.Nickname</span>
+                <span class="status">@context.Status</span>
+                <button class="oi oi-plus" id="@context.Name" @onclick="@(e => RemoveChat(context.Name))">Delete</button>
+            </div>
         </Template>
         <GroupTemplate>
             <div>
@@ -29,6 +29,7 @@
     </ListViewTemplates>
 </SfListView>
 
+
 @code{
     
     static List<DataModel> ListData = new List<DataModel>();
@@ -36,7 +37,7 @@
     IEnumerable<DataModel> EListData = ListData.Where(i => i.Name.ToLower().Contains(SearchTerm.ToLower()));
     
     static string SearchTerm { get; set; } = "";
-    
+
     protected override void OnInitialized()
     {
         base.OnInitialized();
@@ -50,6 +51,26 @@
         ListData.Add(new DataModel { Name = "Bums United", Icon = "M", Id = "7", Category = "Groups", Nickname = "", Status = ""});
         ListData.Add(new DataModel { Name = "Amogus", Icon = "A", Category = "Groups", Id = "8", Nickname = "", Status = ""});
         ListData.Add(new DataModel { Name = "DOL", Icon = "N", Id = "9", Category = "Groups", Nickname = "", Status = ""});
+    }
+
+    private void OpenChat()
+    {
+        _navigationManager.NavigateTo("chatroom");
+    }
+    
+    private void AddChat(string chatName)
+    {
+        ListData.Add(new DataModel{ Name = chatName , Category = "Contacts"});
+    }
+
+    private void RemoveChat(string chatName)
+    {
+        ListData.Remove(ListData.Where(chat => chat.Name == chatName).First());
+    }
+    
+    private void AddGroupChat(string chatName)
+    {
+        ListData.Add(new DataModel{ Name = chatName, Category = "Groups"});
     }
 
     public class DataModel

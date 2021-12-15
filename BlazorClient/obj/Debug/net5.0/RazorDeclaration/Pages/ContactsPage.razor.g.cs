@@ -119,7 +119,7 @@ using Syncfusion.Blazor.Buttons;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 32 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ContactsPage.razor"
+#line 33 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ContactsPage.razor"
       
     
     static List<DataModel> ListData = new List<DataModel>();
@@ -127,7 +127,7 @@ using Syncfusion.Blazor.Buttons;
     IEnumerable<DataModel> EListData = ListData.Where(i => i.Name.ToLower().Contains(SearchTerm.ToLower()));
     
     static string SearchTerm { get; set; } = "";
-    
+
     protected override void OnInitialized()
     {
         base.OnInitialized();
@@ -141,6 +141,26 @@ using Syncfusion.Blazor.Buttons;
         ListData.Add(new DataModel { Name = "Bums United", Icon = "M", Id = "7", Category = "Groups", Nickname = "", Status = ""});
         ListData.Add(new DataModel { Name = "Amogus", Icon = "A", Category = "Groups", Id = "8", Nickname = "", Status = ""});
         ListData.Add(new DataModel { Name = "DOL", Icon = "N", Id = "9", Category = "Groups", Nickname = "", Status = ""});
+    }
+
+    private void openChat()
+    {
+        navigationManager.NavigateTo("chatroom");
+    }
+    
+    private void AddChat(string chatName)
+    {
+        ListData.Add(new DataModel{ Name = chatName , Category = "Contacts"});
+    }
+
+    private void RemoveChat(string chatName)
+    {
+        ListData.Remove(ListData.Where(chat => chat.Name == chatName).First());
+    }
+    
+    private void AddGroupChat(string chatName)
+    {
+        ListData.Add(new DataModel{ Name = chatName, Category = "Groups"});
     }
 
     public class DataModel
@@ -157,6 +177,7 @@ using Syncfusion.Blazor.Buttons;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
     }
 }
 #pragma warning restore 1591
