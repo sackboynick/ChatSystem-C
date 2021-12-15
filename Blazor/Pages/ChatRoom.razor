@@ -1,6 +1,8 @@
 @page "/chatroom"
 @inject NavigationManager navigationManager
+@inject AuthenticationStateProvider _authenticationStateProvider
 @using Microsoft.AspNetCore.SignalR.Client;
+@using Blazor.Data
 
 <h1>Chat</h1>
 <hr />

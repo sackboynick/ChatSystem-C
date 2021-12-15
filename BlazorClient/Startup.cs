@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BlazorClient.Data;
 using Microsoft.AspNetCore.Components.Authorization;
+using Syncfusion.Blazor;
 
 namespace BlazorClient
 {
@@ -25,6 +26,7 @@ namespace BlazorClient
             services.AddServerSideBlazor();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
             services.AddScoped<IUserService, ValidatorLogInHttp>();
+            services.AddSyncfusionBlazor();
             services.AddAuthorization(options =>
                 options.AddPolicy("RequireAdmin", builder =>
                     builder.RequireAuthenticatedUser().RequireClaim("Role", "Admin")));
@@ -56,6 +58,8 @@ namespace BlazorClient
             {
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
+                endpoints.MapHub<ChatRoomHub>(ChatRoomHub.HubUrl);
+
             });
         }
     }

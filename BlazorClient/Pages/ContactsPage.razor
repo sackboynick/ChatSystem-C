@@ -1,4 +1,4 @@
-@page "/ContactsPage"
+@page "/contactsPage"
 @using Syncfusion.Blazor.Lists
 @using Syncfusion.Blazor.Buttons
 @inherits Syncfusion.Blazor.SfBaseComponent
@@ -12,7 +12,7 @@
     <ListViewFieldSettings Id="Id" Text="Name" TValue="DataModel" GroupBy="Category"></ListViewFieldSettings>
     <ListViewTemplates TValue="DataModel">
         <Template>
-            <NavLink href="chatroom">
+            <NavLink class="chatLinks" href="chatroom">
                 <div class="e-list-wrapper e-list-multi-line e-list-avatar">
                     <span id="showUI" class="e-avatar e-avatar-circle" icon="@context.Icon"> @context.Icon</span>
                     <span class="e-list-content">@context.Name</span>
