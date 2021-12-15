@@ -143,9 +143,9 @@ using Syncfusion.Blazor.Buttons;
         ListData.Add(new DataModel { Name = "DOL", Icon = "N", Id = "9", Category = "Groups", Nickname = "", Status = ""});
     }
 
-    private void openChat()
+    private void OpenChat()
     {
-        navigationManager.NavigateTo("chatroom");
+        _navigationManager.NavigateTo("chatroom");
     }
     
     private void AddChat(string chatName)
@@ -177,7 +177,7 @@ using Syncfusion.Blazor.Buttons;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager _navigationManager { get; set; }
     }
 }
 #pragma warning restore 1591
