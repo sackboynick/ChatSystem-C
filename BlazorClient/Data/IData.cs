@@ -27,7 +27,7 @@ namespace BlazorClient.Data
         Task<Friendship> GetFriendship(int friendshipId);
         
         
-        Task<Task> CreateGroup(string groupCreator);
+        Task<Task> CreateGroup(string groupName, string groupCreator);
         Task<Task> UpdateGroup(GroupChat groupChat);
         
         Task<Task> AddParticipant(Participant participant);

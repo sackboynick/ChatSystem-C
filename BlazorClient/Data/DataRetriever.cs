@@ -382,7 +382,7 @@ namespace BlazorClient.Data
             return friendship;
         }
 
-        public async Task<Task> CreateGroup(string groupCreator)
+        public async Task<Task> CreateGroup(string groupName, string groupCreator)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
@@ -394,7 +394,7 @@ namespace BlazorClient.Data
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
 
-            GroupChat groupChat = new GroupChat(groupCreator);
+            GroupChat groupChat = new GroupChat(groupName,groupCreator);
             string userAsJson = JsonSerializer.Serialize(groupChat);
             StringContent content = new StringContent(
                 userAsJson,

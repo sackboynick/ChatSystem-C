@@ -94,10 +94,7 @@
 /home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/bin/Debug/net5.0/Microsoft.AspNetCore.SignalR.Common.dll
 /home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/bin/Debug/net5.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll
 /home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/bin/Debug/net5.0/Microsoft.Extensions.Primitives.dll
-/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/bin/Debug/net5.0/Syncfusion.Blazor.dll
-/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/bin/Debug/net5.0/Syncfusion.ExcelExport.Net.dll
 /home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/bin/Debug/net5.0/Syncfusion.Licensing.dll
-/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/bin/Debug/net5.0/Syncfusion.PdfExport.Net.dll
 /home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/obj/Debug/net5.0/RazorDeclaration/Pages/ChatRoom.razor.g.cs
 /home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/obj/Debug/net5.0/RazorDeclaration/Pages/ContactsPage.razor.g.cs
 /home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/obj/Debug/net5.0/RazorDeclaration/Pages/RegistrationPage.razor.g.cs
@@ -212,3 +209,9 @@
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/Syncfusion.Blazor.Data.dll
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/Syncfusion.Blazor.Lists.dll
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/bin/Debug/net5.0/Syncfusion.Blazor.Themes.dll
+/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/bin/Debug/net5.0/Syncfusion.Blazor.Buttons.dll
+/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/bin/Debug/net5.0/Syncfusion.Blazor.Core.dll
+/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/bin/Debug/net5.0/Syncfusion.Blazor.Data.dll
+/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/bin/Debug/net5.0/Syncfusion.Blazor.Lists.dll
+/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/bin/Debug/net5.0/Syncfusion.Blazor.Themes.dll
+/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/bin/Debug/net5.0/System.Net.WebSockets.WebSocketProtocol.dll

@@ -12,6 +12,10 @@ namespace Entities
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        
+        [Required]
+        [JsonPropertyName("groupName")]
+        public string GroupName { get; set; }
         [Required]
         [JsonPropertyName("participants")]
         public ICollection<Participant> Participants { get; set; }
@@ -21,8 +25,9 @@ namespace Entities
             Participants = new List<Participant>();
 
         }
-        public GroupChat(string groupCreator)
+        public GroupChat(string groupName,string groupCreator)
         {
+            GroupName = groupName;
             Participants =new List<Participant> {new(groupCreator,true)};
             Messages.Add(new Message("Server", Participants.ToList()[0]+" just created the group on date "+ DateTime.Now.ToString("MM/dd/yyyy h:mm tt")));
             Console.WriteLine(groupCreator);

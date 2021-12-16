@@ -18,7 +18,7 @@ namespace Entities
         [Required]
         [JsonPropertyName("localdatetime")]
         [DataType(DataType.DateTime)]
-        public DateTime LocalDateTime { get; set; }
+        public String LocalDateTime { get; set; }
         [Required]
         [JsonPropertyName("text")]
         public string Text { get; set; }
@@ -39,7 +39,7 @@ namespace Entities
         public Message()
         {
             SenderUsername = null;
-            LocalDateTime = new DateTime();
+            LocalDateTime = new DateTime().ToString("MM/dd/yyyy h:mm tt");
             Text = null;
             ForwardedMessageId = null;
             RepliedMessageId = null;
@@ -49,7 +49,7 @@ namespace Entities
         public Message(string senderUsername,string receiverUsername,String text){
             SenderUsername=senderUsername;
             ReceiverUsername = receiverUsername;
-            LocalDateTime=DateTime.Now;
+            LocalDateTime=DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
             Text=text;
         }
         
@@ -58,7 +58,7 @@ namespace Entities
             GroupChatId = groupChatId;
             PrivateChatId = null;
             ReceiverUsername = receiverUsername;
-            LocalDateTime=DateTime.Now;
+            LocalDateTime=DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
             Text=text;
         }
         
@@ -67,13 +67,13 @@ namespace Entities
             PrivateChatId = privateChatId;
             GroupChatId = null;
             ReceiverUsername = receiverUsername;
-            LocalDateTime=DateTime.Now;
+            LocalDateTime=DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
             Text=text;
         }
         public Message(string senderUsername,String text){
             SenderUsername=senderUsername;
             ReceiverUsername = null;
-            LocalDateTime=DateTime.Now;
+            LocalDateTime=DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
             Text=text;
         }
 
