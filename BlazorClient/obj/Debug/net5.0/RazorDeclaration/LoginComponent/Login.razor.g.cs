@@ -112,7 +112,7 @@ using BlazorClient.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 31 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/LoginComponent/Login.razor"
+#line 26 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/LoginComponent/Login.razor"
        
     private string _username;
     private string _password;
