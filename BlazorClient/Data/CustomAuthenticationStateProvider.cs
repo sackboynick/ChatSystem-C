@@ -14,12 +14,17 @@ namespace BlazorClient.Data
     {
         private readonly IJSRuntime _jsRuntime;
         private readonly IUserService _userService;
-        private User _cachedUser;
+        private static User _cachedUser;
 
         public CustomAuthenticationStateProvider(IJSRuntime jsRuntime, [FromServices] IUserService userService)
         {
             _jsRuntime = jsRuntime;
             _userService = userService;
+        }
+
+        public static string GetUsername()
+        {
+            return _cachedUser.Username;
         }
 
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
