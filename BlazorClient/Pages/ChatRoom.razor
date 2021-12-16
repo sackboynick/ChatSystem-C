@@ -1,6 +1,7 @@
 @page "/chatroom"
 @inject NavigationManager _navigationManager
 @using Microsoft.AspNetCore.SignalR.Client;
+@using BlazorClient.Data
 
 <h1>Chat</h1>
 <hr />
@@ -45,7 +46,7 @@ else
     private bool _isChatting = false;
 
     // name of the user who will be chatting
-    private string _username = "hennyg";
+    private static string _username = CustomAuthenticationStateProvider.GetUsername();
 
     // on-screen message
     private string _message;

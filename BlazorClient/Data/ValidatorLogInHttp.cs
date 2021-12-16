@@ -23,7 +23,7 @@ namespace BlazorClient.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/LogIn/"+userName+"/"+password).ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("https://localhost:5003/LogInServer/"+userName+"/"+password).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -56,7 +56,7 @@ namespace BlazorClient.Data
                 Encoding.UTF8,
                 "application/json"
             );
-            HttpResponseMessage response = await client.PostAsync("https://localhost:5001/LogIn", content).ConfigureAwait(false);
+            HttpResponseMessage response = await client.PostAsync("https://localhost:5003/LogInServer", content).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
 
