@@ -62,6 +62,24 @@ namespace WebApplication.Controllers
 
             return null;
         }
+        
+        [HttpGet]
+        public async Task<ActionResult<List<GroupChat>>> GetAllChats()
+        {
+            try
+            {
+                    List<GroupChat> chat = _data.GetGroupChats().Result;
+
+                    return Ok(chat);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+
+            return null;
+        }
 
         [HttpPost]
         public async Task<ActionResult> CreateGroup([FromBody] GroupChat group)

@@ -36,5 +36,6 @@ namespace WebApplication.Data
         Task<Task> RemoveMessage(int messageId);
         Task<Friendship> GetFriendship(int friendshipId);
         Task<List<User>> GetAllUsers();
+        Task<List<GroupChat>> GetGroupChats();
     }
 }

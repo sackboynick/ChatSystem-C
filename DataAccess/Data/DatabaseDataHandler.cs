@@ -13,7 +13,7 @@ namespace DataAccess.Data
         {
             using var chatContext = new ChatContext();
 
-            if (message.ReceiverUsername != null || message.PrivateChatId==null )
+            if (message.ReceiverUsername != null || message.PrivateChatId!=null )
             {
                 if (chatContext.PrivateChats.FirstOrDefault(chat =>
                         chat.Participant1 == message.SenderUsername && chat.Participant2 == message.ReceiverUsername) ==

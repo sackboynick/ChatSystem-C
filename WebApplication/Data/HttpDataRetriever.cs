@@ -738,5 +738,32 @@ namespace WebApplication.Data
             
             return users;
         }
+
+        public async Task<List<GroupChat>> GetGroupChats()
+        {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+            
+            
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5001/Group/").ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+            
+            string result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+            List<GroupChat> groupChats = JsonSerializer.Deserialize<List<GroupChat>>(result, new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            });
+
+            return groupChats;
+        }
     }
 }

@@ -2065,7 +2065,11 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
-      "System.Threading.Channels/5.0.0": {},
+      "System.Threading.Channels/5.0.0": {
+        "compile": {
+          "lib/netcoreapp3.0/System.Threading.Channels.dll": {}
+        }
+      },
       "System.Threading.Tasks/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.0.0",
