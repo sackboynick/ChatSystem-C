@@ -15,7 +15,8 @@ namespace WebApplication.Data
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
-
+            clientHandler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+            
             using HttpClient client = new HttpClient(clientHandler);
             
             
@@ -41,6 +42,7 @@ namespace WebApplication.Data
         public async Task<Task> RegisterUser(User user)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
 
             using HttpClient client = new HttpClient(clientHandler);

@@ -13,29 +13,42 @@ namespace DataAccess.Data
         {
             using var chatContext = new ChatContext();
 
-            if(chatContext.PrivateChats.FirstOrDefault(chat => chat.Participant1==message.SenderUsername && chat.Participant2==message.ReceiverUsername)==null)
+            if (message.ReceiverUsername != null || message.PrivateChatId==null )
             {
                 if (chatContext.PrivateChats.FirstOrDefault(chat =>
-                    chat.Participant1 == message.ReceiverUsername && chat.Participant2 == message.SenderUsername) == null)
+                        chat.Participant1 == message.SenderUsername && chat.Participant2 == message.ReceiverUsername) ==
+                    null)
                 {
-                    PrivateChat chat = new PrivateChat(message.SenderUsername, message.ReceiverUsername);
-                    Message newMess = new Message(message.SenderUsername, message.ReceiverUsername, message.Text,chatContext.PrivateChats.Count()+1);
-                    chat.Messages.Add(newMess);
-                    chatContext.PrivateChats.Add(chat);
+
+                    if (chatContext.PrivateChats.FirstOrDefault(chat =>
+                            chat.Participant1 == message.ReceiverUsername &&
+                            chat.Participant2 == message.SenderUsername) == null)
+                    {
+                        PrivateChat chat = new PrivateChat(message.SenderUsername, message.ReceiverUsername);
+                        Message newMess = new Message(message.SenderUsername, message.ReceiverUsername, message.Text,
+                            chatContext.PrivateChats.Count() + 1);
+                        chat.Messages.Add(newMess);
+                        chatContext.PrivateChats.Add(chat);
+                    }
+                    else
+                    {
+
+                        chatContext.Messages.Add(message);
+                    }
+
                 }
                 else
                 {
-                
+
                     chatContext.Messages.Add(message);
+                    //chatContext.PrivateChats.First(chat => chat.Participant1 == message.SenderUsername & chat.Participant2 == message.ReceiverUsername).Messages.Add(message);
                 }
-                
             }
             else
             {
-                
                 chatContext.Messages.Add(message);
-                //chatContext.PrivateChats.First(chat => chat.Participant1 == message.SenderUsername & chat.Participant2 == message.ReceiverUsername).Messages.Add(message);
             }
+
             chatContext.SaveChanges();
         }
 

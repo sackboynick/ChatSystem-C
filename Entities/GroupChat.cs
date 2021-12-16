@@ -29,7 +29,7 @@ namespace Entities
         {
             GroupName = groupName;
             Participants =new List<Participant> {new(groupCreator,true)};
-            Messages.Add(new Message("Server", Participants.ToList()[0]+" just created the group on date "+ DateTime.Now.ToString("MM/dd/yyyy h:mm:ss")));
+            Messages.Add(new Message("Server", groupCreator+" just created the group on date "+ DateTime.Now.ToString("MM/dd/yyyy h:mm:ss")));
             Console.WriteLine(groupCreator);
         }
 

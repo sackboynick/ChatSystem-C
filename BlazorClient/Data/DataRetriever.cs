@@ -26,7 +26,7 @@ namespace BlazorClient.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5003/UserServer/"+username).ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5003/UserServer/"+username).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -53,7 +53,7 @@ namespace BlazorClient.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
                 
-            HttpResponseMessage response = await client.DeleteAsync("https://localhost:5003/User/"+userId).ConfigureAwait(false);
+            HttpResponseMessage response = await client.DeleteAsync("http://localhost:5003/User/"+userId).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             return Task.CompletedTask;
@@ -84,7 +84,7 @@ namespace BlazorClient.Data
                 "application/json"
             );
             HttpResponseMessage response =
-                await client.PutAsync("https://localhost:5003/ParticipantServer/", content).ConfigureAwait(false);
+                await client.PutAsync("http://localhost:5003/ParticipantServer/", content).ConfigureAwait(false);
             if (!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -105,7 +105,7 @@ namespace BlazorClient.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5003/FriendOf/"+userId).ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5003/FriendOf/"+userId).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -132,7 +132,7 @@ namespace BlazorClient.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5003/Chat/"+userId).ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5003/Chat/"+userId).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -159,7 +159,7 @@ namespace BlazorClient.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5003/ParticipantServer/Group/"+groupId).ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5003/ParticipantServer/Group/"+groupId).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -192,7 +192,7 @@ namespace BlazorClient.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync($"https://localhost:5003/MessageServer/PrivateChat/{chatId}").ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync($"http://localhost:5003/MessageServer/PrivateChat/{chatId}").ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -219,7 +219,7 @@ namespace BlazorClient.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync($"https://localhost:5003/MessageServer/Group/{groupId}").ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync($"http://localhost:5003/MessageServer/Group/{groupId}").ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -253,7 +253,7 @@ namespace BlazorClient.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5003/MessageServer/"+messageId).ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5003/MessageServer/"+messageId).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -290,7 +290,7 @@ namespace BlazorClient.Data
                 "application/json"
             );
             HttpResponseMessage response =
-                await client.PutAsync("https://localhost:5003/MessageServer", content).ConfigureAwait(false);
+                await client.PutAsync("http://localhost:5003/MessageServer", content).ConfigureAwait(false);
             if (!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             return Task.CompletedTask;
@@ -309,7 +309,7 @@ namespace BlazorClient.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
                 
-            HttpResponseMessage response = await client.DeleteAsync("https://localhost:5003/MessageServer/"+messageId).ConfigureAwait(false);
+            HttpResponseMessage response = await client.DeleteAsync("http://localhost:5003/MessageServer/"+messageId).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             return Task.CompletedTask;
@@ -334,7 +334,7 @@ namespace BlazorClient.Data
                 Encoding.UTF8,
                 "application/json"
             );
-            HttpResponseMessage response = await client.PostAsync("https://localhost:5001/FriendshipServer/", content).ConfigureAwait(false);
+            HttpResponseMessage response = await client.PostAsync("http://localhost:5001/FriendshipServer/", content).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
 
@@ -354,7 +354,7 @@ namespace BlazorClient.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
                 
-            HttpResponseMessage response = await client.DeleteAsync("https://localhost:5003/FriendshipServer/"+friendshipId).ConfigureAwait(false);
+            HttpResponseMessage response = await client.DeleteAsync("http://localhost:5003/FriendshipServer/"+friendshipId).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             return Task.CompletedTask;
@@ -373,7 +373,7 @@ namespace BlazorClient.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5003/FriendshipServer/"+friendshipId).ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5003/FriendshipServer/"+friendshipId).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -406,7 +406,7 @@ namespace BlazorClient.Data
                 Encoding.UTF8,
                 "application/json"
             );
-            HttpResponseMessage response = await client.PostAsync("https://localhost:5003/GroupChatServer", content).ConfigureAwait(false);
+            HttpResponseMessage response = await client.PostAsync("http://localhost:5003/GroupChatServer", content).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
 
@@ -436,7 +436,7 @@ namespace BlazorClient.Data
                 "application/json"
             );
             HttpResponseMessage response =
-                await client.PutAsync("https://localhost:5003/GroupChatServer", content).ConfigureAwait(false);
+                await client.PutAsync("http://localhost:5003/GroupChatServer", content).ConfigureAwait(false);
             if (!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             return Task.CompletedTask;
@@ -460,7 +460,7 @@ namespace BlazorClient.Data
                 Encoding.UTF8,
                 "application/json"
             );
-            HttpResponseMessage response = await client.PostAsync("https://localhost:5003/ParticipantServer", content).ConfigureAwait(false);
+            HttpResponseMessage response = await client.PostAsync("http://localhost:5003/ParticipantServer", content).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             return Task.CompletedTask;
@@ -484,7 +484,7 @@ namespace BlazorClient.Data
                 Encoding.UTF8,
                 "application/json"
             );
-            HttpResponseMessage response = await client.PutAsync("https://localhost:5003/ParticipantServer", content).ConfigureAwait(false);
+            HttpResponseMessage response = await client.PutAsync("http://localhost:5003/ParticipantServer", content).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             return Task.CompletedTask;
@@ -503,7 +503,7 @@ namespace BlazorClient.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
                 
-            HttpResponseMessage response = await client.DeleteAsync("https://localhost:5003/ParticipantServer/"+participantId).ConfigureAwait(false);
+            HttpResponseMessage response = await client.DeleteAsync("http://localhost:5003/ParticipantServer/"+participantId).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             return Task.CompletedTask;
@@ -535,7 +535,7 @@ namespace BlazorClient.Data
                 Encoding.UTF8,
                 "application/json"
             );
-            HttpResponseMessage response = await client.PostAsync("https://localhost:5003/MessageServer", content).ConfigureAwait(false);
+            HttpResponseMessage response = await client.PostAsync("http://localhost:5003/MessageServer", content).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
 
@@ -567,7 +567,7 @@ namespace BlazorClient.Data
                 "application/json"
             );
             HttpResponseMessage response =
-                await client.PutAsync("https://localhost:5003/MessageServer", content).ConfigureAwait(false);
+                await client.PutAsync("http://localhost:5003/MessageServer", content).ConfigureAwait(false);
             if (!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             return Task.CompletedTask;

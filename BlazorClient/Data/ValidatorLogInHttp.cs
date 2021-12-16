@@ -13,7 +13,10 @@ namespace BlazorClient.Data
         public async Task<User> ValidateUser(string userName, string password)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
-            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) =>
+            {
+                return true; };
+            clientHandler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
 
             using HttpClient client = new HttpClient(clientHandler);
             
@@ -23,7 +26,7 @@ namespace BlazorClient.Data
             client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
             
             
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5003/LogInServer/"+userName+"/"+password).ConfigureAwait(false);
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5003/LogInServer/"+userName+"/"+password).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
             
@@ -41,6 +44,7 @@ namespace BlazorClient.Data
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
+            clientHandler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
 
             using HttpClient client = new HttpClient(clientHandler);
             
@@ -56,7 +60,7 @@ namespace BlazorClient.Data
                 Encoding.UTF8,
                 "application/json"
             );
-            HttpResponseMessage response = await client.PostAsync("https://localhost:5003/LogInServer", content).ConfigureAwait(false);
+            HttpResponseMessage response = await client.PostAsync("http://localhost:5003/LogInServer", content).ConfigureAwait(false);
             if(!response.IsSuccessStatusCode)
                 throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
 
