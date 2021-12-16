@@ -41,7 +41,7 @@ namespace Entities
             Friends = new Collection<Friendship>();
             Connections = new Collection<Connection>();
         }
-        public User(int userId, string username,string firstName,string lastName,string password,ICollection<Friendship> friends)
+        public User(int userId, string username,string firstName,string lastName,string password,ICollection<Friendship> friends, ICollection<Connection> connections)
         {
             Id = userId;
             Username=username;
@@ -49,6 +49,7 @@ namespace Entities
             LastName=lastName;
             Password=password;
             Friends=friends;
+            Connections = connections;
         }
   
 
