@@ -85,7 +85,7 @@ namespace Entities
         public Message(string senderUsername, String text, bool mine){
             SenderUsername=senderUsername;
             ReceiverUsername = null;
-            LocalDateTime=DateTime.Now;
+            LocalDateTime=DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
             Text=text;
         }
 
