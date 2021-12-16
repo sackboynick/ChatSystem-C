@@ -32,6 +32,7 @@ namespace BlazorClient
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
             services.AddScoped<IUserService, ValidatorLogInHttp>();
             services.AddSyncfusionBlazor();
+            services.AddSignalR();
             services.AddAuthorization(options =>
                 options.AddPolicy("RequireAdmin", builder =>
                     builder.RequireAuthenticatedUser().RequireClaim("Role", "Admin")));

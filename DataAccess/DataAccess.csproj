@@ -21,4 +21,9 @@
       <ProjectReference Include="..\Entities\Entities.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="chats.db-wal" />
+      <None Remove="chats.db-shm" />
+    </ItemGroup>
+
 </Project>

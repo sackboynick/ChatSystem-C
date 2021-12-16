@@ -13,7 +13,6 @@ namespace DataAccess.Persistence
         public DbSet<Message> Messages { get; set; }
         
         public DbSet<Participant> Participants { get; set; }
-        
         public DbSet<Connection> Connections { get; set;}
 
 
@@ -23,6 +22,5 @@ namespace DataAccess.Persistence
             optionsBuilder.UseSqlite("Data Source = chats.db");
         }
         
-
     }
 }
