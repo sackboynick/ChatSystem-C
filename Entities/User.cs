@@ -39,7 +39,7 @@ namespace Entities
             LastName = null;
             Password = null;
             Friends = new Collection<Friendship>();
-            Connections = new List<Connection>();
+            Connections = new Collection<Connection>();
         }
         public User(int userId, string username,string firstName,string lastName,string password,ICollection<Friendship> friends)
         {
