@@ -13,6 +13,8 @@ namespace DataAccess.Persistence
         public DbSet<Message> Messages { get; set; }
         
         public DbSet<Participant> Participants { get; set; }
+        
+        public DbSet<Connection> Connections { get; set;}
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

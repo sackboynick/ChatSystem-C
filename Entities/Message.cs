@@ -35,6 +35,11 @@ namespace Entities
         [ForeignKey("GroupChatId")]
         public int? GroupChatId { get; set; }
         
+        public bool Mine { get; set; }
+
+        public bool IsNotice => Text.StartsWith("[Notice]");
+
+        public string CSS => Mine ? "sent" : "received";
 
         public Message()
         {
@@ -74,6 +79,13 @@ namespace Entities
             SenderUsername=senderUsername;
             ReceiverUsername = null;
             LocalDateTime=DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
+            Text=text;
+        }
+        
+        public Message(string senderUsername, String text, bool mine){
+            SenderUsername=senderUsername;
+            ReceiverUsername = null;
+            LocalDateTime=DateTime.Now;
             Text=text;
         }
 

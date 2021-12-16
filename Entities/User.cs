@@ -27,6 +27,8 @@ namespace Entities
         [Required]
         [JsonPropertyName("friends")]
         public ICollection<Friendship> Friends { get; set;}
+        
+        public ICollection<Connection> Connections { get; set;}
 
 
         public User()
@@ -37,6 +39,7 @@ namespace Entities
             LastName = null;
             Password = null;
             Friends = new Collection<Friendship>();
+            Connections = new List<Connection>();
         }
         public User(int userId, string username,string firstName,string lastName,string password,ICollection<Friendship> friends)
         {

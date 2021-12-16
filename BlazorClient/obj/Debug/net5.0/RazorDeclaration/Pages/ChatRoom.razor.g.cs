@@ -103,6 +103,20 @@ using Microsoft.AspNetCore.SignalR.Client;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+using BlazorClient.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+using Entities;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/chatroom")]
     public partial class ChatRoom : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -112,13 +126,15 @@ using Microsoft.AspNetCore.SignalR.Client;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 43 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+#line 45 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
        
     // flag to indicate chat status
     private bool _isChatting = false;
+    
+    private static int chatId = 1;
 
     // name of the user who will be chatting
-    private static string _username = CustomAuthenticationStateProvider.GetUsername();
+    private static readonly string _username = CustomAuthenticationStateProvider.GetUsername();
 
     // on-screen message
     private string _message;
@@ -127,7 +143,7 @@ using Microsoft.AspNetCore.SignalR.Client;
     private string _newMessage;
 
     // list of messages in chat
-    private List<Message> _messages = new List<Message>();
+    List<Message> _messages = new List<Message>();
 
     private string _hubUrl;
     private HubConnection _hubConnection;
@@ -193,7 +209,7 @@ using Microsoft.AspNetCore.SignalR.Client;
     {
         if (_isChatting && !string.IsNullOrWhiteSpace(message))
         {
-            await _hubConnection.SendAsync("Broadcast", _username, message);
+            await _hubConnection.SendAsync("SendChatMessage", _username, message);
 
             _newMessage = string.Empty;
         }

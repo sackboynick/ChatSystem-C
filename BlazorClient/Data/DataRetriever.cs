@@ -174,6 +174,11 @@ namespace BlazorClient.Data
             return participants;
         }
 
+        // Task<IList<Message>> IData.GetPrivateMessages(int chatId)
+        // {
+        //     return GetPrivateMessages(chatId);
+        // }
+
         public async Task<IList<Message>> GetPrivateMessages(int chatId)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();

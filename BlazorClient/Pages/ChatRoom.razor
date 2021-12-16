@@ -2,6 +2,7 @@
 @inject NavigationManager _navigationManager
 @using Microsoft.AspNetCore.SignalR.Client;
 @using BlazorClient.Data
+@using Entities
 
 <h1>Chat</h1>
 <hr />
@@ -44,9 +45,11 @@ else
 @code {
     // flag to indicate chat status
     private bool _isChatting = false;
+    
+    private static int chatId = 1;
 
     // name of the user who will be chatting
-    private static string _username = CustomAuthenticationStateProvider.GetUsername();
+    private static readonly string _username = "CR7";
 
     // on-screen message
     private string _message;
@@ -55,7 +58,7 @@ else
     private string _newMessage;
 
     // list of messages in chat
-    private List<Message> _messages = new List<Message>();
+    List<Message> _messages = new List<Message>();
 
     private string _hubUrl;
     private HubConnection _hubConnection;
@@ -121,7 +124,7 @@ else
     {
         if (_isChatting && !string.IsNullOrWhiteSpace(message))
         {
-            await _hubConnection.SendAsync("Broadcast", _username, message);
+            await _hubConnection.SendAsync("SendChatMessage", _username, message);
 
             _newMessage = string.Empty;
         }
