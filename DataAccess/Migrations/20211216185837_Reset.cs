@@ -2,7 +2,7 @@
 
 namespace DataAccess.Migrations
 {
-    public partial class DatabaseUpdates : Migration
+    public partial class Reset : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(ChatContext))]
-    [Migration("20211216155902_GroupChatEntityCorrection")]
-    partial class GroupChatEntityCorrection
+    [Migration("20211216185837_Reset")]
+    partial class Reset
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
