@@ -7,7 +7,6 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using AutoMapper;
 using BlazorClient.Data;
-using BlazorClient.ViewModels;
 using DataAccess.Persistence;
 using Entities;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +16,8 @@ namespace BlazorClient
     [Authorize]
     public class ChatRoomHub : Hub
     {
+        
+        
 
         public async Task Broadcast(string username, string message)
         {

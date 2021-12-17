@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ChatClient.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201010142857_Initial")]
+    [Migration("00000000000000_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -92,7 +92,7 @@ namespace ChatClient.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("Chat.Web.Models.Message", b =>
+            modelBuilder.Entity("ChatClient.Models.Message", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -122,7 +122,7 @@ namespace ChatClient.Data.Migrations
                     b.ToTable("Messages");
                 });
 
-            modelBuilder.Entity("Chat.Web.Models.Room", b =>
+            modelBuilder.Entity("ChatClient.Models.Room", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -280,22 +280,22 @@ namespace ChatClient.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Chat.Web.Models.Message", b =>
+            modelBuilder.Entity("ChatClient.Models.Message", b =>
                 {
-                    b.HasOne("Chat.Web.Models.ApplicationUser", "FromUser")
+                    b.HasOne("ChatClient.Models.ApplicationUser", "FromUser")
                         .WithMany("Messages")
                         .HasForeignKey("FromUserId");
 
-                    b.HasOne("Chat.Web.Models.Room", "ToRoom")
+                    b.HasOne("ChatClient.Models.Room", "ToRoom")
                         .WithMany("Messages")
                         .HasForeignKey("ToRoomId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Chat.Web.Models.Room", b =>
+            modelBuilder.Entity("ChatClient.Models.Room", b =>
                 {
-                    b.HasOne("Chat.Web.Models.ApplicationUser", "Admin")
+                    b.HasOne("ChatClient.Models.ApplicationUser", "Admin")
                         .WithMany("Rooms")
                         .HasForeignKey("AdminId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -313,7 +313,7 @@ namespace ChatClient.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Chat.Web.Models.ApplicationUser", null)
+                    b.HasOne("ChatClient.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -322,7 +322,7 @@ namespace ChatClient.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Chat.Web.Models.ApplicationUser", null)
+                    b.HasOne("ChatClient.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -337,7 +337,7 @@ namespace ChatClient.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Chat.Web.Models.ApplicationUser", null)
+                    b.HasOne("ChatClient.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -346,7 +346,7 @@ namespace ChatClient.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Chat.Web.Models.ApplicationUser", null)
+                    b.HasOne("ChatClient.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
