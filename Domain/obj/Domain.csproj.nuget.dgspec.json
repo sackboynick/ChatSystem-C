@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/c/Desktop/RiderProjects/ChatSystem/Domain/Domain.csproj": {}
+    "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Domain/Domain.csproj": {}
   },
   "projects": {
-    "/home/c/Desktop/RiderProjects/ChatSystem/Domain/Domain.csproj": {
+    "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Domain/Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/c/Desktop/RiderProjects/ChatSystem/Domain/Domain.csproj",
+        "projectUniqueName": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Domain/Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "/home/c/Desktop/RiderProjects/ChatSystem/Domain/Domain.csproj",
-        "packagesPath": "/home/c/.nuget/packages/",
-        "outputPath": "/home/c/Desktop/RiderProjects/ChatSystem/Domain/obj/",
+        "projectPath": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Domain/Domain.csproj",
+        "packagesPath": "/Users/henrikkoster/.nuget/packages/",
+        "outputPath": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/c/.nuget/NuGet/NuGet.Config"
+          "/Users/henrikkoster/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -26,8 +26,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj": {
-                "projectPath": "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj"
+              "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/Entities.csproj": {
+                "projectPath": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/Entities.csproj"
               }
             }
           }
@@ -62,21 +62,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj": {
+    "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj",
+        "projectUniqueName": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj",
-        "packagesPath": "/home/c/.nuget/packages/",
-        "outputPath": "/home/c/Desktop/RiderProjects/ChatSystem/Entities/obj/",
+        "projectPath": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/Entities.csproj",
+        "packagesPath": "/Users/henrikkoster/.nuget/packages/",
+        "outputPath": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/c/.nuget/NuGet/NuGet.Config"
+          "/Users/henrikkoster/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -100,6 +100,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Relational.Design.Specification.Tests": {
               "target": "Package",
               "version": "[2.0.3, )"
@@ -120,7 +128,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
         }
       }
     }

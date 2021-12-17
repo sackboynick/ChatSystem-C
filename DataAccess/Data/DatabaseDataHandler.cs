@@ -10,9 +10,16 @@ namespace DataAccess.Data
 {
     public class DatabaseDataHandler:IDataRepo,IUserRepo
     {
+
+        private ChatContext chatContext;
+
+        public DatabaseDataHandler(ChatContext _chatContext)
+        {
+            chatContext = _chatContext;
+        }
+        
         public void SendMessage(Message message)
         {
-            using var chatContext = new ChatContext();
 
             if (message.ReceiverUsername != null || message.PrivateChatId!=null )
             {
@@ -56,21 +63,18 @@ namespace DataAccess.Data
 
         public PrivateChat GetPrivateChat(int chatId)
         {
-            using ChatContext chatContext = new ChatContext();
 
             return chatContext.PrivateChats.Include(m=> m.Messages).ToList().FirstOrDefault(chat => chat.Id == chatId);
         }
 
         public GroupChat GetGroupChat(int chatId)
         {
-            using ChatContext chatContext = new ChatContext();
 
             return chatContext.GroupChats.Include(m=> m.Messages).Include(m=> m.Participants).First(chat => chat.Id == chatId);
         }
 
         public void CreateGroup(GroupChat groupChat)
         {
-            using ChatContext chatContext = new ChatContext();
 
             chatContext.GroupChats.Add(groupChat);
             chatContext.SaveChanges();
@@ -81,7 +85,6 @@ namespace DataAccess.Data
 
         public void RemoveFriend(int friendshipId)
         {
-            using ChatContext chatContext = new ChatContext();
 
             chatContext.Friendships.Remove(chatContext.Friendships.Find(friendshipId));
             chatContext.SaveChanges();
@@ -89,7 +92,6 @@ namespace DataAccess.Data
 
         public Message GetMessage(int messageId)
         {
-            using ChatContext chatContext = new ChatContext();
             
             return chatContext.Messages.Find(messageId);
             
@@ -97,7 +99,6 @@ namespace DataAccess.Data
 
         public void RemoveMessage(int messageId)
         {
-            using ChatContext chatContext = new ChatContext();
 
             chatContext.Messages.Remove(chatContext.Messages.Find(messageId));
             chatContext.SaveChanges();
@@ -105,14 +106,12 @@ namespace DataAccess.Data
 
         public Participant GetParticipant(int participantId)
         {
-            using ChatContext chatContext = new ChatContext();
 
             return chatContext.Participants.Find(participantId);
         }
 
         public void AddParticipant(Participant participant)
         {
-            using ChatContext chatContext = new ChatContext();
 
             chatContext.Participants.Add(participant);
             chatContext.SaveChanges();
@@ -120,7 +119,6 @@ namespace DataAccess.Data
 
         public void UpdateParticipant(Participant participant)
         {
-            using ChatContext chatContext = new ChatContext();
 
             chatContext.Participants.Update(participant);
             chatContext.SaveChanges();
@@ -128,7 +126,6 @@ namespace DataAccess.Data
 
         public void RemoveParticipant(int participantId)
         {
-            using ChatContext chatContext = new ChatContext();
 
             chatContext.Participants.Remove(chatContext.Participants.Find(participantId));
             chatContext.SaveChanges();
@@ -136,7 +133,6 @@ namespace DataAccess.Data
 
         public void UpdateMessage(Message message)
         {
-            using ChatContext chatContext = new ChatContext();
 
             chatContext.Messages.Update(message);
             chatContext.SaveChanges();
@@ -144,24 +140,18 @@ namespace DataAccess.Data
 
         public Friendship GetFriendship(int friendshipId)
         {
-            using ChatContext chatContext = new ChatContext();
-
             return chatContext.Friendships.Find(friendshipId);
         }
 
 
         public User GetUser(int usernameId)
         {
-            using ChatContext chatContext = new ChatContext();
-
             return chatContext.Users.Find(usernameId);
         }
 
         public void AddFriendship(Friendship friendship)
         {
-            using ChatContext chatContext = new ChatContext();
 
-            
             chatContext.Friendships.Add(friendship);
 
             chatContext.SaveChanges();
@@ -169,7 +159,6 @@ namespace DataAccess.Data
 
         public void UpdateFriendship(Friendship friendship)
         {
-            using ChatContext chatContext = new ChatContext();
 
             chatContext.Friendships.Update(friendship);
             chatContext.SaveChanges();
@@ -177,56 +166,48 @@ namespace DataAccess.Data
 
         public List<Friendship> GetFriendshipsList()
         {
-            using ChatContext chatContext = new ChatContext();
 
             return chatContext.Friendships.ToList();
         }
 
         public List<User> GetUsersList()
         {
-            using ChatContext chatContext = new ChatContext();
 
             return chatContext.Users.Include(m => m.Friends).ToList();
         }
 
         public User GetUserFromUsername(string username)
         {
-            using ChatContext chatContext = new ChatContext();
 
             return chatContext.Users.FirstOrDefault(user => user.Username == username);
         }
 
         public void RemoveUser(int userId)
         {
-            using ChatContext chatContext = new ChatContext();
             chatContext.Users.Remove(chatContext.Users.Find(userId));
             chatContext.SaveChanges();
         }
 
         public List<PrivateChat> GetPrivateChats()
         {
-            using ChatContext chatContext = new ChatContext();
 
             return chatContext.PrivateChats.Include(m=> m.Messages).ToList();
         }
 
         public List<GroupChat> GetGroupChats()
         {
-            using ChatContext chatContext = new ChatContext();
 
             return chatContext.GroupChats.Include(m=> m.Messages).Include(m=> m.Participants).ToList();
         }
 
         public List<Message> GetMessages()
         {
-            using ChatContext chatContext = new ChatContext();
 
             return chatContext.Messages.ToList();
         }
 
         public List<Participant> GetParticipants()
         {
-            using ChatContext chatContext = new ChatContext();
 
             return chatContext.Participants.ToList();
         }
@@ -242,7 +223,6 @@ namespace DataAccess.Data
 
         public void UpdateUser(User user)
         {
-            using ChatContext chatContext = new ChatContext();
 
             chatContext.Users.Update(user);
             chatContext.SaveChanges();

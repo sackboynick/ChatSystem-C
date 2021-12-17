@@ -5,7 +5,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BlazorClient.Data;
+using DataAccess.Persistence;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.HttpsPolicy;
 using Syncfusion.Blazor;
 
 namespace BlazorClient
@@ -22,7 +27,8 @@ namespace BlazorClient
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
-        {services.AddHttpClient("localhost").ConfigurePrimaryHttpMessageHandler(_ => new HttpClientHandler
+        {
+            services.AddHttpClient("localhost").ConfigurePrimaryHttpMessageHandler(_ => new HttpClientHandler
             {
                 ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; }
 
@@ -31,14 +37,14 @@ namespace BlazorClient
             services.AddServerSideBlazor();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
             services.AddScoped<IUserService, ValidatorLogInHttp>();
-            services.AddSyncfusionBlazor();
-            services.AddSignalR();
             services.AddAuthorization(options =>
                 options.AddPolicy("RequireAdmin", builder =>
                     builder.RequireAuthenticatedUser().RequireClaim("Role", "Admin")));
             services.AddAuthorization(options =>
                 options.AddPolicy("RequireLogIn",  a => 
                     a.RequireAuthenticatedUser()));
+            services.AddSyncfusionBlazor();
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,8 +71,8 @@ namespace BlazorClient
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
                 endpoints.MapHub<ChatRoomHub>(ChatRoomHub.HubUrl);
-
             });
         }
     }
 }
+

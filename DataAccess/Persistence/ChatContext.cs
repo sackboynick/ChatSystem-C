@@ -21,6 +21,6 @@ namespace DataAccess.Persistence
             // name of database
             optionsBuilder.UseSqlite("Data Source = chats.db");
         }
-        
+
     }
 }
