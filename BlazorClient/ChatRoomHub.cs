@@ -13,7 +13,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BlazorClient
 {
-    [Authorize]
     public class ChatRoomHub : Hub
     {
         
@@ -38,3 +37,4 @@ namespace BlazorClient
 
     }
 }
+
