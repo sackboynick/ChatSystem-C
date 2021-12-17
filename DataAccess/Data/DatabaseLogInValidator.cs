@@ -10,20 +10,16 @@ namespace DataAccess.Data
     public class DatabaseLogInValidator: IUserValidation
     {
         
-        private ChatContext chatContext;
-
-        public DatabaseLogInValidator(ChatContext _chatContext)
-        {
-            chatContext = _chatContext;
-        }
         public User ValidateUser(string userName, string password)
         {
+            var chatContext = new ChatContext();
 
                 return chatContext.Users.Include(user1 => user1.Friends).FirstOrDefault(user => user.Username == userName && user.Password==password);
         }
 
         public void RegisterUser(User user)
         {
+            var chatContext = new ChatContext();
             chatContext.Users.Add(user);
             chatContext.SaveChanges();
         }

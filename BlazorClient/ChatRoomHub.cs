@@ -17,44 +17,12 @@ namespace BlazorClient
     public class ChatRoomHub : Hub
     {
         
-        
+        public const string HubUrl = "/chat";
 
         public async Task Broadcast(string username, string message)
         {
             await Clients.All.SendAsync("Broadcast", username, message);
         }
-
-        /*public void SendChatMessage(string who, string message)
-        {
-            var name = Context.User.Identity.Name;
-            using var db = new ChatContext();
-            var user = db.Users.Find(who);
-            if (user == null)
-            {
-                Console.WriteLine("User not found...");
-            }
-            else
-            {
-                db.Entry(user)
-                    .Collection(u => u.Connections)
-                    .Query()
-                    .Where(c => c.Connected)
-                    .Load();
-
-                if (user.Connections == null)
-                {
-                    Console.WriteLine("User is disconnected...");
-                }
-                else
-                {
-                    foreach (var connection in user.Connections)
-                    {
-                        Clients.Client(connection.ConnectionID)
-                            .SendAsync(name + ": " + message);
-                    }
-                }
-            }
-        }*/
 
         public override Task OnConnectedAsync()
         {

@@ -154,3 +154,4 @@
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/WebApplication/obj/Debug/net5.0/ref/WebApplication.dll
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/WebApplication/obj/Debug/net5.0/WebApplication.pdb
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/WebApplication/obj/Debug/net5.0/WebApplication.genruntimeconfig.cache
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/WebApplication/bin/Debug/net5.0/AutoMapper.dll
