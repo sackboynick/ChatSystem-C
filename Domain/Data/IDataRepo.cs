@@ -30,5 +30,6 @@ namespace Domain.Data
         List<Message> GetMessages();
         List<Participant> GetParticipants();
 
+        void AddPrivateChat(PrivateChat privateChat);
     }
 }

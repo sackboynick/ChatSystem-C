@@ -17,7 +17,6 @@ namespace Entities
         public string ReceiverUsername { get; set; }
         [Required]
         [JsonPropertyName("localdatetime")]
-        [DataType(DataType.DateTime)]
         public String LocalDateTime { get; set; }
         [Required]
         [JsonPropertyName("text")]
@@ -37,7 +36,7 @@ namespace Entities
         
         public bool Mine { get; set; }
 
-        public bool IsNotice => Text.StartsWith("[Notice]");
+        //public bool IsNotice => Text.StartsWith("[Notice]");
 
         public string CSS => Mine ? "sent" : "received";
 

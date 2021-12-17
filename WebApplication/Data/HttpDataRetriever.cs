@@ -212,7 +212,59 @@ namespace WebApplication.Data
 
             return user;
         }
-        
+
+        public async Task<Task> AddPrivateChat(PrivateChat privateChat)
+        {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+
+            string privateChatAsJson = JsonSerializer.Serialize(privateChat);
+            StringContent content = new StringContent(
+                privateChatAsJson,
+                Encoding.UTF8,
+                "application/json"
+            );
+            HttpResponseMessage response = await client.PostAsync("http://localhost:5001/PrivateChat/", content).ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+
+            return Task.CompletedTask;
+        }
+
+        public async Task<List<PrivateChat>> GetPrivateChats()
+        {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            using HttpClient client = new HttpClient(clientHandler);
+            
+            
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
+            client.DefaultRequestHeaders.Add("User-Agent",".NET Foundation Repository Reporter");
+            
+            
+            HttpResponseMessage response = await client.GetAsync("http://localhost:5001/PrivateChat/").ConfigureAwait(false);
+            if(!response.IsSuccessStatusCode)
+                throw new Exception(@"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+            
+            string result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+            List<PrivateChat> privateChats = JsonSerializer.Deserialize<List<PrivateChat>>(result, new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            });
+
+            return privateChats;
+        }
+
         public async Task<User> GetUserFromUsername(string username)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
@@ -467,6 +519,7 @@ namespace WebApplication.Data
             
             string result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
+            Console.WriteLine(result);
             List<Friendship> friendships = JsonSerializer.Deserialize<List<Friendship>>(result, new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase
@@ -474,7 +527,7 @@ namespace WebApplication.Data
 
             if (friendships != null)
             {
-                friendships = friendships.Where(friendship => friendship.UserId == userId || friendship.FriendUserId==userId).ToList();
+                friendships = friendships.Where(friendship => friendship.UserId == userId || friendship.FriendUserId == userId).ToList();
 
                 return friendships;
             }
@@ -765,5 +818,7 @@ namespace WebApplication.Data
 
             return groupChats;
         }
+
+
     }
 }
