@@ -6,10 +6,10 @@
 @using Entities
 @using BlazorClient.Data
 
-<SfButton IconCss="oi oi-plus" IconPosition="IconPosition.Right" @onclick="@(e => AddChat("Adam"))">New Contact</SfButton>
-<SfButton IconCss="oi oi-plus" IconPosition="IconPosition.Right" @onclick="@(e => AddGroupChat("HungryWanderers"))">New Group</SfButton>
-
 <input @bind-value="SearchTerm" @bind-value:event="oninput" />
+
+<SfButton IconCss="oi oi-plus" IconPosition="IconPosition.Right" @onclick="@(e => AddChat(SearchTerm))">New Contact</SfButton>
+<SfButton IconCss="oi oi-plus" IconPosition="IconPosition.Right" @onclick="@(e => AddGroupChat(SearchTerm))">New Group</SfButton>
 
 <SfListView ID="list" DataSource="@EListData" CssClass="e-list-template ui-list">
     <ListViewFieldSettings Id="Id" Text="Name" TValue="DataModel" GroupBy="Category"></ListViewFieldSettings>

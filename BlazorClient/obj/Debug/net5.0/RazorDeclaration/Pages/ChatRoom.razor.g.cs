@@ -150,6 +150,13 @@ using System.Net;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 15 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+using BlazorClient.Data;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/chatroom")]
     public partial class ChatRoom : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -159,22 +166,17 @@ using System.Net;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 54 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+#line 55 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
        
     // flag to indicate chat status
     private bool _isChatting = false;
-    
     private static int chatId = 1;
-
     // name of the user who will be chatting
-    private static readonly string _username = "CR7";
-
+    private static readonly string _username = CustomAuthenticationStateProvider.GetUsername();
     // on-screen message
     private string _message;
-
     // new message input
     private string _newMessage;
-
     // list of messages in chat
     List<Message> _messages = new List<Message>();
 
@@ -242,7 +244,7 @@ using System.Net;
     {
         if (_isChatting && !string.IsNullOrWhiteSpace(message))
         {
-            await _hubConnection.SendAsync("SendChatMessage", _username, message);
+            await _hubConnection.SendAsync("Broadcast", _username, message);
 
             _newMessage = string.Empty;
         }
