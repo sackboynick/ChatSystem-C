@@ -7792,19 +7792,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/henrikkoster/.nuget/packages/": {}
+    "/home/c/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/WebApplication/WebApplication.csproj",
+      "projectUniqueName": "/home/c/Desktop/RiderProjects/ChatSystem/WebApplication/WebApplication.csproj",
       "projectName": "WebApplication",
-      "projectPath": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/WebApplication/WebApplication.csproj",
-      "packagesPath": "/Users/henrikkoster/.nuget/packages/",
-      "outputPath": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/WebApplication/obj/",
+      "projectPath": "/home/c/Desktop/RiderProjects/ChatSystem/WebApplication/WebApplication.csproj",
+      "packagesPath": "/home/c/.nuget/packages/",
+      "outputPath": "/home/c/Desktop/RiderProjects/ChatSystem/WebApplication/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/henrikkoster/.nuget/NuGet/NuGet.Config"
+        "/home/c/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -7816,14 +7816,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/DataAccess/DataAccess.csproj": {
-              "projectPath": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/DataAccess/DataAccess.csproj"
+            "/home/c/Desktop/RiderProjects/ChatSystem/DataAccess/DataAccess.csproj": {
+              "projectPath": "/home/c/Desktop/RiderProjects/ChatSystem/DataAccess/DataAccess.csproj"
             },
-            "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Domain/Domain.csproj": {
-              "projectPath": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Domain/Domain.csproj"
+            "/home/c/Desktop/RiderProjects/ChatSystem/Domain/Domain.csproj": {
+              "projectPath": "/home/c/Desktop/RiderProjects/ChatSystem/Domain/Domain.csproj"
             },
-            "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/Entities.csproj": {
-              "projectPath": "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/Entities/Entities.csproj"
+            "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj": {
+              "projectPath": "/home/c/Desktop/RiderProjects/ChatSystem/Entities/Entities.csproj"
             }
           }
         }
@@ -7865,7 +7865,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
       }
     }
   }
