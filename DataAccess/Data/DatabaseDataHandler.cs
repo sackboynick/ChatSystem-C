@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DataAccess.Persistence;
@@ -227,6 +228,14 @@ namespace DataAccess.Data
             var chatContext = new ChatContext();
 
             return chatContext.Participants.ToList();
+        }
+
+        public void AddPrivateChat(PrivateChat privateChat)
+        {
+            using ChatContext chatContext = new ChatContext();
+
+            chatContext.PrivateChats.Add(privateChat);
+            chatContext.SaveChanges();
         }
 
 

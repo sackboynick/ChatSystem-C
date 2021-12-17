@@ -33,6 +33,21 @@ namespace WebApplication.Controllers
                 return StatusCode(500, e.Message);
             }
         }
+        [HttpGet]
+        [Route("/ById/{userId}")]
+        public async Task<ActionResult<User>> GetUserFromUsername([FromRoute] int userId)
+        {
+            try
+            {
+                User user = _data.GetUser(userId).Result;
+                return Ok(user);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
         
         [HttpGet]
         [Route("{username}")]

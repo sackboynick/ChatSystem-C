@@ -63,7 +63,40 @@ namespace WebApplication.Controllers
             return null;
         }
         
+        
+        [HttpPost]
+        public async Task<ActionResult> AddNewPrivateChat([FromBody] PrivateChat privateChat)
+        {
+            try
+            {
+                await _data.AddPrivateChat(privateChat);
 
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
+        
+        [HttpGet]
+        public async Task<ActionResult<List<PrivateChat>>> GetAllPrivateChats()
+        {
+            try
+            {
+                List<PrivateChat> chat = _data.GetPrivateChats().Result;
+
+                return Ok(chat);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+
+            return null;
+        }
         
     }
 }

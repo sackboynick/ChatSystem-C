@@ -37,5 +37,8 @@ namespace WebApplication.Data
         Task<Friendship> GetFriendship(int friendshipId);
         Task<List<User>> GetAllUsers();
         Task<List<GroupChat>> GetGroupChats();
+        Task<User> GetUser(int userId);
+        Task<Task> AddPrivateChat(PrivateChat privateChat);
+        Task<List<PrivateChat>> GetPrivateChats();
     }
 }

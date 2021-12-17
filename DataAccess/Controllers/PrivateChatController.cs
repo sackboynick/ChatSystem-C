@@ -55,6 +55,24 @@ namespace DataAccess.Controllers
 
             return null;
         }
+        
+        [HttpPost]
+        public async Task<ActionResult> AddNewPrivateChat([FromBody] PrivateChat privateChat)
+        {
+            try
+            {
+                    _data.AddPrivateChat(privateChat);
+
+                    return Ok();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
+        
+        
 
 
         
