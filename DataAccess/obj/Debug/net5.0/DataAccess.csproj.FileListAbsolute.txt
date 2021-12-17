@@ -144,3 +144,5 @@
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/DataAccess/obj/Debug/net5.0/ref/DataAccess.dll
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/DataAccess/obj/Debug/net5.0/DataAccess.pdb
 /Users/henrikkoster/Documents/CookAway/ChatSystem-C/DataAccess/obj/Debug/net5.0/DataAccess.genruntimeconfig.cache
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/DataAccess/bin/Debug/net5.0/AutoMapper.dll
+/Users/henrikkoster/Documents/CookAway/ChatSystem-C/DataAccess/obj/Debug/net5.0/DataAccess.csproj.CopyComplete
