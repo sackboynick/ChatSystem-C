@@ -11,147 +11,147 @@ namespace BlazorClient.Pages
     using System.Linq;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 2 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/_Imports.razor"
+#line 2 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/_Imports.razor"
+#line 3 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/_Imports.razor"
+#line 4 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/_Imports.razor"
+#line 5 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/_Imports.razor"
+#line 6 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/_Imports.razor"
+#line 7 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/_Imports.razor"
 using Syncfusion.Blazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/_Imports.razor"
+#line 8 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/_Imports.razor"
+#line 9 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/_Imports.razor"
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/_Imports.razor"
+#line 10 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/_Imports.razor"
+#line 11 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/_Imports.razor"
 using BlazorClient;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/_Imports.razor"
+#line 12 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/_Imports.razor"
 using BlazorClient.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+#line 5 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/Pages/ChatRoom.razor"
 using Microsoft.AspNetCore.SignalR.Client;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+#line 6 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/Pages/ChatRoom.razor"
 using Microsoft.AspNetCore.SignalR;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+#line 8 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/Pages/ChatRoom.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+#line 9 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/Pages/ChatRoom.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+#line 10 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/Pages/ChatRoom.razor"
 using System;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+#line 11 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/Pages/ChatRoom.razor"
 using System.Net.Http.Headers;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+#line 12 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/Pages/ChatRoom.razor"
 using System.Threading.Tasks;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+#line 13 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/Pages/ChatRoom.razor"
 using Microsoft.AspNetCore.Http.Connections;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 14 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+#line 14 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/Pages/ChatRoom.razor"
 using System.Net;
 
 #line default
 #line hidden
 #nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/chatroom")]
-    public partial class ChatRoom : Microsoft.AspNetCore.Components.ComponentBase, IAsyncDisposable
+    public partial class ChatRoom : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -159,95 +159,111 @@ using System.Net;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 213 "/Users/henrikkoster/Documents/CookAway/ChatSystem-C/BlazorClient/Pages/ChatRoom.razor"
+#line 54 "/home/c/Desktop/RiderProjects/ChatSystem/BlazorClient/Pages/ChatRoom.razor"
        
-   
-    HubConnection hubConnection;
-    private List<string> messages = new List<string>();
-    private List<string> privateMessages = new List<string>();
-    private string messageForBoard;
-    private string userName;
-    private string messageInput;
-    private string selectedUser;
-    private List<string> UserList;
+    // flag to indicate chat status
+    private bool _isChatting = false;
+    
+    private static int chatId = 1;
 
-    private ElementReference elementRef;
+    // name of the user who will be chatting
+    private static readonly string _username = "CR7";
 
-    protected override async Task OnInitializedAsync()
+    // on-screen message
+    private string _message;
+
+    // new message input
+    private string _newMessage;
+
+    // list of messages in chat
+    List<Message> _messages = new List<Message>();
+
+    private string _hubUrl;
+    private HubConnection _hubConnection;
+
+    public async Task Chat()
     {
-        var container = new CookieContainer();
-        var cookie = new Cookie() 
-         {
-             Name = ".AspNetCore.Identity.Application", 
-             Domain = "localhost",
-         };
-
-         container.Add(cookie);
-
-         hubConnection = new HubConnectionBuilder()
-        .WithUrl(_navigationManager.ToAbsoluteUri("/chathub"), options => 
+        try
         {
-            options.Cookies = container; 
-        }).Build();
+            // Start chatting and force refresh UI.
+            _isChatting = true;
+            await Task.Delay(1);
 
-        hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
+            // remove old messages if any
+            _messages.Clear();
+
+            // Create the chat client
+            string baseUrl = _navigationManager.BaseUri;
+
+            _hubUrl = baseUrl.TrimEnd('/') + ChatRoomHub.HubUrl;
+
+            _hubConnection = new HubConnectionBuilder()
+                .WithUrl(_hubUrl)
+                .Build();
+
+            _hubConnection.On<string, string>("Broadcast", BroadcastMessage);
+
+            await _hubConnection.StartAsync();
+
+            await SendAsync($"[Notice] {_username} joined chat room.");
+        }
+        catch (Exception e)
         {
-            var encodedMsg = $"{user}: {message}";
-            messages.Add(encodedMsg);
-           InvokeAsync(() => StateHasChanged());
-        });
-
-        hubConnection.On<string>("ReceiveUserName", (name) =>
-        {
-            userName = name;
-
-            InvokeAsync(() => StateHasChanged());
-        });
-
-         hubConnection.On<string>("MessageBoard", (message) =>
-        {
-            messageForBoard = message;
-
-           InvokeAsync(() => StateHasChanged());
-        });
-
-        hubConnection.On<string, string>("ReceivePrivateMessage", (user, message) =>
-        {
-            var encodedMsg = $"{user}: {message}";
-            privateMessages.Add(encodedMsg);
-
-            InvokeAsync(() => StateHasChanged());
-        });
-
-        hubConnection.On<List<string>>("ReceiveInitializeUserList", ( list) =>
-        {
-            UserList = list ;
-
-            InvokeAsync(() => StateHasChanged());
-        });
-
-
-        await hubConnection.StartAsync();
-        await hubConnection.InvokeAsync("InitializeUserList");
-            
-    }
-    protected override void OnAfterRender(bool firstRender)
-    {
-         elementRef.FocusAsync();
-    }
-  
-   async Task Send() => await hubConnection.SendAsync("SendMessage", selectedUser, messageInput);
-
-   public bool IsConnected => hubConnection.State == HubConnectionState.Connected;
-
-    public void Dispose()
-    {
-       hubConnection.DisposeAsync();
+            _message = $"ERROR: Failed to start chat client: {e.Message}";
+            _isChatting = false;
+        }
     }
 
-    public async ValueTask DisposeAsync()
+    private void BroadcastMessage(string name, string message)
     {
-        await hubConnection.DisposeAsync();
+        bool isMine = name.Equals(_username, StringComparison.OrdinalIgnoreCase);
+
+        _messages.Add(new Message(name, message, isMine));
+
+        // Inform blazor the UI needs updating
+        StateHasChanged();
+    }
+
+    private async Task DisconnectAsync()
+    {
+        if (_isChatting)
+        {
+            await SendAsync($"[Notice] {_username} left chat room.");
+
+            await _hubConnection.StopAsync();
+            await _hubConnection.DisposeAsync();
+
+            _hubConnection = null;
+            _isChatting = false;
+        }
+    }
+
+    private async Task SendAsync(string message)
+    {
+        if (_isChatting && !string.IsNullOrWhiteSpace(message))
+        {
+            await _hubConnection.SendAsync("SendChatMessage", _username, message);
+
+            _newMessage = string.Empty;
+        }
+    }
+
+    private class Message
+    {
+        public Message(string username, string body, bool mine)
+        {
+            Username = username;
+            Body = body;
+            Mine = mine;
+        }
+
+        public string Username { get; set; }
+        public string Body { get; set; }
+        public bool Mine { get; set; }
+
+        public bool IsNotice => Body.StartsWith("[Notice]");
+
+        public string CSS => Mine ? "sent" : "received";
     }
 
 #line default
