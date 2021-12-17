@@ -3,6 +3,7 @@
 @using Syncfusion.Blazor.Buttons
 @inject NavigationManager _navigationManager
 @inherits Syncfusion.Blazor.SfBaseComponent
+@using Entities
 
 <SfButton IconCss="oi oi-plus" IconPosition="IconPosition.Right" @onclick="@(e => AddChat("Adam"))">New Contact</SfButton>
 <SfButton IconCss="oi oi-plus" IconPosition="IconPosition.Right" @onclick="@(e => AddGroupChat("HungryWanderers"))">New Group</SfButton>
