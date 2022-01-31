@@ -30,7 +30,7 @@ namespace DataAccess
             
             services.AddSingleton<IUserValidation, DatabaseLogInValidator>();
             services.AddSingleton<IDataRepo, DatabaseDataHandler>();
-            services.AddSingleton<IUserRepo, DatabaseDataHandler>();
+            services.AddTransient<IUserRepo, DatabaseDataHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

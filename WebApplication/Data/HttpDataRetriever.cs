@@ -519,7 +519,6 @@ namespace WebApplication.Data
             
             string result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
-            Console.WriteLine(result);
             List<Friendship> friendships = JsonSerializer.Deserialize<List<Friendship>>(result, new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase
